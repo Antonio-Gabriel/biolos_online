@@ -31,10 +31,8 @@ class ClientRepository implements IClientRepository
         }
 
         return $this->sql->query(
-            "
-            INSERT INTO cliente (nome, email, contacto)
-            values (:nome, :email, :contacto);
-            ",
+            "INSERT INTO cliente (nome, email, contacto)
+            values (:nome, :email, :contacto);",
             [
                 ":nome" => $client->name,
                 ":email" => $client->email,
@@ -50,6 +48,11 @@ class ClientRepository implements IClientRepository
 
     public function delete(int $client_id)
     {
-        
+        return $this->sql->query(
+            "DELETE FROM cliente WHERE id = :id;",
+            [
+                ":id" => $client_id,
+            ]
+        );
     }
 }

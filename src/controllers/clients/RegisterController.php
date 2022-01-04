@@ -6,6 +6,7 @@ use Vendor\models\Model;
 use Vendor\config\RainTpl;
 use Psr\Http\Message\ResponseInterface;
 use Vendor\usecases\client\CreateClient;
+use Vendor\usecases\client\RemoveClient;
 use Psr\Http\Message\ServerRequestInterface;
 
 class RegisterController extends Model
@@ -16,12 +17,8 @@ class RegisterController extends Model
         $this->setData($_POST);
     }
 
-    public function handle(
-        ServerRequestInterface $req,
-        ResponseInterface $res,
-        $args = []
-    ) {
-
+    public function handle(ServerRequestInterface $req)
+    {
         $status = $req->getQueryParams()["status"] ?? 0;
         $template = new RainTpl();
 
@@ -55,6 +52,20 @@ class RegisterController extends Model
                 header("Location: create-client?status=23000");
                 exit();
             }
+        }
+    }
+
+    public function delete(
+        ServerRequestInterface $req,
+        ResponseInterface $res,
+        $args = []
+    ) {
+        try {
+
+            $remove = new RemoveClient();
+            $remove->execute(intval($args["id"]));
+        } catch (\Exception $th) {
+            //throw $th;
         }
     }
 }

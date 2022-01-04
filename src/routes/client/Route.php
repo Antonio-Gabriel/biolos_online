@@ -20,6 +20,7 @@ $app->post('/auth', [new AuthController, 'auth']);
 
 $app->get('/create-client', [new RegisterController, 'handle']);
 $app->post('/create', [new RegisterController, 'create']);
+$app->get('/client/{id}/delete', [new RegisterController, 'delete']);
 
 // Products
 $app->get('/products', [new ProductsController, 'handle']);
