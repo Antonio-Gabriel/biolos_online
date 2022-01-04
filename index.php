@@ -9,7 +9,9 @@ require_once "src/helpers/Functions.php";
 use Slim\App;
 
 $app = new App([
-    'debug' => true
+    'settings' => [
+        'displayErrorDetails' => true
+    ]
 ]);
 
 // Routes
