@@ -5,16 +5,19 @@ namespace Vendor\validators;
 class Password
 {
 
-    public static function isValid($password): bool | string
+    public static function isValid($password)
     {
 
-        if (strlen($password) < 6) {
+        if (preg_match(
+            "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/ix",
+            $password
+        )) {
 
-            return false;
-            die;
+            return self::encrypt($password);
         }
 
-        return Password::encrypt($password);
+        return false;
+        die;
     }
 
     private static function encrypt($password)
