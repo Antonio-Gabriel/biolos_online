@@ -3,7 +3,7 @@
 namespace Vendor\models;
 
 
-class reaction
+class Reaction
 {
     public int $id;
     public int $reacao;
