@@ -22,7 +22,7 @@ class RainTpl
             "cache_dir" => $this->cache_dir
         ];
 
-        Tpl::configure($config);
+        Tpl::configure($config);        
 
         $this->tpl = new Tpl;
     }
@@ -41,8 +41,15 @@ class RainTpl
     private function getPathLocation($views)
     {
         return [
-            "tpl" => dirname(__DIR__) . DIRECTORY_SEPARATOR . $views,
-            "cache" => dirname(__DIR__) . DIRECTORY_SEPARATOR . $views . "cache/"
+            "tpl" => $_SERVER["DOCUMENT_ROOT"]
+                . DIRECTORY_SEPARATOR . "bioloOnline"
+                . DIRECTORY_SEPARATOR . "src"
+                . DIRECTORY_SEPARATOR . $views,
+
+            "cache" => $_SERVER["DOCUMENT_ROOT"]
+                . DIRECTORY_SEPARATOR . "bioloOnline"
+                . DIRECTORY_SEPARATOR . "src"
+                . DIRECTORY_SEPARATOR . $views . "cache/"
         ];
     }
 }

@@ -1,4 +1,4 @@
-{include="shared/Header/header"}
+<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("shared/Header/header");?>
 <!------------PRODUTOS------------------->
 <section
   id=""
@@ -179,4 +179,4 @@
     </li>
   </ul>
 </nav>
-{include="shared/Footer/footer"}
+<?php require $this->checkTemplate("shared/Footer/footer");?>

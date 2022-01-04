@@ -1,4 +1,4 @@
-{include="../shared/doc/_documentHeadOpen"}
+<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("shared/doc/_documentHeadOpen");?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <a href="home" class="navbar-brand logo">
@@ -49,7 +49,20 @@
                 alt=""
                 style="width: 75px; height: 75px; margin-bottom: 10px"
               />
-              <h4 style="color: #fff">Iniciar sessão</h4>
+              <h4 style="color: #fff">Comprador</h4>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label for="validationCustom02">Nome</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom02"
+                  placeholder="Digite seu nome"
+                  required
+                />
+                <div class="invalid-feedback">Digite seu nome</div>
+              </div>
             </div>
             <div class="form-row">
               <div class="col-md-12 mb-3">
@@ -64,19 +77,6 @@
                 <div class="invalid-feedback">Digite seu email.</div>
               </div>
             </div>
-            <div class="form-row">
-              <div class="col-md-12 mb-3">
-                <label for="validationCustom02">Palavra-passe</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="validationCustom02"
-                  placeholder="Digite sua palavra-passe..."
-                  required
-                />
-                <div class="invalid-feedback">Digite sua palavra-passe.</div>
-              </div>
-            </div>
             <button
               class="btn btn-primary btn-login"
               style="margin-top: 10px"
@@ -87,7 +87,7 @@
 
             <a href="create-account" style="margin-left: 8px">Criar conta</a>
             <br /><br />
-            <a href="login">Entrar como comprador</a>
+            <a href="login-admin">Entrar como vendedor</a>
           </form>
         </div>
       </div>
@@ -124,4 +124,4 @@
   })();
 </script>
 
-{include="../shared/Footer/footer"}
+<?php require $this->checkTemplate("shared/Footer/footer");?>

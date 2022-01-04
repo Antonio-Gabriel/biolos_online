@@ -8,8 +8,8 @@ class HomeController
 {
     public function handle($req, $res, $args = [])
     {
-        $template = new RainTpl();
-
-        return $template->draw("index");
+        $template = new RainTpl();               
+        
+        return $template->draw("index");              
     }
 }

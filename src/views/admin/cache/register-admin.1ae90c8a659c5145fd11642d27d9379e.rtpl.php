@@ -1,4 +1,4 @@
-{include="../shared/doc/_documentHeadOpen"}
+<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("../shared/doc/_documentHeadOpen");?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <a href="home" class="navbar-brand logo">
@@ -183,4 +183,4 @@
   })();
 </script>
 
-{include="../shared/Footer/footer"}
+<?php require $this->checkTemplate("../shared/Footer/footer");?>

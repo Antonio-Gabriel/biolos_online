@@ -1,4 +1,4 @@
-{include="shared/Header/header"}
+<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("shared/Header/header");?>
 
 <div id="carrinho" class="">
   <div class="container">
@@ -71,4 +71,4 @@
     </div>
   </div>
 </div>
-{include="shared/Footer/footer"}
+<?php require $this->checkTemplate("shared/Footer/footer");?>

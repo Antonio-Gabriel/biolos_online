@@ -1,11 +1,20 @@
-<IfModule mod_rewrite.c>
-  	
-  RewriteEngine On
-  RewriteBase /bioloOnline/
+RewriteEngine On
+RewriteBase /bioloOnline/
   
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-s [OR]
+RewriteCond %{REQUEST_FILENAME} !-l [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !.(?:css|js|jpe?g|gif|png)$ [NC]
 
-  RewriteRule ^ index.php [QSA,L]
+RewriteRule ^ index.php [QSA,L]
 
-</IfModule>
+
+
+# RewriteCond %{REQUEST_URI} !^public [OR]
+# RewriteCond %{REQUEST_FILENAME} !-s [OR]
+# RewriteCond %{REQUEST_FILENAME} !-l [OR]
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_URI} !.(?:css|js|jpe?g|gif|png)$ [NC]
+
+# RewriteRule ^.*$ public/index.php [NC,L]
+ 
