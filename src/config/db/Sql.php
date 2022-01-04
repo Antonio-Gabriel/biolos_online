@@ -50,4 +50,9 @@ class Sql
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function __destruct()
+    {
+        $this->conn = null;
+    }
 }

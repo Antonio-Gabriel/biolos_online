@@ -16,7 +16,10 @@ $app->get('/home', [new HomeController, 'handle']);
 
 // Auth and register
 $app->get('/login', [new AuthController, 'handle']);
+$app->post('/auth', [new AuthController, 'auth']);
+
 $app->get('/create-client', [new RegisterController, 'handle']);
+$app->post('/create', [new RegisterController, 'create']);
 
 // Products
 $app->get('/products', [new ProductsController, 'handle']);

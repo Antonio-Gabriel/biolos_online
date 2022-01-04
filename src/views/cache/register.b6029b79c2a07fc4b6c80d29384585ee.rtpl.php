@@ -35,8 +35,13 @@
   <div>
     <div class="container">
       <div class="login">
-        <div class="form" action="" method="post">
-          <form class="needs-validation" novalidate>
+        <div class="form">
+          <form
+            action="create"
+            method="post"
+            class="needs-validation"
+            novalidate
+          >
             <div
               class="form-group"
               style="
@@ -50,14 +55,33 @@
             <h3 style="color: white; margin-bottom: 20px">
               Criar conta cliente
             </h3>
+
+            <?php if( $status_code !== 0 ){ ?>
+
+              <?php if( $status_code === 200 ){ ?>
+
+              <p style="color: green">Cadastrado com sucesso!</p>
+              <?php }elseif( $status_code === 23000 ){ ?>
+
+              <p style="color: red">Usuário já existe!</p>
+              <?php }else{ ?>
+
+              <p style="color: red">Ocorreu um erro, tente novamente!</p>
+              <?php } ?>
+
+            <?php } ?>
+
+
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="validationCustom01">Nome</label>
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
                   id="validationCustom01"
                   placeholder="Digite seu nome"
+                  maxlength="80"
                   required
                 />
                 <div class="invalid-feedback">Digite um nome válido</div>
@@ -68,6 +92,7 @@
                 <label for="validationCustom02">Contacto</label>
                 <input
                   type="text"
+                  name="contact"
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Ex: (+244) 935 160 487"
@@ -84,6 +109,7 @@
                 <label for="validationCustom02">Email</label>
                 <input
                   type="text"
+                  name="email"
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Digite seu email.."

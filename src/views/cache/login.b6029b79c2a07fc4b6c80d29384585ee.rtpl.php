@@ -33,8 +33,8 @@
   <div>
     <div class="container">
       <div class="login">
-        <div class="form" action="" method="post">
-          <form class="needs-validation" novalidate>
+        <div class="form">
+          <form action="auth" method="post" class="needs-validation" novalidate>
             <div
               class="form-group"
               style="
@@ -56,6 +56,7 @@
                 <label for="validationCustom02">Nome</label>
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Digite seu nome"
@@ -69,6 +70,7 @@
                 <label for="validationCustom02">Email</label>
                 <input
                   type="text"
+                  name="password"
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Digite seu email.."
