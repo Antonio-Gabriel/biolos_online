@@ -27,7 +27,7 @@ class ClientRepository implements IClientRepository
             !Phone::isValid(strval($client->contact))
             || !Email::isValid($client->email)
         ) {
-            throw new \Exception("Email ou senha incorreto!", 400);
+            throw new \Exception("Email ou telefone incorreto!", 400);
         }
 
         return $this->sql->query(
@@ -50,5 +50,6 @@ class ClientRepository implements IClientRepository
 
     public function delete(int $client_id)
     {
+        
     }
 }

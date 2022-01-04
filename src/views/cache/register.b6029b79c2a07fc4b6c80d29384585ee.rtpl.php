@@ -58,15 +58,22 @@
 
             <?php if( $status_code !== 0 ){ ?>
 
+
               <?php if( $status_code === 200 ){ ?>
 
+            
               <p style="color: green">Cadastrado com sucesso!</p>
+            
               <?php }elseif( $status_code === 23000 ){ ?>
 
+            
               <p style="color: red">Usuário já existe!</p>
+            
               <?php }else{ ?>
 
+            
               <p style="color: red">Ocorreu um erro, tente novamente!</p>
+            
               <?php } ?>
 
             <?php } ?>

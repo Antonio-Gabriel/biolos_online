@@ -4,11 +4,9 @@ namespace Vendor\controllers\clients;
 
 use Vendor\models\Model;
 use Vendor\config\RainTpl;
-use Vendor\usecases\CreateClient;
 use Psr\Http\Message\ResponseInterface;
+use Vendor\usecases\client\CreateClient;
 use Psr\Http\Message\ServerRequestInterface;
-
-use function PHPSTORM_META\type;
 
 class RegisterController extends Model
 {
@@ -32,12 +30,8 @@ class RegisterController extends Model
         ]);
     }
 
-    public function create(
-        ServerRequestInterface $req,
-        ResponseInterface $res,
-        $args = []
-    ) {
-
+    public function create()
+    {
         try {
 
             $create = new CreateClient();

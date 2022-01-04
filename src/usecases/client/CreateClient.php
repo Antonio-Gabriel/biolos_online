@@ -1,6 +1,6 @@
 <?php
 
-namespace Vendor\usecases;
+namespace Vendor\usecases\client;
 
 use Vendor\models\Client;
 use Vendor\repositories\ClientRepository;
