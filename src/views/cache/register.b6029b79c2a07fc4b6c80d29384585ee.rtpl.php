@@ -47,44 +47,50 @@
               "
             ></div>
 
-            <h3 style="color: white; margin-bottom: 20px;">Criar conta cliente</h3>
+            <h3 style="color: white; margin-bottom: 20px">
+              Criar conta cliente
+            </h3>
             <div class="form-row">
               <div class="col-md-12 mb-3">
-                <label for="validationCustom02">Nome</label>
+                <label for="validationCustom01">Nome</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  placeholder="Digite seu nome"
+                  required
+                />
+                <div class="invalid-feedback">Digite um nome válido</div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-12 mb-3">
+                <label for="validationCustom02">Contacto</label>
                 <input
                   type="text"
                   class="form-control"
                   id="validationCustom02"
-                  placeholder="Digite seu nome"
+                  placeholder="Ex: (+244) 935 160 487"
+                  pattern="^(?:(\+244|00244))?(9)(1|2|3|4|9)([\d]{7,7})$"
                   required
                 />
-                <div class="invalid-feedback">Digite seu nome</div>
+                <div class="invalid-feedback">
+                  Digite um número de Angola válido
+                </div>
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12 mb-3">
-                <label for="validationCustom01">Email</label>
+                <label for="validationCustom02">Email</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="validationCustom01"
+                  id="validationCustom02"
                   placeholder="Digite seu email.."
+                  pattern="^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$"
                   required
                 />
-                <div class="invalid-feedback">Digite seu email.</div>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-12 mb-3">
-                <label for="validationCustom01">Contacto</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="validationCustom01"
-                  placeholder="Digite seu número.."
-                  required
-                />
-                <div class="invalid-feedback">Digite seu número.</div>
+                <div class="invalid-feedback">Digite um email válido.</div>
               </div>
             </div>
             <button
@@ -98,6 +104,9 @@
             <a href="create-account" style="margin-left: 8px"
               >Criar conta fornecedor</a
             >
+
+            <br /><br />
+            <a href="login-admin" style="margin-left: 8px">Login</a>
           </form>
         </div>
       </div>
@@ -105,7 +114,7 @@
   </div>
 </section>
 
-<script>
+<!-- <script>
   // Example starter JavaScript for disabling form submissions if there are invalid fields
   (function () {
     "use strict";
@@ -132,7 +141,7 @@
       false
     );
   })();
-</script>
+</script> -->
 
 <?php require $this->checkTemplate("shared/Footer/footer");?>
 

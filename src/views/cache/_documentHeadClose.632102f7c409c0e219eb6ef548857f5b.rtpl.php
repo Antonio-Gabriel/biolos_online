@@ -37,6 +37,7 @@
     
     
     <script src="/bioloOnline/src/assets/js/cart.js"></script>
+    <script src="/bioloOnline/src/assets/js/validate.js"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="/bioloOnline/src/assets/lib/bootstrap-4.3.1-dist/js/jquery.min.js" ></script>

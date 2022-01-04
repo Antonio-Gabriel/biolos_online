@@ -56,6 +56,7 @@
                   class="form-control"
                   id="validationCustom01"
                   placeholder="Digite seu nome de vendedor..."
+                  maxlength="80"
                   required
                 />
                 <div class="invalid-feedback">Digite seu nome.</div>
@@ -67,24 +68,30 @@
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Ex: (+244) 935 160 487"
+                  pattern="^(?:(\+244|00244))?(9)(1|2|3|4|9)([\d]{7,7})$"
                   required
                 />
                 <div class="invalid-feedback">
-                  Digite seu número de telemovel.
+                  Digite um número de Angola válido
                 </div>
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-5 mb-3">
-                <label for="validationCustom01">Palavra-passe</label>
+                <label for="validationCustom02">Palavra-passe</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="validationCustom01"
+                  id="validationCustom02"
                   placeholder="Digite sua palavra-passe..."
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                   required
                 />
-                <div class="invalid-feedback">Digite sua palavra-passe.</div>
+                <div class="invalid-feedback">
+                  No mínimo oito caracteres, pelo menos uma letra maiúscula, uma
+                  letra minúscula, um número e um caractere especial ex:
+                  @$!%*?&.
+                </div>
               </div>
               <div class="col-md-7 mb-3">
                 <label for="validationCustomUsername">Email</label>
@@ -97,12 +104,12 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="validationCustomUsername"
-                    placeholder="Digite seu email..."
-                    aria-describedby="inputGroupPrepend"
+                    id="validationCustom02"
+                    placeholder="Digite seu email.."
+                    pattern="^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$"
                     required
                   />
-                  <div class="invalid-feedback">Digite seu email.</div>
+                  <div class="invalid-feedback">Digite um email válido.</div>
                 </div>
               </div>
             </div>
@@ -114,9 +121,12 @@
                   class="form-control"
                   id="validationCustom03"
                   placeholder="City"
+                  maxlength="45"
                   required
                 />
-                <div class="invalid-feedback">Please provide a valid city.</div>
+                <div class="invalid-feedback">
+                  Preencha devidamente o campo.
+                </div>
               </div>
               <div class="col-md-4 mb-3">
                 <label for="validationCustom04">Estado</label>
@@ -125,10 +135,11 @@
                   class="form-control"
                   id="validationCustom04"
                   placeholder="State"
+                  maxlength="45"
                   required
                 />
                 <div class="invalid-feedback">
-                  Please provide a valid state.
+                  Preencha devidamente o campo.
                 </div>
               </div>
               <div class="col-md-4 mb-3">
@@ -138,9 +149,12 @@
                   class="form-control"
                   id="validationCustom05"
                   placeholder="Digite seu bairro.."
+                  maxlength="45"
                   required
                 />
-                <div class="invalid-feedback">Digite o nome do seu bairro.</div>
+                <div class="invalid-feedback">
+                  Preencha devidamente o campo.
+                </div>
               </div>
             </div>
 
@@ -148,7 +162,11 @@
               Cadastrar
             </button>
 
-            <a href="create-client" style="margin-left: 8px;">Criar conta cliente</a>
+            <a href="create-client" style="margin-left: 8px"
+              >Criar conta cliente</a
+            >
+
+            <a href="login-admin" style="margin-left: 8px">Login</a>
           </form>
         </div>
       </div>

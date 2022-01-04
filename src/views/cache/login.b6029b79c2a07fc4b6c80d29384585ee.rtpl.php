@@ -61,20 +61,21 @@
                   placeholder="Digite seu nome"
                   required
                 />
-                <div class="invalid-feedback">Digite seu nome</div>
+                <div class="invalid-feedback">Digite um nome válido.</div>
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12 mb-3">
-                <label for="validationCustom01">Email</label>
+                <label for="validationCustom02">Email</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="validationCustom01"
+                  id="validationCustom02"
                   placeholder="Digite seu email.."
+                  pattern="^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$"
                   required
                 />
-                <div class="invalid-feedback">Digite seu email.</div>
+                <div class="invalid-feedback">Digite um email válido.</div>
               </div>
             </div>
             <button

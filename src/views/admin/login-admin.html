@@ -53,15 +53,16 @@
             </div>
             <div class="form-row">
               <div class="col-md-12 mb-3">
-                <label for="validationCustom01">Email</label>
+                <label for="validationCustom02">Email</label>
                 <input
                   type="text"
                   class="form-control"
-                  id="validationCustom01"
+                  id="validationCustom02"
                   placeholder="Digite seu email.."
+                  pattern="^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$"
                   required
                 />
-                <div class="invalid-feedback">Digite seu email.</div>
+                <div class="invalid-feedback">Digite um email válido.</div>
               </div>
             </div>
             <div class="form-row">
@@ -72,9 +73,14 @@
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Digite sua palavra-passe..."
+                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                   required
                 />
-                <div class="invalid-feedback">Digite sua palavra-passe.</div>
+                <div class="invalid-feedback">
+                  No mínimo oito caracteres, pelo menos uma letra maiúscula, uma
+                  letra minúscula, um número e um caractere especial ex:
+                  @$!%*?&.
+                </div>
               </div>
             </div>
             <button
