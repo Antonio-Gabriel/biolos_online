@@ -1,0 +1,43 @@
+
+.container-body{
+    max-width: 1100px !important;
+    margin: 0px auto !important;
+  
+}
+
+input, textarea{
+    background: #2a2d3a !important;
+    border: none !;
+}
+.input-pesquisa{
+    border: none !important;
+    padding-right: 100px !important;
+}
+
+#add-produtos{
+    margin-top: 70px;
+    color: #fff;
+}
+#add-produtos .container{
+    padding: 10px 100px !important;
+}
+#add-produtos form{
+    background: #24252d;
+
+}
+
+#add-produtos form input.file{
+    border-radius: 10px;
+    border: 5px dashed #fff;
+    background: #2a2d3a;
+    color: transparent;
+    height: 400px;
+}
+
+form .form-group{
+    margin-bottom: 40px;
+}
+
+textarea{
+    height: 300px;
+}

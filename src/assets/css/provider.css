@@ -1,0 +1,49 @@
+
+#vendedor .row{
+    flex-wrap: nowrap;
+}
+#vendedor .col-md-3 {
+    background: #2a2d3a;
+   
+    height: 250px;
+    padding: 0px 10px;
+    margin: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px !important;
+  }
+#vendedor .activo {
+    background: #eb1484;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: -20px;
+    right: 100px;
+  
+  }
+
+  #vendedor .online {
+    position: relative;
+    top: -10px;
+    left: 20px;
+    z-index: 1;
+    background: #05ca05;
+    width: 10px;
+    height: 10px;
+    display: block;
+    border-radius: 50%;
+  }
+  #vendedor img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    /*transform: rotateZ(-45deg);*/
+  }

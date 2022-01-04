@@ -1,0 +1,97 @@
+
+input{
+    background-color: #24252d;
+}
+#banner-vendedor{
+    margin-top: 0px;
+    background:url('../images/img-scroll/banner3.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 300px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#banner-vendedor .img-vendedor{
+    position: relative;
+    bottom: -150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#banner-vendedor img{
+    border-radius: 50%;
+    border: 4px solid #24252d;
+    width: 200px;
+    height: 200px;
+    
+    
+}
+
+.cc{
+    display: flex;
+}
+
+
+
+.paginacao{
+    background-color: #24252d;
+}
+.paginacao ul .page-item{
+    background-color: #24252d !important;
+    padding: 0px !important;
+    margin: 0px 10px;
+    
+}
+.paginacao ul .page-item .page-link{
+    color: #eb1484 !important;
+    background-color: #24252d !important;
+    border-radius: 10px;
+    border: 1px solid #eb1484 !important;
+}
+.paginacao ul .page-item .page-link:hover{
+    background: linear-gradient(50deg, #eb1484, #d01bb6) !important;
+    color: #fff !important;
+    transition: all .5s linear !important;
+}
+
+
+.form-produtos{
+    background-color: #2a2d3a;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    margin-right: 170px;
+    margin-left: 20px;
+}
+.btn2{
+    text-align: center;
+    padding: 10px 10px;
+    float: left;
+    width: 10%;
+    height: 100%;
+    border: none;
+    background-color: #2a2d3a;
+    color: #fff;
+    font-size: 18px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.input2{
+    float: left;
+    width: 90%;
+    
+    padding: 10px 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.select-produtos{
+    border:none;
+    padding:5px 10px;
+    border-radius:10px;
+    background:#2a2d3a;
+    margin-left: 40px;
+}

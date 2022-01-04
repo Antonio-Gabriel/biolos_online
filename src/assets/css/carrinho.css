@@ -1,0 +1,139 @@
+
+
+
+
+
+.modal, .modal-dialog, .modal-content, .modal-header{
+    background-color: #24252d !important;
+    
+}
+
+.modal-header{
+    border-bottom: 1px solid #474747;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    text-align: center;
+}
+.modal-title {
+    color: #fff;
+    margin-left: 190px;
+
+}
+.menu-carrinho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.produto-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+}
+.produto-txt p{
+    color: #fff;
+    margin-left:10px;
+    margin-bottom: -4px;
+    
+}
+.produto-img{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.produto-img div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.produto-img img{
+    width: 150px;
+    height: 160px;
+    border-radius: 10px;
+}
+.menu-carrinho p{
+    color: #fff;
+}
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #24252d !important;
+
+}
+
+.total-carrinho{
+    margin-top: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.modal-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #24252d !important;
+    color: #fff;
+    border-top: 1px solid #474747;
+
+
+}
+
+.btn-carrinho{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+.btn-carrinho button{
+
+    color: #fff;
+}
+
+
+/*--------Botões do menu---------------*/
+
+.btn{
+    margin: 0px 5px;
+}
+.btn-compra{
+    background: linear-gradient(50deg, #eb1484, #d01bb6);
+    -webkit-background: linear-gradient(50deg, #eb1484, #d01bb6);
+    -moz-background: linear-gradient(50deg, #eb1484, #d01bb6);
+    color: var(--branco) ;
+    color: #fff !important;
+    padding: 10px 10px !important;
+    border: none;
+    transition: background .2s;
+}
+.btn-compra:hover{
+    background: linear-gradient(50deg, #d01bb6, #eb1484);
+    -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
+    -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
+}
+
+.btn-cancelar{
+    padding: 10px 40px !important;
+    color: #eb1484 !important;
+    background: none !important;
+    border: 1px solid #eb1484;
+    transition: all .2s linear;
+}
+
+.btn-cancelar:hover{
+    background: linear-gradient(50deg, #d01bb6, #eb1484) !important;
+    -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
+    -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
+    transition: all .2s linear;
+    color: #fff !important;
+}

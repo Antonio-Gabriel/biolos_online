@@ -1,0 +1,13 @@
+{
+  "name": "vendor/vendor",
+  "description": "biolos online plataforma",
+  "autoload": {
+    "psr-4": {
+      "Vendor\\": "src/"
+    }
+  },
+  "require": {
+    "slim/slim": "3.*",
+    "rain/raintpl": "^3.1"
+  }
+}

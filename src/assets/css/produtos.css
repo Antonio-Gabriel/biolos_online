@@ -1,0 +1,406 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+img{
+    max-width: 100%;
+}
+
+.input-pesquisa{
+    border: none !important;
+    padding-right: 100px !important;
+}
+
+
+#produtos > .container .img-produto{
+    border-right: 1px solid #474747;
+   
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#produtos > .container .img-produto img{
+    max-width: 400px;
+    max-height: 460px;
+    border-radius: 10px;
+}
+#produtos > .container .info-produto .nome-produto{
+    display: flex;
+    align-items: center;
+}
+#produtos > .container .info-produto .nome-produto a{
+    border: #474747 1px solid !important;
+    color: #fff;
+    padding: 2px 10px !important;
+    margin: 0px 10px;
+}
+#produtos > .container .info-produto .foto-vendedor{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#produtos > .container .info-produto .foto-vendedor img{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+#produtos > .container .info-produto .descricao{
+    display: flex;
+    align-items: center;
+}
+#produtos > .container .info-produto .descricao p{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+#produtos > .container .info-produto .btn-produto{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3px;
+}
+#produtos > .container .info-produto .btn-produto button{
+    text-align: center;
+    margin: 10px;
+}
+
+/*=========MODAL==========*/
+
+
+.modal-dialog, .modal-content, .modal-header{
+    background-color: #24252d !important;
+    
+}
+
+.modal-header{
+    border-bottom: 1px solid #474747;
+    display: flex;
+    align-items: center;
+   
+    text-align: center;
+}
+.modal-title {
+    color: #fff;
+    margin-left: 90px;
+
+}
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #24252d !important;
+
+}
+.modal-body p{
+    max-width: 300px;
+    text-align: center;
+}
+.img-modal{
+    width: 250px;
+    height: 290px;
+    border-radius: 10px;
+}
+
+.modal-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #24252d !important;
+    color: #fff;
+    border-top: 1px solid #474747;
+
+
+}
+.modal-footer .modal-redes{
+    color: #fff;
+}
+
+.modal-footer .modal-redes a{
+    color: #fff;
+    font-size: 18px;
+    margin: 0px 10px;
+}
+
+
+/*--------------MODAL CARRINHO---------------------*/
+
+
+.modal-dialog, .modal-content, .modal-header{
+    background-color: #24252d !important;
+    
+}
+
+.modal-header{
+    border-bottom: 1px solid #474747;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    text-align: center;
+}
+.modal-title {
+    color: #fff;
+    margin-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.menu-carrinho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.produto-txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+}
+.produto-txt p{
+    color: #fff;
+    margin-left:10px;
+    margin-bottom: -4px;
+    
+}
+.produto-img{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.produto-img div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.produto-img img{
+    width: 150px;
+    height: 160px;
+    border-radius: 10px;
+}
+.menu-carrinho p{
+    color: #fff;
+}
+.modal-body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #24252d !important;
+
+}
+
+.total-carrinho{
+    margin-top: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.modal-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #24252d !important;
+    color: #fff;
+    border-top: 1px solid #474747;
+
+
+}
+
+.btn-carrinho{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+.btn-carrinho button{
+
+    color: #fff;
+}
+
+
+/*--------Botões do menu---------------*/
+
+.btn{
+    margin: 0px 5px;
+}
+.btn-compra{
+    background: linear-gradient(50deg, #eb1484, #d01bb6);
+    -webkit-background: linear-gradient(50deg, #eb1484, #d01bb6);
+    -moz-background: linear-gradient(50deg, #eb1484, #d01bb6);
+    color: var(--branco) ;
+    color: #fff !important;
+    padding: 10px 10px !important;
+    border: none;
+    transition: background .2s;
+}
+.btn-compra:hover{
+    background: linear-gradient(50deg, #d01bb6, #eb1484);
+    -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
+    -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
+}
+
+.btn-cancelar{
+    padding: 10px 40px !important;
+    color: #eb1484 !important;
+    background: none !important;
+    border: 1px solid #eb1484;
+    transition: all .2s linear;
+}
+
+.btn-cancelar:hover{
+    background: linear-gradient(50deg, #d01bb6, #eb1484) !important;
+    -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
+    -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
+    transition: all .2s linear;
+    color: #fff !important;
+}
+
+
+/*--------Botões do menu---------------*/
+
+.btn{
+    margin: 0px 5px;
+}
+.btn-comprar{
+    background: linear-gradient(50deg, #eb1484, #d01bb6);
+    -webkit-background: linear-gradient(50deg, #eb1484, #d01bb6);
+    -moz-background: linear-gradient(50deg, #eb1484, #d01bb6);
+    color: var(--branco) ;
+    color: #fff !important;
+    padding: 10px 30px !important;
+    border: none;
+    transition: background .2s;
+}
+.btn-comprar:hover{
+    background: linear-gradient(50deg, #d01bb6, #eb1484);
+    -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
+    -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
+}
+
+.btn-adicionar{
+    padding: 10px 0px !important;
+    color: #eb1484 !important;
+    background: none !important;
+    border: 1px solid #eb1484;
+    transition: all .2s linear;
+}
+
+.btn-adicionar:hover{
+    background: linear-gradient(50deg, #d01bb6, #eb1484) !important;
+    -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
+    -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
+    transition: all .2s linear;
+    color: #fff !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    margin-top: 50px !important;
+}
+footer ul{
+    list-style: none !important;
+   margin-left: 0px !important;
+
+}
+@media(max-width: 992px){
+    #produtos{
+        margin-top: 70px;
+        margin-bottom: 180px;
+        color: #fff;
+        
+        
+      
+    }
+    #produtos > .container .img-produto{
+        border-right: none;
+       
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #produtos > .container .info-produto{
+    
+        margin: 0px auto;
+    
+        height: 70vh;
+    }
+    #produtos > .container .info-produto .nome-produto{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #produtos > .container .info-produto .txt-produto{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #produtos > .container .info-produto .foto-vendedor{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    #produtos > .container .info-produto .descricao{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #produtos > .container .info-produto .descricao-produto{
+        max-width: 500px;
+        margin: 10px auto;
+    }
+    #produtos > .container .info-produto .btn-produto{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0px auto;
+    }
+    #produtos > .container .info-produto .btn-produto{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      
+    }
+    .btn-login{
+        margin: 10px 0px;
+    }
+    
+}

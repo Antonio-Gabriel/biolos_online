@@ -1,0 +1,45 @@
+#carrinho .container {
+  margin-top: 50px !important;
+}
+
+/* #carrinho .col-md-8{
+   
+} */
+
+#carrinho hr {
+  background-color: #757474;
+}
+table {
+  color: #fff !important;
+}
+table,
+thead,
+tr,
+th,
+td {
+  border: none !important;
+}
+#carrinho table input {
+  background: #fff !important;
+  width: 30px;
+  height: 30px;
+  margin: 0px 10px;
+
+  text-align: center;
+  border-radius: 20%;
+}
+
+#carrinho table span.ren,
+#carrinho table span.add {
+  cursor: pointer;
+  padding: 0 4px;
+  font-size: 1.5rem;
+
+  border-radius: 20%;
+  background: #2a2d3a;
+}
+
+#carrinho .b {
+  background-color: #2a2d3a !important;
+  padding: 10px 0px;
+}

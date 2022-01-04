@@ -1,0 +1,39 @@
+#fornecedor{
+    margin-top: 0px;
+    background:url('../images/img-scroll/banner3.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#fornecedor .container{
+    color: #fff;
+    margin-top: 40px !important;
+}
+#forenecedor .img-fluid{
+    border-radius: 10px !important;
+}
+#fornecedor .info>div {
+    background-color: #ccc;
+    border-radius: 10px;
+    margin-left: 40px;
+    
+}
+.btn-add{
+    background: linear-gradient(
+50deg, #eb1484, #d01bb6);
+    -webkit-background: linear-gradient(50deg, #eb1484, #d01bb6);
+    -moz-background: linear-gradient(50deg, #eb1484, #d01bb6);
+    color: var(--branco);
+    color: #fff !important;
+    border: none !important;
+    margin: 0px 10px;
+    transition: background 0.2s;
+}
+#fornecedor .info>div>div{
+    margin: 0px 10px !important;
+    padding: 5px 10px;
+}
