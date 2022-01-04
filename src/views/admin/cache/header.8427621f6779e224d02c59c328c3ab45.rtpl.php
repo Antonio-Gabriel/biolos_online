@@ -1,4 +1,4 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("shared/Header/../doc/_documentHeadOpen");?>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("../shared/Header/../doc/_documentHeadOpen");?>
 
 <!--Barra de navegação-->
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -58,7 +58,7 @@
       <li class="nav-item">
         <a
           class="nav-link btn btn-warning btn-conta"
-          href="create-account"
+          href="#"
           style="padding: 10px 30px"
           >Criar conta</a
         >

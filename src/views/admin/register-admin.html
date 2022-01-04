@@ -147,6 +147,8 @@
             <button class="btn btn-primary btn-login" type="submit">
               Cadastrar
             </button>
+
+            <a href="create-client" style="margin-left: 8px;">Criar conta cliente</a>
           </form>
         </div>
       </div>
