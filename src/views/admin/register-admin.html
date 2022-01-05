@@ -45,7 +45,8 @@
                 align-items: center;
               "
             >
-              <input type="file" name="" id="foto" />
+              <img src="" id="image" />
+              <input type="file" name="photo" id="foto" />
               <label class="file" for="foto">Adicione uma foto de perfil</label>
             </div>
             <div class="form-row">
