@@ -33,8 +33,13 @@
   <div>
     <div class="container">
       <div class="login">
-        <div class="form" action="" method="post">
-          <form class="needs-validation" novalidate>
+        <div class="form">
+          <form
+            action="login-admin"
+            method="post"
+            class="needs-validation"
+            novalidate
+          >
             <div
               class="form-group"
               style="
@@ -51,11 +56,19 @@
               />
               <h4 style="color: #fff">Iniciar sessão</h4>
             </div>
+
+            <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 401 ){ ?>
+
+            <p style="color: red">Acesso negado!</p>
+
+            <?php } ?> <?php } ?>
+
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="validationCustom02">Email</label>
                 <input
                   type="text"
+                  name="email"
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Digite seu email.."
@@ -69,13 +82,20 @@
               <div class="col-md-12 mb-3">
                 <label for="validationCustom02">Palavra-passe</label>
                 <input
-                  type="text"
+                  type="password"
+                  name="password"
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Digite sua palavra-passe..."
                   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                   required
                 />
+
+                <label for="visibility" class="visibility">
+                  <input type="checkbox" id="visibility" />
+                  <span>Mostrar password</span>
+                </label>
+
                 <div class="invalid-feedback">
                   No mínimo oito caracteres, pelo menos uma letra maiúscula, uma
                   letra minúscula, um número e um caractere especial ex:

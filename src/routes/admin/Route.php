@@ -6,6 +6,8 @@ use Vendor\controllers\admin\ProviderAdminController;
 
 // Auth and register
 $app->get('/login-admin', [new AuthController, 'handle']);
+$app->post('/login-admin', [new AuthController, 'auth']);
+
 $app->get('/create-account', [new RegisterController, 'handle']);
 $app->post('/admin-create', [new RegisterController, 'create']);
 

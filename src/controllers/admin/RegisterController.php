@@ -2,9 +2,6 @@
 
 namespace Vendor\controllers\admin;
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 use Vendor\config\RainTpl;
 use Vendor\models\Provider;
 use Vendor\config\Upload;
