@@ -1,44 +1,50 @@
-{include="shared/Header/header"}
-<!------------PRODUTOS------------------->
-<section
-  id=""
-  class=""
-  style="margin-top: 20px !important; margin-bottom: 0px"
->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!--banner-->
+<section id="banner">
   <div class="container">
-    <div class="lista-produtos">
-      <div class="row">
-        <input
-          class="form-control col-sm-12 col-md-8 my-1 mx-3 ml-3"
-          style="
-            
-            padding: 5px 10px;
-            border-radius: 10px;
-          "
-          type="text"
-          name=""
-          id=""
-          placeholder="Pesquisar por produtos"
-        />
-        <select
-          class="form-control col-sm-12 col-md-3 my-1 mr-2 ml-3"
-          name=""
-          id=""
-          style="
-            
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 10px;
-            background: #2a2d3a;
-          "
-        >
-          <option value="">Minhas Categorias</option>
-          <option value="1">Roupas</option>
-          <option value="2">Calsados</option>
-        </select>
+    <div class="img-banner col-md-12">
+      <h1>
+        Encontre as melhores marcas <br />
+        que gostarias de vestir!...
+      </h1>
+    </div>
+  </div>
+</section>
+<!--banner-->
+
+<!--vendedores-->
+<section id="vendedores" class="">
+  <div class="container">
+    <h3>Top dos vendedores</h3>
+    <div class="lista-vendedogres">
+      <div class="horizontal-scroll">
+        <button id="btn-scroll-left" class="btn-scroll">
+          <i class="fas fa-chevron-left" onclick="scrollHorizontally(1)"></i>
+        </button>
+        <button id="btn-scroll-right" class="btn-scroll">
+          <i class="fas fa-chevron-right" onclick="scrollHorizontally(-1)"></i>
+        </button>
+        <div class="storys-container">
+          <div class="storys-circle">
+            <span class="activo">1</span>
+            <img src="src/assets/images/img-scroll/1.jpg" />
+            <div class="online"></div>
+            <a class="nome-vendedor" href="profile-provider">Osvaldo Cariege</a>
+            <span>2.99</span> 
+          </div>
+          <div class="storys-circle">
+            <span class="activo">2</span>
+            <img src="src/assets/images/img-scroll/2.jpg" />
+            <div class="online"></div>
+            <a class="nome-vendedor" href="profile-provider">Osvaldo Cariege</a>
+            <span>2.99</span>
+          </div>
+        </div>
       </div>
-     <!------------PRODUTOS------------------->
+    </div>
+  </div>
+</section>
+<!--vendedores-->
+
 <!------------PRODUTOS------------------->
 <div class="container">
   <div class="row ">
@@ -150,30 +156,3 @@
 </div>
 
 
-
-    </div>
-  </div>
-</section>
-<!------------PRODUTOS------------------->
-
-<!--==============PAGINAÇÃO==============-->
-<nav class="paginacao" aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-{include="shared/Footer/footer"}

@@ -27,6 +27,59 @@ textarea {
   border: none !important;
 }
 
+/*=============BOTÕES=================*/
+
+/*--------Botões do menu---------------*/
+
+.btn-login {
+  background: linear-gradient(50deg, #eb1484, #d01bb6);
+  -webkit-background: linear-gradient(50deg, #eb1484, #d01bb6);
+  -moz-background: linear-gradient(50deg, #eb1484, #d01bb6);
+  color: var(--branco);
+  color: #fff !important;
+  border: none !important;
+  transition: background 0.2s;
+}
+.btn-login:hover {
+  background: linear-gradient(50deg, #d01bb6, #eb1484);
+  -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
+  -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
+}
+
+.btn-conta {
+  color: #eb1484 !important;
+  background: none !important;
+  border: 1px solid #eb1484;
+  transition: all 0.2s linear;
+}
+
+.btn-conta:hover {
+  background: linear-gradient(50deg, #d01bb6, #eb1484) !important;
+  -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
+  -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
+  transition: all 0.2s linear;
+  color: #fff !important;
+}
+/*--------Botões do comprar produtos---------------*/
+
+.btnComprar{
+  background: linear-gradient(50deg, #eb1484, #d01bb6);
+  -webkit-background: linear-gradient(50deg, #eb1484, #d01bb6);
+  -moz-background: linear-gradient(50deg, #eb1484, #d01bb6);
+  color: var(--branco);
+  color: #fff !important;
+  border: none !important;
+}
+.btnComprar:hover{
+  background: linear-gradient(50deg, #d01bb6, #eb1484);
+  -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
+  -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
+}
+
+
+
+/*=============BOTÕES=================*/
+
 /*--------------Barra de navegação-------------------*/
 
 nav a {
@@ -74,44 +127,10 @@ nav a:hover {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+/*--------------Barra de navegação-------------------*/
 
-/*--------Botões do menu---------------*/
 
-.btn-login {
-  background: linear-gradient(50deg, #eb1484, #d01bb6);
-  -webkit-background: linear-gradient(50deg, #eb1484, #d01bb6);
-  -moz-background: linear-gradient(50deg, #eb1484, #d01bb6);
-  color: var(--branco);
-  color: #fff !important;
-  border: none !important;
-  margin: 0px 10px;
 
-  transition: background 0.2s;
-}
-.btn-login:hover {
-  background: linear-gradient(50deg, #d01bb6, #eb1484);
-  -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
-  -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
-}
-
-.btn-conta {
-  color: #eb1484 !important;
-  background: none !important;
-  border: 1px solid #eb1484;
-  transition: all 0.2s linear;
-  margin: 0px 10px;
-}
-
-.btn-conta:hover {
-  background: linear-gradient(50deg, #d01bb6, #eb1484) !important;
-  -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
-  -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
-  transition: all 0.2s linear;
-  color: #fff !important;
-}
-
-@media (min-width: 1150px) {
-}
 @media (max-width: 1150px) {
   .logo {
     margin-left: 0px;
@@ -176,6 +195,9 @@ nav a:hover {
 #banner .img-banner h1 {
   color: #fff;
 }
+/*--------------banner-------------------*/
+
+
 
 /*----------Vendedores------------*/
 
@@ -278,6 +300,39 @@ a {
 
 /*------------PRODUTOS----------------*/
 
+
+.pro img{
+  max-width: 100%;
+  width: 350px;
+  border-radius: 10px;
+}
+.card-container{
+  
+  padding: 10px;
+  color: #fff;
+  
+  
+}
+.card-container > .pro{
+  margin: 0px;
+  background-color: #2a2d3a !important;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+.info-produto{
+  display: flex;
+  justify-content: space-between !important;
+  align-items: center !important;
+}
+
+
+
+
+
+
+
+
 #produtos {
   background: #24252d;
   color: #fff;
@@ -286,8 +341,7 @@ a {
   background-color: var(--body);
 }
 
-#produtos .card-container {
-}
+
 #produtos .row {
   flex-wrap: nowrap;
 }
@@ -311,8 +365,7 @@ a {
   border-radius: 10px;
   margin: 10px auto;
 }
-#produtos .price {
-}
+
 #produtos .lista-produtos {
   background: #24252d;
   width: 100%;

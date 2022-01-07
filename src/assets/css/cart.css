@@ -19,6 +19,9 @@ th,
 td {
   border: none !important;
 }
+#carrinho .row{
+  flex-wrap: wrap;
+}
 #carrinho table input {
   background: #fff !important;
   width: 30px;
@@ -41,5 +44,5 @@ td {
 
 #carrinho .b {
   background-color: #2a2d3a !important;
-  padding: 10px 0px;
+  padding: 0px 0px;
 }

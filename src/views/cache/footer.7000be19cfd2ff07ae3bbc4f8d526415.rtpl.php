@@ -43,10 +43,10 @@
           <p style="color: #fff;">Biolos Online App. All Rights Reserved</p>
           <div class="redes-sociais">
            
-            <a href="#">aa</a>
-            <a href="#">aa</a>
-            <a href="#">aa</a>
-            <a href="#">aa</a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
            
           </div>
       </div>
@@ -54,4 +54,4 @@
   </footer>
   <!------------RODAPE------------------->
 
-<?php require $this->checkTemplate("../shared/footer/../doc/_documentHeadClose");?>
+<?php require $this->checkTemplate("shared/Footer/../doc/_documentHeadClose");?>

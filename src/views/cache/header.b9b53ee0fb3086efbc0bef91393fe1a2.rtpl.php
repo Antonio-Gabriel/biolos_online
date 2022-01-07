@@ -1,8 +1,8 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("../shared/header/../doc/_documentHeadOpen");?>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("shared/Header/../doc/_documentHeadOpen");?>
 
 <!--Barra de navegação-->
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a href="../../" class="navbar-brand logo">
+  <a href="home" class="navbar-brand logo">
     <img
       src="/bioloOnline/src/assets/images/logo-44x44.png"
       class="img-responsive"
@@ -25,7 +25,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <form id="barra" action="" method="get" style="box-sizing: border-box">
-      <button class="btn-barra-pesquisa"><i class="fi-rr-search"></i></button>
+      <button class="btn-barra-pesquisa"><i class="fab fa-search"></i></button>
       <input
         class="input-barra-pesquisa"
         type="text"
@@ -50,7 +50,7 @@
       <li class="nav-item">
         <a
           class="nav-link btn btn-danger btn-login"
-          href="#"
+          href="login-admin"
           style="padding: 10px 30px !important"
           >Login</a
         >
@@ -58,7 +58,7 @@
       <li class="nav-item">
         <a
           class="nav-link btn btn-warning btn-conta"
-          href="#"
+          href="create-account"
           style="padding: 10px 30px"
           >Criar conta</a
         >
