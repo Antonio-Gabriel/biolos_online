@@ -40,7 +40,7 @@ class RegisterController
             $upload = new Upload();
 
             $response = $create->execute(
-                (empty($_FILES["photo"]) ? "empty.png" : $upload->UploadPhoto()),
+                $upload->UploadPhoto(),
                 $req->getParsedBody()["password"],
                 $provider
             );

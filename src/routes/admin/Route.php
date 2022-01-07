@@ -1,6 +1,7 @@
 <?php
 
 use Vendor\controllers\admin\AuthController;
+use Vendor\controllers\admin\ProductController;
 use Vendor\controllers\admin\RegisterController;
 use Vendor\controllers\admin\ProviderAdminController;
 
@@ -15,3 +16,7 @@ $app->post('/admin-create', [new RegisterController, 'create']);
 
 // Provider
 $app->get('/provider-admin', [new ProviderAdminController, 'handle']);
+
+
+// Product
+$app->get('/add-product', [new ProductController, 'handle']);

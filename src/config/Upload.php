@@ -18,7 +18,7 @@ class Upload
         $this->fileType = pathinfo($this->targetFilePath, PATHINFO_EXTENSION);
     }
 
-    public function UploadPhoto(): string
+    public function UploadPhoto()
     {
         if (!empty($_FILES["photo"]["name"])) {
             $allowTypes = ['jpg', 'png', 'jpeg'];
@@ -38,6 +38,8 @@ class Upload
             } else {
                 throw new \Exception("Sorry, only JPG, JPEG and PNG files are allowed to upload.", 2);
             }
+        } else {
+            return "empty.png";
         }
     }
 

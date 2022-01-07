@@ -41,6 +41,11 @@
     <link rel="stylesheet" href="/bioloOnline/src/assets/css/produtos.css" />
     <link
       rel="stylesheet"
+      href="/bioloOnline/src/assets/css/add-produtos.css"
+    />
+
+    <link
+      rel="stylesheet"
       href="/bioloOnline/src/assets/css/provider-admin.css"
     />
     <link
@@ -49,4 +54,5 @@
     />
     <title>BIOLOS ONLINE</title>
   </head>
-  <body>
+  <body></body>
+</html>

@@ -34,7 +34,7 @@
               <div
                 class="d-flex d-flex align-items-center flex-column justify-content-center text-dark"
               >
-                <p>Seguidores</p>
+                <p>Views</p>
                 <h4>395</h4>
               </div>
             </div>
@@ -43,9 +43,11 @@
       </div>
     </div>
     <div class="col-md-12 d-flex justify-content-center my-4">
-      <button type="button" class="btn-block btn btn-login btn-lg">Add</button>
+      <button type="button" class="btn-block btn btn-login btn-lg">
+        <a href="add-product"> Add </a>
+      </button>
       <button type="button" class="btn-block btn btn-light btn-lg">
-        Adicionnar produtos
+        <a href="add-product" style="color: #010101 !important;"> Adicionnar produtos </a>
       </button>
     </div>
   </div>
