@@ -74,7 +74,8 @@ div .container .cadastrar {
   padding: 10px 30px !important;
   margin: 0px auto;
 }
-#cadastrar input[type="text"] {
+#cadastrar input[type="text"],
+input[type="password"] {
   background-color: #24252d !important;
   color: #ccc;
 }

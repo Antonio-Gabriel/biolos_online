@@ -22,6 +22,7 @@ body {
   background: #24252d;
 }
 input,
+input[type="password"],
 textarea {
   background: #2a2d3a !important;
   border: none !important;
@@ -62,7 +63,7 @@ textarea {
 }
 /*--------Botões do comprar produtos---------------*/
 
-.btnComprar{
+.btnComprar {
   background: linear-gradient(50deg, #eb1484, #d01bb6);
   -webkit-background: linear-gradient(50deg, #eb1484, #d01bb6);
   -moz-background: linear-gradient(50deg, #eb1484, #d01bb6);
@@ -70,13 +71,11 @@ textarea {
   color: #fff !important;
   border: none !important;
 }
-.btnComprar:hover{
+.btnComprar:hover {
   background: linear-gradient(50deg, #d01bb6, #eb1484);
   -webkit-background: linear-gradient(50deg, #d01bb6, #eb1484);
   -moz-background: linear-gradient(50deg, #d01bb6, #eb1484);
 }
-
-
 
 /*=============BOTÕES=================*/
 
@@ -128,8 +127,6 @@ nav a:hover {
   border-bottom-right-radius: 10px;
 }
 /*--------------Barra de navegação-------------------*/
-
-
 
 @media (max-width: 1150px) {
   .logo {
@@ -196,8 +193,6 @@ nav a:hover {
   color: #fff;
 }
 /*--------------banner-------------------*/
-
-
 
 /*----------Vendedores------------*/
 
@@ -300,38 +295,26 @@ a {
 
 /*------------PRODUTOS----------------*/
 
-
-.pro img{
+.pro img {
   max-width: 100%;
   width: 350px;
   border-radius: 10px;
 }
-.card-container{
-  
+.card-container {
   padding: 10px;
   color: #fff;
-  
-  
 }
-.card-container > .pro{
+.card-container > .pro {
   margin: 0px;
   background-color: #2a2d3a !important;
   padding: 10px;
   border-radius: 10px;
-
 }
-.info-produto{
+.info-produto {
   display: flex;
   justify-content: space-between !important;
   align-items: center !important;
 }
-
-
-
-
-
-
-
 
 #produtos {
   background: #24252d;
@@ -340,7 +323,6 @@ a {
 #produtos > .container > div {
   background-color: var(--body);
 }
-
 
 #produtos .row {
   flex-wrap: nowrap;
@@ -513,4 +495,24 @@ h4 {
 }
 span {
   letter-spacing: 0.1em;
+}
+
+.visibility {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 16px;
+  margin-left: 4px;
+}
+
+.visibility span {
+  margin-left: 6px;
+  font-size: 12px;
+}
+
+#visibility {
+  width: 16px;
+  height: 16px;
+
+  outline: none;
 }

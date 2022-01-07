@@ -7,6 +7,7 @@ error_reporting(E_ALL);
 
 use Vendor\config\RainTpl;
 use Vendor\models\Provider;
+use Vendor\config\Upload;
 use Vendor\usecases\admin\CreateAccount;
 
 use Psr\Http\Message\ServerRequestInterface;
@@ -38,10 +39,11 @@ class RegisterController
                 $req->getParsedBody()["city"]
             );
 
-
             $create = new CreateAccount();
+            $upload = new Upload();
+
             $response = $create->execute(
-                (empty($req->getParsedBody()["photo"]) ? "empty.png" : $req->getParsedBody()["photo"]),
+                (empty($_FILES["photo"]) ? "empty.png" : $upload->UploadPhoto()),
                 $req->getParsedBody()["password"],
                 $provider
             );

@@ -39,6 +39,7 @@
             action="admin-create"
             method="post"
             class="needs-validation"
+            enctype="multipart/form-data"
             novalidate
           >
             <div
@@ -108,7 +109,7 @@
               <div class="col-md-5 mb-3">
                 <label for="validationCustom02">Palavra-passe</label>
                 <input
-                  type="text"
+                  type="password"
                   name="password"
                   class="form-control"
                   id="validationCustom02"
@@ -116,6 +117,12 @@
                   pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                   required
                 />
+
+                <label for="visibility" class="visibility">
+                  <input type="checkbox" id="visibility" />
+                  <span>Mostrar password</span>
+                </label>
+
                 <div class="invalid-feedback">
                   No mínimo oito caracteres, pelo menos uma letra maiúscula, uma
                   letra minúscula, um número e um caractere especial ex:

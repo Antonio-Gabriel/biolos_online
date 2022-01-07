@@ -7,12 +7,12 @@ class Upload
 
     private string $targetDir;
     private string $targetFilePath;
-    private $fileName;
+    private string $fileName;
     private $fileType;
 
     public function __construct()
     {
-        $this->targetDir = $this->getPathLocation("resources/");
+        $this->targetDir = $this->getPathLocation("resources");
         $this->fileName = basename($_FILES["photo"]["name"]);
         $this->targetFilePath = $this->targetDir . $this->fileName;
         $this->fileType = pathinfo($this->targetFilePath, PATHINFO_EXTENSION);
@@ -43,6 +43,11 @@ class Upload
 
     private function getPathLocation($dir)
     {
-        return dirname(__DIR__) . DIRECTORY_SEPARATOR . $dir;
+
+        return $_SERVER["DOCUMENT_ROOT"]
+            . DIRECTORY_SEPARATOR . "bioloOnline"
+            . DIRECTORY_SEPARATOR . "src"
+            . DIRECTORY_SEPARATOR . $dir
+            . DIRECTORY_SEPARATOR;
     }
 }
