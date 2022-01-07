@@ -16,16 +16,16 @@ class CreateClient
         $client->contact = $contact;
 
         $clientRepository = new ClientRepository();
+        if ($clientRepository->verifyExistentClient($client->email)) {
+            throw new \Exception("Existent Client", 23000);
+        }
+
         $response = $clientRepository->create($client);
 
         if ($response) {
             return true;
 
             die();
-        }
-
-        if ($clientRepository->verifyExistentClient($client->email)) {
-            throw new \Exception("Existent Client", 23000);
         }
     }
 }

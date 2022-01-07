@@ -34,8 +34,13 @@
   <div>
     <div class="container">
       <div class="cadastrar">
-        <div class="form" action="" method="get">
-          <form class="needs-validation" novalidate>
+        <div class="form">
+          <form
+            action="admin-create"
+            method="post"
+            class="needs-validation"
+            novalidate
+          >
             <div
               class="form-group"
               style="
@@ -46,14 +51,35 @@
               "
             >
               <img src="" id="image" />
-              <input type="file" name="photo" id="foto" />
+              <input
+                type="file"
+                name="photo"
+                id="foto"
+                accept=".jpg, .png, .jpeg"
+              />
               <label class="file" for="foto">Adicione uma foto de perfil</label>
             </div>
+
+            {if="$status_code !== 0"} {if="$status_code === 200"}
+
+            <p style="color: green">Cadastrado com sucesso!</p>
+
+            {elseif="$status_code === 23000"}
+
+            <p style="color: red">Fornecedor já existe!</p>
+
+            {else}
+
+            <p style="color: red">Ocorreu um erro, tente novamente!</p>
+
+            {/if} {/if}
+
             <div class="form-row">
               <div class="col-md-7 mb-3">
                 <label for="validationCustom01">Nome</label>
                 <input
                   type="text"
+                  name="name"
                   class="form-control"
                   id="validationCustom01"
                   placeholder="Digite seu nome de vendedor..."
@@ -66,6 +92,7 @@
                 <label for="validationCustom02">Contacto</label>
                 <input
                   type="text"
+                  name="contact"
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Ex: (+244) 935 160 487"
@@ -82,6 +109,7 @@
                 <label for="validationCustom02">Palavra-passe</label>
                 <input
                   type="text"
+                  name="password"
                   class="form-control"
                   id="validationCustom02"
                   placeholder="Digite sua palavra-passe..."
@@ -104,6 +132,7 @@
                   </div>
                   <input
                     type="text"
+                    name="email"
                     class="form-control"
                     id="validationCustom02"
                     placeholder="Digite seu email.."
@@ -119,6 +148,7 @@
                 <label for="validationCustom03">Cidade</label>
                 <input
                   type="text"
+                  name="city"
                   class="form-control"
                   id="validationCustom03"
                   placeholder="City"
@@ -133,6 +163,7 @@
                 <label for="validationCustom04">Estado</label>
                 <input
                   type="text"
+                  name="state"
                   class="form-control"
                   id="validationCustom04"
                   placeholder="State"
@@ -147,6 +178,7 @@
                 <label for="validationCustom05">Bairro</label>
                 <input
                   type="text"
+                  name="district"
                   class="form-control"
                   id="validationCustom05"
                   placeholder="Digite seu bairro.."

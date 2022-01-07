@@ -6,7 +6,7 @@ class Sql
 {
     public const HOSTNAME = "127.0.0.1";
     public const USERNAME = "root";
-    public const PASSWORD = "";
+    public const PASSWORD = "root";
     public const DBNAME = "bioloOnline";
 
     private $conn;
