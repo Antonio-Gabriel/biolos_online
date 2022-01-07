@@ -516,3 +516,8 @@ span {
 
   outline: none;
 }
+
+#provider-image {
+  width: 280px;
+  height: 300px;
+}

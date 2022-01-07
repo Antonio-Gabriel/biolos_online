@@ -26,7 +26,7 @@ class AuthProvider implements IAuthProviderRepository
             session_regenerate_id();
 
             // Provider
-            $_SESSION["provider"] = $response[0];
+            $_SESSION["provider"] = $response;
 
             return true;
         }
@@ -36,7 +36,12 @@ class AuthProvider implements IAuthProviderRepository
 
     public function logout()
     {
+        session_start();
         session_destroy();
         session_unset();
+
+        header("Location: login-admin");
+
+        exit();
     }
 }

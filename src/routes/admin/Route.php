@@ -8,9 +8,10 @@ use Vendor\controllers\admin\ProviderAdminController;
 $app->get('/login-admin', [new AuthController, 'handle']);
 $app->post('/login-admin', [new AuthController, 'auth']);
 
+$app->get('/logout-admin', [new AuthController, 'logout']);
+
 $app->get('/create-account', [new RegisterController, 'handle']);
 $app->post('/admin-create', [new RegisterController, 'create']);
-
 
 // Provider
 $app->get('/provider-admin', [new ProviderAdminController, 'handle']);

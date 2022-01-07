@@ -15,6 +15,8 @@ class ProfileProviderController
     ) {
         $template = new RainTpl();
 
-        return $template->draw("profile-provider");
+        return $template->setTpl("profile-provider", [
+            "provider" => @$_SESSION["provider"],
+        ]);
     }
 }

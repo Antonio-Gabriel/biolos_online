@@ -15,6 +15,8 @@ class ProviderController
     ) {
         $template = new RainTpl();
 
-        return $template->draw("provider");
+        return $template->setTpl("provider", [
+            "provider" => @$_SESSION["provider"],
+        ]);
     }
 }

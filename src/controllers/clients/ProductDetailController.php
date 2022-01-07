@@ -15,6 +15,8 @@ class ProductDetailController
     ) {
         $template = new RainTpl();
 
-        return $template->draw("product-detail");
+        return $template->setTpl("product-detail", [
+            "provider" => @$_SESSION["provider"],
+        ]);
     }
 }

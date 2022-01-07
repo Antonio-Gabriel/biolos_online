@@ -15,6 +15,8 @@ class CartController
     ) {
         $template = new RainTpl();
 
-        return $template->draw("cart");
+        return $template->setTpl("cart", [
+            "provider" => @$_SESSION["provider"],
+        ]);
     }
 }

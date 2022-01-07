@@ -11,6 +11,7 @@
     />
     <span class="text-logo">BIOLOS ONLINE</span>
   </a>
+
   <button
     class="navbar-toggler"
     type="button"
@@ -47,6 +48,9 @@
       <li class="nav-item">
         <a class="nav-link" href="cart">Carrinho</a>
       </li>
+
+      <?php if( !$provider ){ ?>
+
       <li class="nav-item">
         <a
           class="nav-link btn btn-danger btn-login"
@@ -63,6 +67,32 @@
           >Criar conta</a
         >
       </li>
+
+      <?php }else{ ?>
+
+      <li class="nav-item">
+        <a
+          class="nav-link btn btn-danger btn-login"
+          href="provider-admin"
+          style="padding: 10px 30px !important"
+          >Meu Pérfil</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link btn btn-warning btn-conta"
+          href="logout-admin"
+          style="
+            padding: 10px 30px;
+            border: none !important;
+            background: red !important;
+            color: white !important;
+          "
+          >Sair</a
+        >
+      </li>
+
+      <?php } ?>
     </ul>
   </div>
 </nav>

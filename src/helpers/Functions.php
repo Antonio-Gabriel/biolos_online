@@ -3,7 +3,7 @@
 function url($endPoint)
 {
     //echo $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "bioloOnline" . "/";
-    return header("Location: http://localhost/bioloOnline/");
+    return header("Location: http://localhost/bioloOnline/{$endPoint}");
 }
 
 // Format price

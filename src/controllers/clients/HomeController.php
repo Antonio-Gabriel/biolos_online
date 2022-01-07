@@ -15,6 +15,9 @@ class HomeController
     ) {
         $template = new RainTpl();
 
-        return $template->draw("index");
+        return $template->setTpl("index", [
+            "provider" => @$_SESSION["provider"],
+            "client" => @$_SESSION["client"]
+        ]);
     }
 }

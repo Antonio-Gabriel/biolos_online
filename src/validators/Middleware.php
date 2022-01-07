@@ -4,14 +4,21 @@ namespace Vendor\validators;
 
 class Middleware
 {
-    public static function isProviderAuthenticated(): bool
+    public static function isProviderAuthenticated()
     {
         if (!isset($_SESSION["provider"])) {
-            return false;
 
-            die();
+            header("Location: login-admin");
+            exit();
         }
+    }
 
-        return true;
+    public static function redirectToDashboard()
+    {
+        if (isset($_SESSION["provider"])) {
+
+            header("Location: provider-admin");
+            exit();
+        }
     }
 }

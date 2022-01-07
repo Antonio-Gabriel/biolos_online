@@ -4,16 +4,24 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 d-flex justify-content-center">
+        <?php $counter1=-1;  if( isset($provider) && ( is_array($provider) || $provider instanceof Traversable ) && sizeof($provider) ) foreach( $provider as $key1 => $value1 ){ $counter1++; ?>
         <img
+          id="provider-image"
           class="img-fluid rounded"
-          src="/bioloOnline/src/assets/images/img-scroll/1.jpg"
+          src="/bioloOnline/src/resources/<?php echo htmlspecialchars( $value1["foto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
           alt="vendedor"
         />
       </div>
       <div class="col-md-8">
         <div class="col-md-12 d-flex justify-content-center"></div>
-        <h2 class="text-center">Eliot Thomson</h2>
-        <p class="text-center">Forncedora</p>
+        <h2 class="text-center"><?php echo htmlspecialchars( $value1["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h2>
+
+        <p class="text-center"><strong>Email: </strong> <?php echo htmlspecialchars( $value1["email"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+        <p class="text-center"><strong>Contacto: </strong> <?php echo htmlspecialchars( $value1["contacto"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+        <p class="text-center"><strong>Rua: </strong> <?php echo htmlspecialchars( $value1["rua"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+        <p class="text-center"><strong>Bairro: </strong> <?php echo htmlspecialchars( $value1["bairro"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+        <p class="text-center"><strong>Cidade: </strong> <?php echo htmlspecialchars( $value1["cidade"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+        <?php } ?>
         <div class="info row col-md-12 d-flex justify-content-center">
           <div class="row">
             <div
@@ -45,21 +53,13 @@
 
 <!------------PRODUTOS------------------->
 <!------------PRODUTOS------------------->
-<section
-  id=""
-  class=""
-  style="margin-top: 20px !important; margin-bottom: 0px"
->
+<section id="" class="" style="margin-top: 20px !important; margin-bottom: 0px">
   <div class="container">
     <div class="lista-produtos">
       <div class="row">
         <input
           class="form-control col-sm-12 col-md-8 my-1 mx-3 ml-3"
-          style="
-            
-            padding: 5px 10px;
-            border-radius: 10px;
-          "
+          style="padding: 5px 10px; border-radius: 10px"
           type="text"
           name=""
           id=""
@@ -70,7 +70,6 @@
           name=""
           id=""
           style="
-            
             color: #fff;
             border: none;
             padding: 5px 10px;
@@ -83,119 +82,156 @@
           <option value="2">Calsados</option>
         </select>
       </div>
-     <!------------PRODUTOS------------------->
-<!------------PRODUTOS------------------->
-<div class="container">
-  <div class="row ">
-      <div class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
+      <!------------PRODUTOS------------------->
+      <!------------PRODUTOS------------------->
+      <div class="container">
+        <div class="row">
+          <div
+            class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="pro d-flex flex-column justify-content-center">
               <a href="produtos.html">
-              <img class="img-fluid "  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <a href="#">Desactivar</a>
-              <a href="#">Editar</a>
-              <a href="#" class="">Eliminar</a>
+                <img
+                  class="img-fluid"
+                  src="src/assets/images/vestuarios/casaco-amarelo.jpg"
+                />
+              </a>
+              <span class="nome-produto">Camisolas</span>
+              <div class="info-produto my-2">
+                <a href="#">Desactivar</a>
+                <a href="#">Editar</a>
+                <a href="#" class="">Eliminar</a>
+              </div>
             </div>
           </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
+          <div
+            class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="pro d-flex flex-column justify-content-center">
               <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <a href="#">Desactivar</a>
-              <a href="#">Editar</a>
-              <a href="#" class="">Eliminar</a>
+                <img
+                  class="img-fluid"
+                  src="src/assets/images/vestuarios/casaco-amarelo.jpg"
+                />
+              </a>
+              <span class="nome-produto">Camisolas</span>
+              <div class="info-produto my-2">
+                <a href="#">Desactivar</a>
+                <a href="#">Editar</a>
+                <a href="#" class="">Eliminar</a>
+              </div>
             </div>
           </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
+          <div
+            class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="pro d-flex flex-column justify-content-center">
               <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <a href="#">Desactivar</a>
-              <a href="#">Editar</a>
-              <a href="#" class="">Eliminar</a>
+                <img
+                  class="img-fluid"
+                  src="src/assets/images/vestuarios/casaco-amarelo.jpg"
+                />
+              </a>
+              <span class="nome-produto">Camisolas</span>
+              <div class="info-produto my-2">
+                <a href="#">Desactivar</a>
+                <a href="#">Editar</a>
+                <a href="#" class="">Eliminar</a>
+              </div>
             </div>
           </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
+          <div
+            class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="pro d-flex flex-column justify-content-center">
               <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <a href="#">Desactivar</a>
-              <a href="#">Editar</a>
-              <a href="#" class="">Eliminar</a>
+                <img
+                  class="img-fluid"
+                  src="src/assets/images/vestuarios/casaco-amarelo.jpg"
+                />
+              </a>
+              <span class="nome-produto">Camisolas</span>
+              <div class="info-produto my-2">
+                <a href="#">Desactivar</a>
+                <a href="#">Editar</a>
+                <a href="#" class="">Eliminar</a>
+              </div>
             </div>
           </div>
-      </div>
-      <div class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
+          <div
+            class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="pro d-flex flex-column justify-content-center">
               <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <a href="#">Desactivar</a>
-              <a href="#">Editar</a>
-              <a href="#" class="">Eliminar</a>
+                <img
+                  class="img-fluid"
+                  src="src/assets/images/vestuarios/casaco-amarelo.jpg"
+                />
+              </a>
+              <span class="nome-produto">Camisolas</span>
+              <div class="info-produto my-2">
+                <a href="#">Desactivar</a>
+                <a href="#">Editar</a>
+                <a href="#" class="">Eliminar</a>
+              </div>
             </div>
           </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
+          <div
+            class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="pro d-flex flex-column justify-content-center">
               <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <a href="#">Desactivar</a>
-              <a href="#">Editar</a>
-              <a href="#" class="">Eliminar</a>
+                <img
+                  class="img-fluid"
+                  src="src/assets/images/vestuarios/casaco-amarelo.jpg"
+                />
+              </a>
+              <span class="nome-produto">Camisolas</span>
+              <div class="info-produto my-2">
+                <a href="#">Desactivar</a>
+                <a href="#">Editar</a>
+                <a href="#" class="">Eliminar</a>
+              </div>
             </div>
           </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
+          <div
+            class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="pro d-flex flex-column justify-content-center">
               <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <a href="#">Desactivar</a>
-              <a href="#">Editar</a>
-              <a href="#" class="">Eliminar</a>
+                <img
+                  class="img-fluid"
+                  src="src/assets/images/vestuarios/casaco-amarelo.jpg"
+                />
+              </a>
+              <span class="nome-produto">Camisolas</span>
+              <div class="info-produto my-2">
+                <a href="#">Desactivar</a>
+                <a href="#">Editar</a>
+                <a href="#" class="">Eliminar</a>
+              </div>
             </div>
           </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
+          <div
+            class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="pro d-flex flex-column justify-content-center">
               <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <a href="#">Desactivar</a>
-              <a href="#">Editar</a>
-              <a href="#" class="">Eliminar</a>
+                <img
+                  class="img-fluid"
+                  src="src/assets/images/vestuarios/casaco-amarelo.jpg"
+                />
+              </a>
+              <span class="nome-produto">Camisolas</span>
+              <div class="info-produto my-2">
+                <a href="#">Desactivar</a>
+                <a href="#">Editar</a>
+                <a href="#" class="">Eliminar</a>
+              </div>
             </div>
           </div>
+        </div>
       </div>
-  </div>
-</div>
-
-
-
     </div>
   </div>
 </section>
