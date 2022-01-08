@@ -3,50 +3,68 @@
 <!--========PRODUTOS=========-->
 <section id="detalhe-produtos">
   <div class="container">
-    <div class="product-detail row" style="margin-top: 40px;">
+    <div class="product-detail row" style="margin-top: 40px">
+      {loop="$product"}
       <div class="img-produto col-12 col-sm-12 col-md-12 col-lg-8">
         <img
           class="img-fluid"
-          src="/bioloOnline/src/assets/images/vestuarios/casaco-amarelo.jpg"
+          src="/bioloOnline/src/resources/{$value.foto}"
           alt=""
         />
       </div>
-      <div class="info-produto d-flex flex-column col-12 col-sm-12 col-md-12 col-lg-4">
+      <div
+        class="info-produto d-flex flex-column col-12 col-sm-12 col-md-12 col-lg-4"
+      >
         <div class="nome-produto">
-          <h2>casaco amarelo</h2>
-          <a href="#" class="btn">aa</a>
+          <h2>{$value.produto}</h2>
+          <a href="#" class="btn">{$value.cidade}</a>
         </div>
-        <p class="txt-produto">Lorem, ipsum dolor - Lorem, ipsum.</p>
-        <p class="txt-produto">Lorem, ipsum.</p>
+        <p class="txt-produto">{$value.bairro} - {$value.rua}.</p>
+        <p class="txt-produto">Categoria - {$value.categoria}</p>
         <div class="foto-vendedor">
-          <img src="/bioloOnline/src/assets/images/img-scroll/1.jpg" alt="" />
-          <p class="">Anjelina Julie</p>
+          <img
+            src="/bioloOnline/src/resources/{$value.foto_fornecedor}"
+            alt=""
+          />
+          <a href="/bioloOnline/profile-provider/{$value.fornecedor_id}">{$value.fornecedor}</a>
         </div>
-        <div class="descricao">
-          <p>Lorem, ipsum</p>
-          <p>Lorem</p>
+        <div
+          class="descricao"
+          style="margin-bottom: 8px; display: flex; flex-direction: column"
+        >
+          <strong style="font-size: 20px">Preço: {$value.preco} Kz</strong>
+          <p>{$value.email}</p>
         </div>
-        <p class="descricao-detalhe-produto d-flex justify-content-center align-items-center text-center">
-          Loremm ipsum dolor, sit amet consectetur adipisicing elit. Dolorum
-          recusandae ad illum impedit perspiciatis eveniet quaerat facere dolor
-          possimus voluptatum, itaque distinctio saepe sunt repellendus corrupti
-          fuga odit quae.
+        <p
+          class="descricao-detalhe-produto d-flex justify-content-center align-items-center text-center"
+        >
+          {$value.descricao}
         </p>
-        <div class="btn-detalhe-produto d-flex justify-content-center align-items-center ">
-            <!--=======================CHAMAR MODAL COMPRAR==================================-->
-            <!-- Button trigger modal -->
-            <a
-              type="button"
-              class="btn btn-login px-4"
-              data-toggle="modal"
-              data-target="#exampleModal"
-            >
-              Comprar
-            </a>
-            <!-- Button trigger modal -->
+        <div
+          class="btn-detalhe-produto d-flex justify-content-center align-items-center"
+        >
+          <!--=======================CHAMAR MODAL COMPRAR==================================-->
+          <!-- Button trigger modal -->
 
-            <!-- Modal -->
-            <div
+          <!--- 
+            data-toggle="modal"
+            data-target="#exampleModal"  
+          -->
+          <a
+            href="/bioloOnline/purchase/{$value.id}/cart"
+            class="btn btn-login px-4"
+          >
+            Comprar
+          </a>
+          <a href="/bioloOnline/products" class="btn btn-conta px-3 text-nowrap"
+            >Mais produtos</a
+          >
+          {/loop}
+
+          <!-- Button trigger modal -->
+
+          <!-- Modal -->
+          <div
             class="modal fade"
             id="exampleModal"
             tabindex="-1"
@@ -96,15 +114,10 @@
                 </div>
               </div>
             </div>
-            </div>
-
-          
-              <a href="#" class="btn btn-conta px-3 text-nowrap">Mais produtos</a>
-
-
-            <!-- Modal -->
-          
           </div>
+
+          <!-- Modal -->
+        </div>
       </div>
     </div>
   </div>

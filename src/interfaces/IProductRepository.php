@@ -13,4 +13,5 @@ interface IProductRepository
 
     public function get(int $provider_id);
     public function getByCategory(int $provider_id);
+    public function getProductDetailsByProvider(int $product_id, int $provider_id);    
 }

@@ -3,50 +3,68 @@
 <!--========PRODUTOS=========-->
 <section id="detalhe-produtos">
   <div class="container">
-    <div class="product-detail row" style="margin-top: 40px;">
+    <div class="product-detail row" style="margin-top: 40px">
+      <?php $counter1=-1;  if( isset($product) && ( is_array($product) || $product instanceof Traversable ) && sizeof($product) ) foreach( $product as $key1 => $value1 ){ $counter1++; ?>
       <div class="img-produto col-12 col-sm-12 col-md-12 col-lg-8">
         <img
           class="img-fluid"
-          src="/bioloOnline/src/assets/images/vestuarios/casaco-amarelo.jpg"
+          src="/bioloOnline/src/resources/<?php echo htmlspecialchars( $value1["foto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
           alt=""
         />
       </div>
-      <div class="info-produto d-flex flex-column col-12 col-sm-12 col-md-12 col-lg-4">
+      <div
+        class="info-produto d-flex flex-column col-12 col-sm-12 col-md-12 col-lg-4"
+      >
         <div class="nome-produto">
-          <h2>casaco amarelo</h2>
-          <a href="#" class="btn">aa</a>
+          <h2><?php echo htmlspecialchars( $value1["produto"], ENT_COMPAT, 'UTF-8', FALSE ); ?></h2>
+          <a href="#" class="btn"><?php echo htmlspecialchars( $value1["cidade"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a>
         </div>
-        <p class="txt-produto">Lorem, ipsum dolor - Lorem, ipsum.</p>
-        <p class="txt-produto">Lorem, ipsum.</p>
+        <p class="txt-produto"><?php echo htmlspecialchars( $value1["bairro"], ENT_COMPAT, 'UTF-8', FALSE ); ?> - <?php echo htmlspecialchars( $value1["rua"], ENT_COMPAT, 'UTF-8', FALSE ); ?>.</p>
+        <p class="txt-produto">Categoria - <?php echo htmlspecialchars( $value1["categoria"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
         <div class="foto-vendedor">
-          <img src="/bioloOnline/src/assets/images/img-scroll/1.jpg" alt="" />
-          <p class="">Anjelina Julie</p>
+          <img
+            src="/bioloOnline/src/resources/<?php echo htmlspecialchars( $value1["foto_fornecedor"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
+            alt=""
+          />
+          <a href="/bioloOnline/profile-provider/<?php echo htmlspecialchars( $value1["fornecedor_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["fornecedor"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a>
         </div>
-        <div class="descricao">
-          <p>Lorem, ipsum</p>
-          <p>Lorem</p>
+        <div
+          class="descricao"
+          style="margin-bottom: 8px; display: flex; flex-direction: column"
+        >
+          <strong style="font-size: 20px">Preço: <?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?> Kz</strong>
+          <p><?php echo htmlspecialchars( $value1["email"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
         </div>
-        <p class="descricao-detalhe-produto d-flex justify-content-center align-items-center text-center">
-          Loremm ipsum dolor, sit amet consectetur adipisicing elit. Dolorum
-          recusandae ad illum impedit perspiciatis eveniet quaerat facere dolor
-          possimus voluptatum, itaque distinctio saepe sunt repellendus corrupti
-          fuga odit quae.
+        <p
+          class="descricao-detalhe-produto d-flex justify-content-center align-items-center text-center"
+        >
+          <?php echo htmlspecialchars( $value1["descricao"], ENT_COMPAT, 'UTF-8', FALSE ); ?>
         </p>
-        <div class="btn-detalhe-produto d-flex justify-content-center align-items-center ">
-            <!--=======================CHAMAR MODAL COMPRAR==================================-->
-            <!-- Button trigger modal -->
-            <a
-              type="button"
-              class="btn btn-login px-4"
-              data-toggle="modal"
-              data-target="#exampleModal"
-            >
-              Comprar
-            </a>
-            <!-- Button trigger modal -->
+        <div
+          class="btn-detalhe-produto d-flex justify-content-center align-items-center"
+        >
+          <!--=======================CHAMAR MODAL COMPRAR==================================-->
+          <!-- Button trigger modal -->
 
-            <!-- Modal -->
-            <div
+          <!--- 
+            data-toggle="modal"
+            data-target="#exampleModal"  
+          -->
+          <a
+            href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/cart"
+            class="btn btn-login px-4"
+          >
+            Comprar
+          </a>
+          <a href="/bioloOnline/products" class="btn btn-conta px-3 text-nowrap"
+            >Mais produtos</a
+          >
+          <?php } ?>
+
+          <!-- Button trigger modal -->
+
+          <!-- Modal -->
+          <div
             class="modal fade"
             id="exampleModal"
             tabindex="-1"
@@ -96,15 +114,10 @@
                 </div>
               </div>
             </div>
-            </div>
-
-          
-              <a href="#" class="btn btn-conta px-3 text-nowrap">Mais produtos</a>
-
-
-            <!-- Modal -->
-          
           </div>
+
+          <!-- Modal -->
+        </div>
       </div>
     </div>
   </div>

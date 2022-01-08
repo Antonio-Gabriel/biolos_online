@@ -136,9 +136,7 @@
                 <a href="/bioloOnline/product/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/edit"
                   >Editar</a
                 >
-                <a
-                  href="/bioloOnline/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete"
-                  class=""
+                <a href="/bioloOnline/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete"
                   >Eliminar</a
                 >
               </div>

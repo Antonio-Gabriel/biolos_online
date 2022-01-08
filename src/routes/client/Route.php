@@ -27,7 +27,7 @@ $app->get('/products', [new ProductsController, 'handle']);
 $app->get('/product/{id}/details/{provider}', [new ProductDetailController, 'handle']);
 
 // Providers
-$app->get('/profile-provider', [new ProfileProviderController, 'handle']);
+$app->get('/profile-provider/{id}', [new ProfileProviderController, 'handle']);
 $app->get('/providers', [new ProviderController, 'handle']);
 
 // Cart routes
