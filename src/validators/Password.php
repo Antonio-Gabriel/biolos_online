@@ -20,6 +20,14 @@ class Password
         die;
     }
 
+    public static function checkPass($password)
+    {
+        return (!preg_match(
+            "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/ix",
+            $password
+        )) ? false : true;
+    }
+
     private static function encrypt($password)
     {
         return password_hash($password, PASSWORD_DEFAULT);

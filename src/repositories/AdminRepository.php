@@ -67,13 +67,91 @@ class AdminRepository implements IAdminRepository
 
     public function update(Account $account)
     {
+        if (!$account->provider->isNullOrEmpty()) {
+            throw new \Exception("Preencha devidamente os campos", 400);
+        }
+
+        if (
+            !Phone::isValid(strval($account->provider->contact))
+            || !Email::isValid($account->provider->email)
+        ) {
+            throw new \Exception("Email ou telefone incorreto!", 400);
+        }
+
+        if ($account->password) {
+            $execute_query = $this->sql->query(
+                "UPDATE fornecedor f INNER JOIN conta c
+                 ON f.id = c.fornecedor_id SET 
+                 f.nome = :nome, f.contacto = :contacto, f.email = :email,
+                 f.rua = :rua, f.bairro = :bairro, f.cidade = :cidade,
+                
+                 c.foto = :foto, c.password = :password
+                 WHERE f.id = :provider_id;
+                ",
+                [
+                    ":provider_id" => $account->provider->id,
+                    ":nome" => $account->provider->name,
+                    ":contacto" => $account->provider->contact,
+                    ":email" => $account->provider->email,
+                    ":rua" => $account->provider->road,
+                    ":bairro" => $account->provider->district,
+                    ":cidade" => $account->provider->city,
+                    ":foto" => $account->foto,
+                    ":password" => Password::isValid($account->password)
+                ]
+            );
+        } else {
+            $execute_query = $this->sql->query(
+                "UPDATE fornecedor f INNER JOIN conta c
+                 ON f.id = c.fornecedor_id SET 
+                 f.nome = :nome, f.contacto = :contacto, f.email = :email,
+                 f.rua = :rua, f.bairro = :bairro, f.cidade = :cidade,
+                
+                 c.foto = :foto
+                 WHERE f.id = :provider_id;
+                ",
+                [
+                    ":provider_id" => $account->provider->id,
+                    ":nome" => $account->provider->name,
+                    ":contacto" => $account->provider->contact,
+                    ":email" => $account->provider->email,
+                    ":rua" => $account->provider->road,
+                    ":bairro" => $account->provider->district,
+                    ":cidade" => $account->provider->city,
+                    ":foto" => $account->foto,
+                ]
+            );
+        }
+
+        return $execute_query;
     }
-    public function get()
+
+    public function getCurrentProvider(int $provider_id)
     {
+        return $this->sql->select(
+            "SELECT * FROM fornecedor f LEFT JOIN 
+             conta c ON f.id = c.fornecedor_id WHERE f.id = :id;",
+            [
+                ":id" => $provider_id,
+            ]
+        );
     }
+
+
+    public function get(int $provider_id)
+    {
+        return $this->sql->select(
+            "SELECT *FROM conta WHERE id = :provider_id",
+            [
+                ":provider_id" => $provider_id
+            ]
+        );
+    }
+
     public function getProductsByProvider(int $provider_id)
     {
     }
+
     public function delete(int $provider_id)
     {
     }

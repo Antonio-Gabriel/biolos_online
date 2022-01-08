@@ -2,6 +2,12 @@
 
 <section id="fornecedor">
   <div class="container">
+    {if="$status_code !== 0"} {if="$status_code === 200"}
+    <div class="alert alert-primary" role="alert">
+      Perfil Actualizado com sucesso!
+    </div>
+    {/if} {/if}
+
     <div class="row">
       <div class="col-md-4 d-flex justify-content-center">
         {loop="$provider"}
@@ -47,7 +53,18 @@
         <a href="add-product"> Add </a>
       </button>
       <button type="button" class="btn-block btn btn-light btn-lg">
-        <a href="add-product" style="color: #010101 !important;"> Adicionnar produtos </a>
+        <a href="edit-profile" style="color: #010101 !important">
+          Editar Perfil
+        </a>
+      </button>
+      <button
+        type="button"
+        class="btn-block btn btn-light btn-lg"
+        style="background: darkred !important; border: none"
+      >
+        <a href="delete-profile" style="color: white !important" onclick="return confirm('Desejas deletar a conta?')">
+          Eliminar Perfil
+        </a>
       </button>
     </div>
   </div>

@@ -16,7 +16,8 @@ $app->post('/admin-create', [new RegisterController, 'create']);
 
 // Provider
 $app->get('/provider-admin', [new ProviderAdminController, 'handle']);
-
+$app->get('/edit-profile', [new ProviderAdminController, 'profile']);
+$app->post('/edit', [new ProviderAdminController, 'edit']);
 
 // Product
 $app->get('/add-product', [new ProductController, 'handle']);
