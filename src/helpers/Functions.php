@@ -7,9 +7,9 @@ function url($endPoint)
 }
 
 // Format price
-function formatNumber($num): string
+function formatNumber($num)
 {
-    return (float)number_format(
+    return number_format(
         $num,
         2,
         ".",

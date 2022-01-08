@@ -13,7 +13,7 @@ class Provider
     public string $district;
     public string $city;
 
-    public function __construct($contact, $name, $email, $road, $district, $city, $id = 0)
+    public function __construct($contact = 0, $name = "", $email = "", $road = "", $district = "", $city = "", $id = 0)
     {
         $this->id = $id;
         $this->contact = $contact;

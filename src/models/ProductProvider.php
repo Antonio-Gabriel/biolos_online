@@ -8,17 +8,9 @@ class ProductProvider
     public Product $product;
     public Provider $provider;
 
-    public function isNullOrEmpty()
+    public function __construct(Product $product, Provider $provider)
     {
-        if (
-            !$this->product
-            || !$this->provider
-        ) {
-            return false;
-
-            die;
-        }
-
-        return true;
+        $this->product = $product;
+        $this->provider = $provider;
     }
 }

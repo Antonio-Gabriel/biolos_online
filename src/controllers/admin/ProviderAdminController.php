@@ -10,9 +10,11 @@ use Vendor\models\Provider;
 use Vendor\validators\Password;
 use Vendor\validators\Middleware;
 
+use Vendor\usecases\admin\GetProducts;
 use Vendor\usecases\admin\UpdateAccount;
 use Vendor\usecases\admin\GetProviderData;
 use Vendor\usecases\admin\GetCurrentProvider;
+use Vendor\usecases\admin\GetCategoryByProvider;
 
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -29,9 +31,17 @@ class ProviderAdminController
         $currentProvider = new GetCurrentProvider();
         $provider = $currentProvider->execute(intval($_SESSION["provider"][0]["id"]));
 
+        $categoryByProvider = new GetCategoryByProvider();
+        $categories = $categoryByProvider->execute(intval($_SESSION["provider"][0]["id"]));
+
+        $products = new GetProducts();
+        $productList = $products->execute(intval($_SESSION["provider"][0]["id"]));
+
         return  $template->setTpl("provider-admin", [
             "provider" => $provider,
-            "status_code" => intval($status)
+            "status_code" => intval($status),
+            "categories" => $categories,
+            "products" => $productList,
         ]);
     }
 

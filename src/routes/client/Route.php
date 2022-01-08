@@ -24,7 +24,7 @@ $app->post('/client/{id}/delete', [new RegisterController, 'delete']);
 
 // Products
 $app->get('/products', [new ProductsController, 'handle']);
-$app->get('/product/{id}/details', [new ProductDetailController, 'handle']);
+$app->get('/product/{id}/details/{provider}', [new ProductDetailController, 'handle']);
 
 // Providers
 $app->get('/profile-provider', [new ProfileProviderController, 'handle']);
