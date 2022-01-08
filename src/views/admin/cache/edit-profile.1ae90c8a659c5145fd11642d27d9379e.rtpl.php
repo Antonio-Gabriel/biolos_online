@@ -59,6 +59,16 @@
 
             <p style="color: red">Informe a palavra passe antiga!</p>
 
+            <?php }elseif( $status_code === 14 ){ ?>
+
+
+            <p style="color: red">Preencha devidamente os campos!</p>
+
+            <?php }elseif( $status_code === 15 ){ ?>
+
+
+            <p style="color: red">Contacto ou Email inválido</p>
+
             <?php }else{ ?>
 
 
@@ -304,18 +314,6 @@
     } else {
       contacValidateError.style.display = "none";
     }
-
-    // if (passwordValidate.value && !conformPasswordValidate.value) {
-    //   passValidateError.style.display = "block";
-    //   confirmPassValidateError.style.display = "block";
-    //   passValidateError.innerHTML = "Insira a nova password";
-    //   confirmPassValidateError.innerHTML = "Insira a nova password";
-
-    //   return false;
-    // } else {
-    //   passValidateError.style.display = "none";
-    //   confirmPassValidateError.style.display = "none";
-    // }
 
     if (
       !passwordRegEx.exec(passwordValidate.value) ||

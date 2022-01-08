@@ -33,7 +33,12 @@ class Upload
 
                     return $this->fileName;
                 } else {
-                    throw new \Exception("Sorry, there was an error uploading your file.", 1);
+                    move_uploaded_file(
+                        $_FILES["photo"]["tmp_name"],
+                        $this->targetFilePath
+                    );
+
+                    return $this->fileName;
                 }
             } else {
                 throw new \Exception("Sorry, only JPG, JPEG and PNG files are allowed to upload.", 2);

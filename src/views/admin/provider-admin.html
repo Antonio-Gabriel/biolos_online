@@ -57,15 +57,6 @@
           Editar Perfil
         </a>
       </button>
-      <button
-        type="button"
-        class="btn-block btn btn-light btn-lg"
-        style="background: darkred !important; border: none"
-      >
-        <a href="delete-profile" style="color: white !important" onclick="return confirm('Desejas deletar a conta?')">
-          Eliminar Perfil
-        </a>
-      </button>
     </div>
   </div>
 </section>

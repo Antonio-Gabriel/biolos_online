@@ -68,14 +68,14 @@ class AdminRepository implements IAdminRepository
     public function update(Account $account)
     {
         if (!$account->provider->isNullOrEmpty()) {
-            throw new \Exception("Preencha devidamente os campos", 400);
+            throw new \Exception("Preencha devidamente os campos", 14);
         }
 
         if (
             !Phone::isValid(strval($account->provider->contact))
             || !Email::isValid($account->provider->email)
         ) {
-            throw new \Exception("Email ou telefone incorreto!", 400);
+            throw new \Exception("Email ou telefone incorreto!", 15);
         }
 
         if ($account->password) {
@@ -137,7 +137,6 @@ class AdminRepository implements IAdminRepository
         );
     }
 
-
     public function get(int $provider_id)
     {
         return $this->sql->select(
@@ -150,10 +149,12 @@ class AdminRepository implements IAdminRepository
 
     public function getProductsByProvider(int $provider_id)
     {
+        // Get All products by provider
     }
 
     public function delete(int $provider_id)
     {
+        // Remove profile
     }
 
     public function verifyExistentProvider($email)

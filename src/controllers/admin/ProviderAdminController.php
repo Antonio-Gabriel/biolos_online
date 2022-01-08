@@ -42,8 +42,11 @@ class ProviderAdminController
         $status = $req->getQueryParams()["status"] ?? 0;
         $template = new RainTpl("views/admin/");
 
+        $currentProvider = new GetCurrentProvider();
+        $provider = $currentProvider->execute(intval($_SESSION["provider"][0]["id"]));
+
         return  $template->setTpl("edit-profile", [
-            "provider" => $_SESSION["provider"],
+            "provider" => $provider,
             "status_code" => intval($status)
         ]);
     }
@@ -119,7 +122,21 @@ class ProviderAdminController
                 exit();
             }
         } catch (\Exception $th) {
-            echo $th;
+            if ($th->getCode() === 14) {
+                header("Location: edit-profile?status=14");
+
+                exit();
+            }
+
+            if ($th->getCode() === 15) {
+                header("Location: edit-profile?status=15");
+
+                exit();
+            }
+
+            header("Location: edit-profile?status=500");
+
+            exit();
         }
     }
 }
