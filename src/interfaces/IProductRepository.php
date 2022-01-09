@@ -12,6 +12,7 @@ interface IProductRepository
     public function remove(ProductProvider $product);
 
     public function get(int $provider_id);
+    public function getbyId(int $provider_id);
     public function getByCategory(int $provider_id);
     public function getProductDetailsByProvider(int $product_id, int $provider_id);    
 }

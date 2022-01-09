@@ -53,7 +53,22 @@ class ProductRepository implements IProductRepository
 
     public function update(ProductProvider $product)
     {
-        
+        $execute_query = $this->sql->query(
+            "UPDATE produto SET nome = :nome, preco = :preco, estado = :estado,  
+             descricao = :descricao, foto = :foto, categoria_id = :categoria_id
+             WHERE id = :id;",
+            [
+                ":id" => $product->product->id,
+                ":nome" => $product->product->name,
+                ":preco" => $product->product->price,
+                ":estado" => $product->product->state,
+                ":descricao" => $product->product->description,
+                ":foto" => $product->product->foto,
+                ":categoria_id" => $product->product->category->id
+            ]
+        );
+
+        return $execute_query;
     }
     public function delete(ProductProvider $product)
     {
@@ -74,6 +89,22 @@ class ProductRepository implements IProductRepository
              WHERE pf.fornecedor_id = :provider;",
             [
                 ":provider" => $provider_id
+            ]
+        );
+    }
+
+    public function getbyId(int $produto_id)
+    {
+        return $this->sql->select(
+            "SELECT pf.produto_id, pf.fornecedor_id, p.nome, 
+             p.preco, p.descricao, p.foto, p.estado
+
+             FROM produtofornecedor pf
+             LEFT JOIN produto p ON pf.produto_id = p.id
+             LEFT JOIN categoria c ON p.categoria_id = c.id
+             WHERE pf.produto_id = :produto_id;",
+            [
+                ":produto_id" => $produto_id
             ]
         );
     }

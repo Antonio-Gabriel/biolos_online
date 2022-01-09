@@ -9,10 +9,10 @@ function url($endPoint)
 // Format price
 function formatNumber($num)
 {
-    return number_format(
+    return (float)number_format(
         $num,
         2,
-        ".",
-        ","
+        ",",
+        "."
     );
 }

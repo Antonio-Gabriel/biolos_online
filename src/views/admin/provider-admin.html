@@ -8,6 +8,12 @@
     </div>
     {/if} {/if}
 
+    {if="$status_code !== 0"} {if="$status_code === 202"}
+    <div class="alert alert-primary" role="alert">
+      Produto Actualizado com sucesso!
+    </div>
+    {/if} {/if}
+
     <div class="row">
       <div class="col-md-4 d-flex justify-content-center">
         {loop="$provider"}
@@ -133,7 +139,7 @@
                   >Desactivar</a
                 >
                 {/if}
-                <a href="/bioloOnline/product/product/{$value.produto_id}/edit"
+                <a href="/bioloOnline/product/{$value.produto_id}/edit"
                   >Editar</a
                 >
                 <a href="/bioloOnline/product/{$value.produto_id}/delete"

@@ -21,4 +21,6 @@ $app->post('/edit', [new ProviderAdminController, 'edit']);
 
 // Product
 $app->get('/add-product', [new ProductController, 'handle']);
+$app->get('/product/{id}/edit', [new ProductController, 'show']);
 $app->post('/add', [new ProductController, 'add']);
+$app->post('/product-edit', [new ProductController, 'edit']);

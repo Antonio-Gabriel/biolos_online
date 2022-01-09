@@ -1,0 +1,148 @@
+{include="../shared/Header/header"}
+
+<section id="add-produtos">
+  <div class="container">
+    <form
+      action="/bioloOnline/product-edit"
+      method="post"
+      class="needs-validation"
+      enctype="multipart/form-data"
+      novalidate
+    >
+      <div class="form-group">
+        <h2>Adicionar novo produto</h2>
+      </div>
+      {loop="$product"}
+
+      <input type="hidden" name="id" value="{$value.produto_id}" />
+      <input type="hidden" name="photo" value="{$value.foto}" />
+      <div class="form-group">
+        <img
+          src="/bioloOnline/src/resources/{$value.foto}"
+          id="image"
+          style="margin-bottom: 10px"
+        />
+        <input
+          type="file"
+          name="photo"
+          class="file form-control"
+          id="foto"
+          rows="3"
+          value="{$value.foto}"
+          accept=".jpg, .png, .jpeg"
+        />
+        <div class="invalid-feedback">Selecione uma imagem</div>
+      </div>
+      {if="$status_code !== 0"} {if="$status_code === 200"}
+
+      <p style="color: green">Cadastrado com sucesso!</p>
+
+      {elseif="$status_code === 23000"}
+
+      <p style="color: red">Produto já existe!</p>
+
+      {elseif="$status_code === 12"}
+
+      <p style="color: red">Coloque um preço verdadeiro</p>
+
+      {else}
+
+      <p style="color: red">Ocorreu um erro, tente novamente!</p>
+
+      {/if} {/if}
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label for="validationCustom02">Nome do produto</label>
+          <input
+            type="text"
+            name="name"
+            style="color: white"
+            class="form-control"
+            id="validationCustom02"
+            value="{$value.nome}"
+            placeholder="Nome do produto"
+            required
+          />
+          <div class="invalid-feedback">Digite o nome do produto</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label for="validationCustom02">Descrição do produto</label>
+          <textarea
+            name="description"
+            style="height: 110px; color: white"
+            class="form-control"
+            id="validationCustom02"
+            placeholder="Descrição do produto"
+            required
+            rows="3"
+          >
+          {$value.descricao}
+        </textarea
+          >
+          <div class="invalid-feedback">Descreva o produto</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Categoria</label>
+        <select
+          class="form-control"
+          name="category"
+          style="
+            width: 100% !important;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background: #2a2d3a;
+          "
+        >
+          {loop="$categories"}
+          <option value="{$value.id}">{$value.nome}</option>
+          {/loop}
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label for="validationCustom02">Preço do produto</label>
+          <input
+            type="text"
+            name="price"
+            style="color: white"
+            class="form-control"
+            id="validationCustom02"
+            value="{$value.preco}"
+            placeholder="Preço"
+            required
+          />
+          <div class="invalid-feedback">Digite o preço do produto</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-12 mb-3">
+          <label
+            for="isActive"
+            style="cursor: pointer; display: inline-flex; align-items: center"
+          >
+            <input type="checkbox" name="state" id="isActive" 
+            {if="$value.estado== 1"} checked {/if} style="margin-right: 0.4rem" /> Permitir
+            visualização
+          </label>
+        </div>
+      </div>
+      {/loop}
+      <div class="col-lg-12 my-4">
+        <button type="submit" class="btn-block btn btn-login btn-lg">
+          Editar Produto
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+
+{include="../shared/Footer/footer"}

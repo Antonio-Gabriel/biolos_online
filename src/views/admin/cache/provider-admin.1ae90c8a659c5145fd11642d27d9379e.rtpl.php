@@ -8,6 +8,12 @@
     </div>
     <?php } ?> <?php } ?>
 
+    <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 202 ){ ?>
+    <div class="alert alert-primary" role="alert">
+      Produto Actualizado com sucesso!
+    </div>
+    <?php } ?> <?php } ?>
+
     <div class="row">
       <div class="col-md-4 d-flex justify-content-center">
         <?php $counter1=-1;  if( isset($provider) && ( is_array($provider) || $provider instanceof Traversable ) && sizeof($provider) ) foreach( $provider as $key1 => $value1 ){ $counter1++; ?>
@@ -133,7 +139,7 @@
                   >Desactivar</a
                 >
                 <?php } ?>
-                <a href="/bioloOnline/product/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/edit"
+                <a href="/bioloOnline/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/edit"
                   >Editar</a
                 >
                 <a href="/bioloOnline/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete"

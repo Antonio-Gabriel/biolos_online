@@ -8,7 +8,7 @@
       <div class="cadastrar">
         <div class="form">
           <form
-            action="edit"
+            action="/bioloOnline/edit"
             method="post"
             class="needs-validation"
             enctype="multipart/form-data"
