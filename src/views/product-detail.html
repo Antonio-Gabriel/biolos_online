@@ -1,13 +1,14 @@
 {include="shared/Header/header"}
 
 <!--========PRODUTOS=========-->
-<section id="detalhe-produtos">
+<section id="detalhe-produtos" class="produto-detalhe-container">
   <div class="container">
     <div class="product-detail row" style="margin-top: 40px">
       {loop="$product"}
       <div class="img-produto col-12 col-sm-12 col-md-12 col-lg-8">
         <img
-          class="img-fluid"
+          style="width: px; height: 500px;"
+          class="row"
           src="/bioloOnline/src/resources/{$value.foto}"
           alt=""
         />
@@ -21,8 +22,9 @@
         </div>
         <p class="txt-produto">{$value.bairro} - {$value.rua}.</p>
         <p class="txt-produto">Categoria - {$value.categoria}</p>
-        <div class="foto-vendedor">
+        <div class="foto-produto-vendedor d-flex justify-content-center align-items-center">
           <img
+
             src="/bioloOnline/src/resources/{$value.foto_fornecedor}"
             alt=""
           />

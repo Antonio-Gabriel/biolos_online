@@ -6,9 +6,7 @@
     <div class="alert alert-primary" role="alert">
       Perfil Actualizado com sucesso!
     </div>
-    {/if} {/if}
-
-    {if="$status_code !== 0"} {if="$status_code === 202"}
+    {/if} {/if} {if="$status_code !== 0"} {if="$status_code === 202"}
     <div class="alert alert-primary" role="alert">
       Produto Actualizado com sucesso!
     </div>
@@ -113,6 +111,11 @@
               >
                 <img
                   class="img-fluid"
+                  style="
+                    width: 280px !important;
+                    height: 400px;
+                    margin-top: 10px;
+                  "
                   src="/bioloOnline/src/resources/{$value.foto}"
                 />
               </a>

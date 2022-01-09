@@ -135,7 +135,6 @@ class ProductController
 
     public function edit(ServerRequestInterface $req)
     {
-
         try {
             //code...                           
 

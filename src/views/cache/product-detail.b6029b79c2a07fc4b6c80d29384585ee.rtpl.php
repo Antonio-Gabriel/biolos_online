@@ -1,13 +1,14 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><?php require $this->checkTemplate("shared/Header/header");?>
 
 <!--========PRODUTOS=========-->
-<section id="detalhe-produtos">
+<section id="detalhe-produtos" class="produto-detalhe-container">
   <div class="container">
     <div class="product-detail row" style="margin-top: 40px">
       <?php $counter1=-1;  if( isset($product) && ( is_array($product) || $product instanceof Traversable ) && sizeof($product) ) foreach( $product as $key1 => $value1 ){ $counter1++; ?>
       <div class="img-produto col-12 col-sm-12 col-md-12 col-lg-8">
         <img
-          class="img-fluid"
+          style="width: px; height: 500px;"
+          class="row"
           src="/bioloOnline/src/resources/<?php echo htmlspecialchars( $value1["foto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
           alt=""
         />
@@ -21,8 +22,9 @@
         </div>
         <p class="txt-produto"><?php echo htmlspecialchars( $value1["bairro"], ENT_COMPAT, 'UTF-8', FALSE ); ?> - <?php echo htmlspecialchars( $value1["rua"], ENT_COMPAT, 'UTF-8', FALSE ); ?>.</p>
         <p class="txt-produto">Categoria - <?php echo htmlspecialchars( $value1["categoria"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
-        <div class="foto-vendedor">
+        <div class="foto-produto-vendedor d-flex justify-content-center align-items-center">
           <img
+
             src="/bioloOnline/src/resources/<?php echo htmlspecialchars( $value1["foto_fornecedor"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
             alt=""
           />

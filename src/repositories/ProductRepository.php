@@ -70,6 +70,19 @@ class ProductRepository implements IProductRepository
 
         return $execute_query;
     }
+
+    public function alterStateById(int $provider_id, int $state)
+    {
+        return $this->sql->query(
+            "UPDATE produto SET estado = :estado
+             WHERE id = :id;",
+            [
+                ":id" => $provider_id,
+                ":estado" => $state
+            ]
+        );
+    }
+
     public function delete(ProductProvider $product)
     {
     }

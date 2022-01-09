@@ -27,7 +27,10 @@ textarea {
   background: #2a2d3a !important;
   border: none !important;
 }
-
+.card{
+  width: 200px !important;
+  height: 400px;
+}
 /*=============BOTÕES=================*/
 
 /*--------Botões do menu---------------*/
