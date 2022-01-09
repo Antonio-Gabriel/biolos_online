@@ -68,6 +68,7 @@
 
 <!------------PRODUTOS------------------->
 <!------------PRODUTOS------------------->
+<?php if( $products ){ ?>
 <section id="" class="" style="margin-top: 20px !important; margin-bottom: 0px">
   <div class="container">
     <div class="lista-produtos">
@@ -182,6 +183,14 @@
     </li>
   </ul>
 </nav>
+
+<?php }else{ ?>
+
+<div class="container">
+  <h2 style="color: white; margin-top: 30px">Sem produtos</h2>
+</div>
+
+<?php } ?>
 <script>
   var tooltipTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="tooltip"]')
