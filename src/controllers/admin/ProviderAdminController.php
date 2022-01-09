@@ -10,12 +10,14 @@ use Vendor\models\Provider;
 use Vendor\validators\Password;
 use Vendor\validators\Middleware;
 
+use Vendor\usecases\admin\GetPaginate;
 use Vendor\usecases\admin\GetProducts;
 use Vendor\usecases\admin\DeleteProduct;
 use Vendor\usecases\admin\UpdateAccount;
 use Vendor\usecases\admin\AlterStateById;
 use Vendor\usecases\admin\GetProviderData;
 use Vendor\usecases\admin\GetCurrentProvider;
+use Vendor\usecases\admin\GetPaginateBySearch;
 use Vendor\usecases\admin\GetCategoryByProvider;
 
 use Psr\Http\Message\ResponseInterface;
@@ -32,6 +34,40 @@ class ProviderAdminController
         $status = $req->getQueryParams()["status"] ?? 0;
         $template = new RainTpl("views/admin/");
 
+        $search_input = @$req->getQueryParams()["search"];
+        $page = @$req->getQueryParams()["page"];
+        $category = @$req->getQueryParams()["category"];
+
+        $search = isset($search_input) ? $search_input : '';
+        $currentPage = isset($page) ? (int)$page : 1;
+
+        if ($search !== "") {
+            $paginateBySearch = new GetPaginateBySearch();
+            $pagination = $paginateBySearch->execute(
+                $search,
+                intval($_SESSION["provider"][0]["id"]),
+                $category,
+                $currentPage
+            );
+        } else {
+            $paginate = new GetPaginate();
+            $pagination = $paginate->execute(
+                $currentPage,
+                intval($_SESSION["provider"][0]["id"])
+            );
+        }
+
+        $pages = [];
+        for ($i = 0; $i < $pagination['pages']; $i++) {
+            array_push($pages, [
+                'href' => '/bioloOnline/provider-admin?' . http_build_query([
+                    'page' => $i + 1,
+                    'search' => $search
+                ]),
+                'text' => $i + 1
+            ]);
+        }
+
         $currentProvider = new GetCurrentProvider();
         $provider = $currentProvider->execute(intval($_SESSION["provider"][0]["id"]));
 
@@ -45,7 +81,10 @@ class ProviderAdminController
             "provider" => $provider,
             "status_code" => intval($status),
             "categories" => $categories,
-            "products" => $productList,
+            "products" => $pagination['data'],
+            'search' => $search,
+            'pages' => $pages,
+            "totalProduct" => count($productList)
         ]);
     }
 

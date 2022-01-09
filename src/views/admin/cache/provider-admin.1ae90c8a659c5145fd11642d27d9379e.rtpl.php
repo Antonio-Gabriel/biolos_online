@@ -44,7 +44,7 @@
               class="d-flex align-items-center flex-column justify-content-center text-dark"
             >
               <p>Produtos</p>
-              <h4>395</h4>
+              <h4><?php echo htmlspecialchars( $totalProduct, ENT_COMPAT, 'UTF-8', FALSE ); ?></h4>
             </div>
             <div class="">
               <div
@@ -78,29 +78,36 @@
   <div class="container">
     <div class="lista-produtos">
       <div class="row">
-        <input
-          class="form-control col-sm-12 col-md-8 my-1 mx-3 ml-3"
-          style="padding: 5px 10px; border-radius: 10px"
-          type="text"
-          name="search"
-          placeholder="Pesquisar por produtos"
-        />
-        <select
-          class="form-control col-sm-12 col-md-3 my-1 mr-2 ml-3"
-          name="category"
-          id=""
-          style="
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 10px;
-            background: #2a2d3a;
-          "
+        <form
+          action="/bioloOnline/provider-admin"
+          method="get"
+          class="col-sm-12 col-md-12 my-1 mx-3 ml-3 d-inline-flex align-content-center justify-content-between"
         >
-          <?php $counter1=-1;  if( isset($categories) && ( is_array($categories) || $categories instanceof Traversable ) && sizeof($categories) ) foreach( $categories as $key1 => $value1 ){ $counter1++; ?>
-          <option value="<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
-          <?php } ?>
-        </select>
+          <input
+            class="form-control col-md-8"
+            style="padding: 5px 10px; border-radius: 10px; color: white"
+            type="text"
+            name="search"
+            value="<?php echo htmlspecialchars( $search, ENT_COMPAT, 'UTF-8', FALSE ); ?>"
+            placeholder="Pesquisar por produtos"
+          />
+
+          <select
+            class="form-control col-sm-12 col-md-3 my-1"
+            name="category"
+            style="
+              color: #fff;
+              border: none;
+              padding: 5px 10px;
+              border-radius: 10px;
+              background: #2a2d3a;
+            "
+          >
+            <?php $counter1=-1;  if( isset($categories) && ( is_array($categories) || $categories instanceof Traversable ) && sizeof($categories) ) foreach( $categories as $key1 => $value1 ){ $counter1++; ?>
+            <option value="<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
+            <?php } ?>
+          </select>
+        </form>
       </div>
       <!------------PRODUTOS------------------->
       <!------------PRODUTOS------------------->
@@ -173,21 +180,11 @@
 <!--==============PAGINAÇÃO==============-->
 <nav class="paginacao" aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
+    <?php $counter1=-1;  if( isset($pages) && ( is_array($pages) || $pages instanceof Traversable ) && sizeof($pages) ) foreach( $pages as $key1 => $value1 ){ $counter1++; ?>
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
+      <a class="page-link" href="<?php echo htmlspecialchars( $value1["href"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["text"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
+    <?php } ?>
   </ul>
 </nav>
 

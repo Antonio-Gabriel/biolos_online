@@ -173,4 +173,72 @@ class ProductRepository implements IProductRepository
             ]
         );
     }
+
+    public function getPaginate(int $page = 1, int $provider_id = 0, int $itemsPerPage = 15)
+    {
+        $start = ($page - 1) * $itemsPerPage;
+
+        $result = $this->sql->select(
+            "SELECT SQL_CALC_FOUND_ROWS 
+             pf.produto_id, pf.fornecedor_id, p.nome, 
+             p.preco, p.descricao, p.foto, p.estado
+
+             FROM produtofornecedor pf
+             LEFT JOIN produto p ON pf.produto_id = p.id
+             LEFT JOIN categoria c ON p.categoria_id = c.id
+             WHERE pf.fornecedor_id = :provider
+             ORDER BY p.nome
+             LIMIT $start, $itemsPerPage;",
+            [
+                ":provider" => $provider_id
+            ]
+        );
+
+        $totalItems = $this->sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+        return [
+            'data' => $result,
+            'total' => (int)$totalItems[0]['nrtotal'],
+            'pages' => ceil($totalItems[0]['nrtotal'] / $itemsPerPage)
+        ];
+    }
+
+    public function getPaginateBySearch(
+        string $search,
+        int $provider_id,
+        int $category_id,
+        int $page = 1,
+        int $itemsPerPage = 15
+    ) {
+        $start = ($page - 1) * $itemsPerPage;
+
+        $search = "%$search%";
+
+        $result = $this->sql->select(
+            "SELECT SQL_CALC_FOUND_ROWS 
+             pf.produto_id, pf.fornecedor_id, p.nome, 
+             p.preco, p.descricao, p.foto, p.estado
+
+             FROM produtofornecedor pf
+             LEFT JOIN produto p ON pf.produto_id = p.id
+             LEFT JOIN categoria c ON p.categoria_id = c.id
+             WHERE pf.fornecedor_id = :provider 
+             AND p.nome LIKE :search AND c.id = :category_id
+             ORDER BY p.nome
+             LIMIT $start, $itemsPerPage;",
+            [
+                ":search" => $search,
+                ":provider" => $provider_id,
+                ":category_id" => $category_id
+            ]
+        );
+
+        $totalItems = $this->sql->select("SELECT FOUND_ROWS() AS nrtotal;");
+
+        return [
+            'data' => $result,
+            'total' => (int)$totalItems[0]['nrtotal'],
+            'pages' => ceil($totalItems[0]['nrtotal'] / $itemsPerPage)
+        ];
+    }
 }

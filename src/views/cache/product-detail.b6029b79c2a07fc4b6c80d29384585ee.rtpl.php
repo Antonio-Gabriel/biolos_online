@@ -36,6 +36,7 @@
         >
           <strong style="font-size: 20px">Preço: <?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?> Kz</strong>
           <p><?php echo htmlspecialchars( $value1["email"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+          <span><?php echo htmlspecialchars( $value1["contacto"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
         </div>
         <p
           class="descricao-detalhe-produto d-flex justify-content-center align-items-center text-center"

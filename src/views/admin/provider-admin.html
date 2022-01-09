@@ -44,7 +44,7 @@
               class="d-flex align-items-center flex-column justify-content-center text-dark"
             >
               <p>Produtos</p>
-              <h4>395</h4>
+              <h4>{$totalProduct}</h4>
             </div>
             <div class="">
               <div
@@ -78,29 +78,36 @@
   <div class="container">
     <div class="lista-produtos">
       <div class="row">
-        <input
-          class="form-control col-sm-12 col-md-8 my-1 mx-3 ml-3"
-          style="padding: 5px 10px; border-radius: 10px"
-          type="text"
-          name="search"
-          placeholder="Pesquisar por produtos"
-        />
-        <select
-          class="form-control col-sm-12 col-md-3 my-1 mr-2 ml-3"
-          name="category"
-          id=""
-          style="
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 10px;
-            background: #2a2d3a;
-          "
+        <form
+          action="/bioloOnline/provider-admin"
+          method="get"
+          class="col-sm-12 col-md-12 my-1 mx-3 ml-3 d-inline-flex align-content-center justify-content-between"
         >
-          {loop="$categories"}
-          <option value="{$value.id}">{$value.nome}</option>
-          {/loop}
-        </select>
+          <input
+            class="form-control col-md-8"
+            style="padding: 5px 10px; border-radius: 10px; color: white"
+            type="text"
+            name="search"
+            value="{$search}"
+            placeholder="Pesquisar por produtos"
+          />
+
+          <select
+            class="form-control col-sm-12 col-md-3 my-1"
+            name="category"
+            style="
+              color: #fff;
+              border: none;
+              padding: 5px 10px;
+              border-radius: 10px;
+              background: #2a2d3a;
+            "
+          >
+            {loop="$categories"}
+            <option value="{$value.id}">{$value.nome}</option>
+            {/loop}
+          </select>
+        </form>
       </div>
       <!------------PRODUTOS------------------->
       <!------------PRODUTOS------------------->
@@ -173,21 +180,11 @@
 <!--==============PAGINAÇÃO==============-->
 <nav class="paginacao" aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
+    {loop="$pages"}
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
+      <a class="page-link" href="{$value.href}">{$value.text}</a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
+    {/loop}
   </ul>
 </nav>
 
