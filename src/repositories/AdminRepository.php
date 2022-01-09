@@ -129,7 +129,9 @@ class AdminRepository implements IAdminRepository
     public function getCurrentProvider(int $provider_id)
     {
         return $this->sql->select(
-            "SELECT * FROM fornecedor f LEFT JOIN 
+            "SELECT f.id, f.nome, f.contacto, f.email, 
+             f.rua, f.bairro, f.cidade, c.foto, c.password  
+             FROM fornecedor f LEFT JOIN 
              conta c ON f.id = c.fornecedor_id WHERE f.id = :id;",
             [
                 ":id" => $provider_id,

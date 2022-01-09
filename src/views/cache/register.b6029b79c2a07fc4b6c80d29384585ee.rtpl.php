@@ -2,7 +2,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-  <a href="home" class="navbar-brand logo">
+  <a href="/bioloOnline/" class="navbar-brand logo">
     <img
       src="/bioloOnline/src/assets/images/logo-44x44.png"
       class="img-responsive"
@@ -25,7 +25,7 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto"></ul>
     <span class="navbar-text">
-      <a href="home">Back to home</a>
+      <a href="/bioloOnline/home">Back to home</a>
     </span>
   </div>
 </nav>
@@ -37,7 +37,7 @@
       <div class="login">
         <div class="form">
           <form
-            action="create"
+            action="/bioloOnline/create"
             method="post"
             class="needs-validation"
             novalidate
@@ -134,12 +134,12 @@
               Cadastrar
             </button>
 
-            <a href="create-account" style="margin-left: 8px"
+            <a href="/bioloOnline/create-account" style="margin-left: 8px"
               >Criar conta fornecedor</a
             >
 
             <br /><br />
-            <a href="login-admin" style="margin-left: 8px">Login</a>
+            <a href="/bioloOnline/login-admin" style="margin-left: 8px">Login</a>
           </form>
         </div>
       </div>

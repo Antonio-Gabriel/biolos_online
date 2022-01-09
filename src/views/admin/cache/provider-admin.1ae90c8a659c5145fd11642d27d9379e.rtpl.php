@@ -6,9 +6,7 @@
     <div class="alert alert-primary" role="alert">
       Perfil Actualizado com sucesso!
     </div>
-    <?php } ?> <?php } ?>
-
-    <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 202 ){ ?>
+    <?php } ?> <?php } ?> <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 202 ){ ?>
     <div class="alert alert-primary" role="alert">
       Produto Actualizado com sucesso!
     </div>
@@ -16,7 +14,7 @@
 
     <div class="row">
       <div class="col-md-4 d-flex justify-content-center">
-        <?php $counter1=-1;  if( isset($provider) && ( is_array($provider) || $provider instanceof Traversable ) && sizeof($provider) ) foreach( $provider as $key1 => $value1 ){ $counter1++; ?>
+        <?php $counter1=-1;  if( isset($provider) && ( is_array($provider) || $provider instanceof Traversable ) && sizeof($provider) ) foreach( $provider as $key1 => $value1 ){ $counter1++; ?>        
         <img
           id="provider-image"
           class="img-fluid rounded"
@@ -105,7 +103,6 @@
           <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
 
           <div
-          
             class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center"
           >
             <div class="pro d-flex flex-column justify-content-center">
@@ -113,7 +110,12 @@
                 href="/bioloOnline/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/details/<?php echo htmlspecialchars( $value1["fornecedor_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
               >
                 <img
-                  class="img-fluid"style="width:280px !important; height:400px; margin-top: 10px;"
+                  class="img-fluid"
+                  style="
+                    width: 280px !important;
+                    height: 400px;
+                    margin-top: 10px;
+                  "
                   src="/bioloOnline/src/resources/<?php echo htmlspecialchars( $value1["foto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
                 />
               </a>

@@ -23,6 +23,7 @@ class ProviderAdminController
 
     public function handle(ServerRequestInterface $req)
     {
+
         Middleware::isProviderAuthenticated();
 
         $status = $req->getQueryParams()["status"] ?? 0;
