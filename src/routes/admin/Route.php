@@ -15,12 +15,14 @@ $app->get('/create-account', [new RegisterController, 'handle']);
 $app->post('/admin-create', [new RegisterController, 'create']);
 
 // Provider
-$app->get('/provider-admin', [new ProviderAdminController, 'handle']);
-$app->get('/edit-profile', [new ProviderAdminController, 'profile']);
 $app->post('/edit', [new ProviderAdminController, 'edit']);
+$app->get('/edit-profile', [new ProviderAdminController, 'profile']);
+$app->get('/provider-admin', [new ProviderAdminController, 'handle']);
+$app->get('/product/{id}/state/{state}', [new ProviderAdminController, 'alterState']);
+$app->get('/product/{id}/delete', [new ProviderAdminController, 'delete']);
 
 // Product
-$app->get('/add-product', [new ProductController, 'handle']);
-$app->get('/product/{id}/edit', [new ProductController, 'show']);
 $app->post('/add', [new ProductController, 'add']);
+$app->get('/add-product', [new ProductController, 'handle']);
 $app->post('/product-edit', [new ProductController, 'edit']);
+$app->get('/product/{id}/edit', [new ProductController, 'show']);

@@ -3,18 +3,23 @@
 <section id="fornecedor">
   <div class="container">
     {if="$status_code !== 0"} {if="$status_code === 200"}
-    <div class="alert alert-primary" role="alert">
+    <div class="alert alert-success" role="alert">
       Perfil Actualizado com sucesso!
     </div>
+
+    {/if} {/if} {if="$status_code !== 0"} {if="$status_code === 201"}
+    <div class="alert alert-success" role="alert">
+      Produto removido com sucesso!
+    </div>
     {/if} {/if} {if="$status_code !== 0"} {if="$status_code === 202"}
-    <div class="alert alert-primary" role="alert">
+    <div class="alert alert-success" role="alert">
       Produto Actualizado com sucesso!
     </div>
     {/if} {/if}
 
     <div class="row">
       <div class="col-md-4 d-flex justify-content-center">
-        {loop="$provider"}        
+        {loop="$provider"}
         <img
           id="provider-image"
           class="img-fluid rounded"
@@ -135,11 +140,13 @@
 
               <div class="info-produto my-2">
                 {if="$value.estado === '0'"}
-                <a href="/bioloOnline/product/{$value.produto_id}/state"
+                <a
+                  href="/bioloOnline/product/{$value.produto_id}/state/{$value.estado}"
                   >Activar</a
                 >
                 {else}
-                <a href="/bioloOnline/product/{$value.produto_id}/state"
+                <a
+                  href="/bioloOnline/product/{$value.produto_id}/state/{$value.estado}"
                   >Desactivar</a
                 >
                 {/if}

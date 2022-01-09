@@ -71,23 +71,26 @@ class ProductRepository implements IProductRepository
         return $execute_query;
     }
 
-    public function alterStateById(int $provider_id, int $state)
+    public function alterStateById(int $product_id, int $state)
     {
         return $this->sql->query(
             "UPDATE produto SET estado = :estado
              WHERE id = :id;",
             [
-                ":id" => $provider_id,
+                ":id" => $product_id,
                 ":estado" => $state
             ]
         );
     }
 
-    public function delete(ProductProvider $product)
+    public function delete(int $produto_id)
     {
-    }
-    public function remove(ProductProvider $product)
-    {
+        return $this->sql->query(
+            "DELETE FROM produto WHERE id = :id;",
+            [
+                ":id" => $produto_id
+            ]
+        );
     }
 
     public function get(int $provider_id)

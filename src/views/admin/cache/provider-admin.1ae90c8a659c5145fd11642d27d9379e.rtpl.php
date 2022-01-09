@@ -3,18 +3,23 @@
 <section id="fornecedor">
   <div class="container">
     <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 200 ){ ?>
-    <div class="alert alert-primary" role="alert">
+    <div class="alert alert-success" role="alert">
       Perfil Actualizado com sucesso!
     </div>
+
+    <?php } ?> <?php } ?> <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 201 ){ ?>
+    <div class="alert alert-success" role="alert">
+      Produto removido com sucesso!
+    </div>
     <?php } ?> <?php } ?> <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 202 ){ ?>
-    <div class="alert alert-primary" role="alert">
+    <div class="alert alert-success" role="alert">
       Produto Actualizado com sucesso!
     </div>
     <?php } ?> <?php } ?>
 
     <div class="row">
       <div class="col-md-4 d-flex justify-content-center">
-        <?php $counter1=-1;  if( isset($provider) && ( is_array($provider) || $provider instanceof Traversable ) && sizeof($provider) ) foreach( $provider as $key1 => $value1 ){ $counter1++; ?>        
+        <?php $counter1=-1;  if( isset($provider) && ( is_array($provider) || $provider instanceof Traversable ) && sizeof($provider) ) foreach( $provider as $key1 => $value1 ){ $counter1++; ?>
         <img
           id="provider-image"
           class="img-fluid rounded"
@@ -135,11 +140,13 @@
 
               <div class="info-produto my-2">
                 <?php if( $value1["estado"] === '0' ){ ?>
-                <a href="/bioloOnline/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/state"
+                <a
+                  href="/bioloOnline/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/state/<?php echo htmlspecialchars( $value1["estado"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
                   >Activar</a
                 >
                 <?php }else{ ?>
-                <a href="/bioloOnline/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/state"
+                <a
+                  href="/bioloOnline/product/<?php echo htmlspecialchars( $value1["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/state/<?php echo htmlspecialchars( $value1["estado"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
                   >Desactivar</a
                 >
                 <?php } ?>

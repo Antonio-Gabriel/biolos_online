@@ -11,11 +11,14 @@ use Vendor\validators\Password;
 use Vendor\validators\Middleware;
 
 use Vendor\usecases\admin\GetProducts;
+use Vendor\usecases\admin\DeleteProduct;
 use Vendor\usecases\admin\UpdateAccount;
+use Vendor\usecases\admin\AlterStateById;
 use Vendor\usecases\admin\GetProviderData;
 use Vendor\usecases\admin\GetCurrentProvider;
 use Vendor\usecases\admin\GetCategoryByProvider;
 
+use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
 class ProviderAdminController
@@ -149,5 +152,42 @@ class ProviderAdminController
 
             exit();
         }
+    }
+
+    public function alterState(
+        ServerRequestInterface $req,
+        ResponseInterface $res,
+        $args = []
+    ) {
+        $alterState = new AlterStateById();
+
+        $state = (intval($args["state"]) === 0) ? 1 : 0;
+
+        $response = $alterState->execute(intval($args["id"]), $state);
+
+        if ($response) {
+            header("Location: /bioloOnline/provider-admin");
+            exit();
+        }
+
+        header("Location: /bioloOnline/provider-admin?status=402");
+        exit();
+    }
+
+    public function delete(
+        ServerRequestInterface $req,
+        ResponseInterface $res,
+        $args = []
+    ) {
+        $deleteProduct = new DeleteProduct();
+        $response = $deleteProduct->execute(intval($args["id"]));
+
+        if ($response) {
+            header("Location: /bioloOnline/provider-admin?status=201");
+            exit();
+        }
+
+        header("Location: /bioloOnline/provider-admin?status=402");
+        exit();
     }
 }
