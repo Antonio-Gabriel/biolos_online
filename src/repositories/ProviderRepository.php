@@ -28,7 +28,7 @@ class ProviderRepository implements IProviderRepository
              LIMIT $start, $itemsPerPage;"
         );
 
-        $totalItems = $this->sql->select("SELECT FOUND_ROWS() AS nrtotal;");        
+        $totalItems = $this->sql->select("SELECT FOUND_ROWS() AS nrtotal;");
 
         return [
             'data' => $result,

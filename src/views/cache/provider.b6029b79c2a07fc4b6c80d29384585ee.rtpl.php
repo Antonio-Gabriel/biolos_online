@@ -32,9 +32,11 @@
       <section id="vendedor" style="margin-top: 10px">
         <div class="container">
           <div class="row">
-            <?php $counter1=-1;  if( isset($providers) && ( is_array($providers) || $providers instanceof Traversable ) && sizeof($providers) ) foreach( $providers as $key1 => $value1 ){ $counter1++; ?>            
-            <div class="col-md-3">             
-              <span class="activo"><?php echo GetTotalProductsByProvider($value1["id"]); ?></span>
+            <?php $counter1=-1;  if( isset($providers) && ( is_array($providers) || $providers instanceof Traversable ) && sizeof($providers) ) foreach( $providers as $key1 => $value1 ){ $counter1++; ?>
+            <div class="col-md-3">
+              <span class="activo"
+                ><?php echo GetTotalProductsByProvider($value1["id"]); ?></span
+              >
               <img src="/bioloOnline/src/resources/<?php echo htmlspecialchars( $value1["foto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" />
               <div class="online"></div>
               <a

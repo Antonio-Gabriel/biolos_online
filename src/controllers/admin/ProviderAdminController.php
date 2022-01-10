@@ -62,7 +62,8 @@ class ProviderAdminController
             array_push($pages, [
                 'href' => '/bioloOnline/provider-admin?' . http_build_query([
                     'page' => $i + 1,
-                    'search' => $search
+                    'search' => $search,
+                    'category' => $category
                 ]),
                 'text' => $i + 1
             ]);

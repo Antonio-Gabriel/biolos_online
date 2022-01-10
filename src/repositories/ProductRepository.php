@@ -159,6 +159,11 @@ class ProductRepository implements IProductRepository
         );
     }
 
+    public function getTotalReactions()
+    {
+        return $this->sql->select("");
+    }
+
     public function verifyExistentProduct(string $name, int $category_id, int $provider)
     {
         return $this->sql->select(
@@ -182,7 +187,7 @@ class ProductRepository implements IProductRepository
             "SELECT SQL_CALC_FOUND_ROWS 
              pf.produto_id, pf.fornecedor_id, p.nome, 
              p.preco, p.descricao, p.foto, p.estado
-
+             
              FROM produtofornecedor pf
              LEFT JOIN produto p ON pf.produto_id = p.id
              LEFT JOIN categoria c ON p.categoria_id = c.id
@@ -217,7 +222,7 @@ class ProductRepository implements IProductRepository
         $result = $this->sql->select(
             "SELECT SQL_CALC_FOUND_ROWS 
              pf.produto_id, pf.fornecedor_id, p.nome, 
-             p.preco, p.descricao, p.foto, p.estado
+             p.preco, p.descricao, p.foto, p.estado             
 
              FROM produtofornecedor pf
              LEFT JOIN produto p ON pf.produto_id = p.id

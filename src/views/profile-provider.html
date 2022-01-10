@@ -1,169 +1,97 @@
-{include="shared/Header/header"}
-
+{include="shared/Header/header"} {loop="$profile"}
 <section id="banner-vendedor">
   <div class="img-banner-vendedor"></div>
   <div class="img-vendedor">
-    <img class="img-fluid" src="/bioloOnline/src/assets/images/img-scroll/1.jpg" alt="vendedor" />
-    <p>Mia Ayana</p>
+    <img
+      class="img-fluid"
+      src="/bioloOnline/src/resources/{$value.foto}"
+      alt="vendedor"
+    />
+    <p>{$value.nome}</p>
   </div>
 </section>
 
 <!------------PRODUTOS------------------->
 
-<section
-  id=""
-  class=""
-  style="margin-top: 150px !important; margin-bottom: 0px"
->
+{if="$products"}
+<section style="margin-top: 150px !important; margin-bottom: 0px">
   <div class="container">
-    <div class="lista-produtos">
-      <div class="row">
-        <input
-          class="form- col-md-8"
-          style="
-            margin-left: 28px;
-            margin-right: 18px;
-            padding: 5px 10px;
-            border-radius: 10px;
-          "
-          type="text"
-          name=""
-          id=""
-          placeholder="Pesquisar por produtos"
-        />
-        <select
-          class="col-md-3"
-          name=""
-          id=""
-          style="
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 10px;
-            background: #2a2d3a;
-          "
+    <div class="lista-produtos">      
+      <div class="row">  
+        <form
+          action="/bioloOnline/profile-provider/{$value.id}"
+          method="get"
+          class="col-md-12 d-flex"
         >
-          <option value="">Minhas Categorias</option>
-          <option value="1">Roupas</option>
-          <option value="2">Calsados</option>
-        </select>
-      </div>
-     <!------------PRODUTOS------------------->
-<section id="produtos"  style="margin-top: 10px;">
-  <div class="container">
-    <div class="row d-flex justify-content-center">
-      <div class="card col-sm-12 col-md-3" style="width: 18rem;">
-        <a href="#">
-          <img class="card-img-top" src="src/assets/images/vestuarios/casaco-amarelo.jpg" alt="Imagem de capa do card">
-        </a>
-        <div class="card-body">
-          <p class="card-text">Casaco Amarelo</p>
+          <input
+            class="form-control col-md-8"
+            style="
+              margin-left: 28px;
+              margin-right: 18px;
+              padding: 5px 10px;
+              border-radius: 10px;
+              color: white;
+            "
+            type="text"
+            name="search"
+            value="{$search}"
+            placeholder="Pesquisar por produtos"
+          />
+          <select
+            class="col-md-3"
+            name="category"
+            style="
+              color: #fff;
+              border: none;
+              padding: 5px 10px;
+              border-radius: 10px;
+              background: #2a2d3a;
+            "
+          >
+            {loop="$categories"}
+            <option value="{$value.id}">{$value.nome}</option>
+            {/loop}
+          </select>
+        </form>      
+      </div>      
+               
+      <!------------PRODUTOS------------------->
+      <section id="produtos" style="margin-top: 10px">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            {$providerId = $value.id}
+            {loop="$products"} {if="$value.estado !== '0'"}
+
+            <div class="card col-sm-12 col-md-3" style="width: 18rem">
+              <a href="/bioloOnline/product/{$value.produto_id}/details/{$providerId}">
+                <img
+                  class="card-img-top"
+                  src="/bioloOnline/src/resources/{$value.foto}"
+                  alt="{$value.descricao}"
+                />
+              </a>
+              <div
+                class="card-body d-flex justify-content-between"
+                style="margin: 0"
+              >
+                <p class="card-text">{$value.nome}</p>
+              </div>
+              <div class="card-info">
+                <p class="card-text">{$value.preco}Kz</p>
+                <p class="card-text">
+                  <a href="#"><i class="fi-rr-heart"></i></a>92
+                </p>
+                <a
+                  href="/bioloOnline/add-cart/{$value.produto_id}"
+                  class="btn btn-login"
+                  >Comprar</a
+                >
+              </div>
+            </div>            
+            {/if} {/loop}
+          </div>
         </div>
-        <div class="card-info">
-          <p class="card-text">1,25kz</p>
-          <p class="card-text"><a href="#"><i class="fi-rr-heart"></i></a>92</p>
-          <a href="#" class="btn btn-login">Comprar</a>
-        </div>
-      </div>
-      <div class="card col-sm-12 col-md-3" style="width: 18rem;">
-        <a href="#">
-          <img class="card-img-top" src="src/assets/images/vestuarios/casaco-amarelo.jpg" alt="Imagem de capa do card">
-        </a>
-        <div class="card-body">
-          <p class="card-text">Casaco Amarelo</p>
-        </div>
-        <div class="card-info">
-          <p class="card-text">1,25kz</p>
-          <p class="card-text"><a href="#"><i class="fi-rr-heart"></i></a>92</p>
-          <a href="#" class="btn btn-login">Comprar</a>
-        </div>
-      </div>
-      <div class="card col-sm-12 col-md-3" style="width: 18rem;">
-        <a href="#">
-          <img class="card-img-top" src="src/assets/images/vestuarios/casaco-amarelo.jpg" alt="Imagem de capa do card">
-        </a>
-        <div class="card-body">
-          <p class="card-text">Casaco Amarelo</p>
-        </div>
-        <div class="card-info">
-          <p class="card-text">1,25kz</p>
-          <p class="card-text"><a href="#"><i class="fi-rr-heart"></i></a>92</p>
-          <a href="#" class="btn btn-login">Comprar</a>
-        </div>
-      </div>
-      <div class="card col-sm-12 col-md-3" style="width: 18rem;">
-        <a href="#">
-          <img class="card-img-top" src="src/assets/images/vestuarios/casaco-amarelo.jpg" alt="Imagem de capa do card">
-        </a>
-        <div class="card-body">
-          <p class="card-text">Casaco Amarelo</p>
-        </div>
-        <div class="card-info">
-          <p class="card-text">1,25kz</p>
-          <p class="card-text"><a href="#"><i class="fi-rr-heart"></i></a>92</p>
-          <a href="#" class="btn btn-login">Comprar</a>
-        </div>
-      </div>
-     
-    </div>
-    <div class="row d-flex justify-content-center">
-      <div class="card col-sm-12 col-md-3" style="width: 18rem;">
-        <a href="#">
-          <img class="card-img-top" src="src/assets/images/vestuarios/casaco-amarelo.jpg" alt="Imagem de capa do card">
-        </a>
-        <div class="card-body">
-          <p class="card-text">Casaco Amarelo</p>
-        </div>
-        <div class="card-info">
-          <p class="card-text">1,25kz</p>
-          <p class="card-text"><a href="#"><i class="fi-rr-heart"></i></a>92</p>
-          <a href="#" class="btn btn-login">Comprar</a>
-        </div>
-      </div>
-      <div class="card col-sm-12 col-md-3" style="width: 18rem;">
-        <a href="#">
-          <img class="card-img-top" src="src/assets/images/vestuarios/casaco-amarelo.jpg" alt="Imagem de capa do card">
-        </a>
-        <div class="card-body">
-          <p class="card-text">Casaco Amarelo</p>
-        </div>
-        <div class="card-info">
-          <p class="card-text">1,25kz</p>
-          <p class="card-text"><a href="#"><i class="fi-rr-heart"></i></a>92</p>
-          <a href="#" class="btn btn-login">Comprar</a>
-        </div>
-      </div>
-      <div class="card col-sm-12 col-md-3" style="width: 18rem;">
-        <a href="#">
-          <img class="card-img-top" src="src/assets/images/vestuarios/casaco-amarelo.jpg" alt="Imagem de capa do card">
-        </a>
-        <div class="card-body">
-          <p class="card-text">Casaco Amarelo</p>
-        </div>
-        <div class="card-info">
-          <p class="card-text">1,25kz</p>
-          <p class="card-text"><a href="#"><i class="fi-rr-heart"></i></a>92</p>
-          <a href="#" class="btn btn-login">Comprar</a>
-        </div>
-      </div>
-      <div class="card col-sm-12 col-md-3" style="width: 18rem;">
-        <a href="#">
-          <img class="card-img-top" src="src/assets/images/vestuarios/casaco-amarelo.jpg" alt="Imagem de capa do card">
-        </a>
-        <div class="card-body">
-          <p class="card-text">Casaco Amarelo</p>
-        </div>
-        <div class="card-info">
-          <p class="card-text">1,25kz</p>
-          <p class="card-text"><a href="#"><i class="fi-rr-heart"></i></a>92</p>
-          <a href="#" class="btn btn-login">Comprar</a>
-        </div>
-      </div>
-     
-    </div>
-    
-  </div>
-</section>
+      </section>
     </div>
   </div>
 </section>
@@ -172,21 +100,22 @@
 <!--==============PAGINAÇÃO==============-->
 <nav class="paginacao" aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
+    {loop="$pages"}
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
+      <a class="page-link" href="{$value.href}">{$value.text}</a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
+    {/loop}
   </ul>
 </nav>
-{include="shared/Footer/footer"}
+
+{else}
+
+<section>
+  <div class="container">
+    <h1 style="color: white; font-size: 30px; margin-top: 160px">
+      Sem Produtos
+    </h1>
+  </div>
+</section>
+
+{/if} {/loop} {include="shared/Footer/footer"}
