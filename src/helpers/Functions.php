@@ -1,5 +1,7 @@
 <?php
 
+use Vendor\usecases\admin\GetProducts;
+
 function url($endPoint)
 {
     //echo $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "bioloOnline" . "/";
@@ -15,4 +17,10 @@ function formatNumber($num)
         ",",
         "."
     );
+}
+
+function GetTotalProductsByProvider(int $provider_id)
+{
+    $getProducts = new GetProducts();
+    return count($getProducts->execute($provider_id));
 }
