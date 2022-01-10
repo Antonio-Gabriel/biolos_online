@@ -38,7 +38,7 @@ class ProviderAdminController
         $page = @$req->getQueryParams()["page"];
         $category = @$req->getQueryParams()["category"];
 
-        $search = isset($search_input) ? $search_input : '';
+        $search = isset($search_input) ? $search_input : "";
         $currentPage = isset($page) ? (int)$page : 1;
 
         if ($search !== "") {
@@ -82,8 +82,8 @@ class ProviderAdminController
             "status_code" => intval($status),
             "categories" => $categories,
             "products" => $pagination['data'],
-            'search' => $search,
-            'pages' => $pages,
+            "search" => $search,
+            "pages" => $pages,
             "totalProduct" => count($productList)
         ]);
     }

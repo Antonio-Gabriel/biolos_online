@@ -135,7 +135,7 @@
     <li class="page-item">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">Last</span>
       </a>
     </li>
   </ul>
