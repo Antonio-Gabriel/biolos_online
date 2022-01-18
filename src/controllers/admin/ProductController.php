@@ -151,9 +151,11 @@ class ProductController
 
             $upload = new Upload();
 
+            $numberFormat = str_replace(".", "", $req->getParsedBody()["price"]);
+
             $product = new Product(
                 $state,
-                formatNumber($req->getParsedBody()["price"]),
+                formatNumber(substr($numberFormat, 0, strlen($numberFormat) - 3)),
                 $req->getParsedBody()["name"],
                 (empty($_FILES["photo"]["name"]) ? $req->getParsedBody()["photo"] : $upload->UploadPhoto()),
                 $req->getParsedBody()["description"],
