@@ -7,6 +7,11 @@
       Perfil Actualizado com sucesso!
     </div>
 
+    <?php } ?> <?php } ?> <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 203 ){ ?>
+    <div class="alert alert-success" role="alert">
+      Estado Actualizado com sucesso!
+    </div>
+
     <?php } ?> <?php } ?> <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 201 ){ ?>
     <div class="alert alert-success" role="alert">
       Produto removido com sucesso!
