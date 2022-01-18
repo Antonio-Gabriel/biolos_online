@@ -8,7 +8,7 @@ class Product
 {
     public int $id;
     public int $state;
-    public float $price;
+    public string $price;
     public string $name;
     public string $foto;
     public string $description;
@@ -17,7 +17,7 @@ class Product
 
     public function __construct(
         int $state,
-        float $price,
+        string $price,
         string $name,
         string $foto,
         string $description,

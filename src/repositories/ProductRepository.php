@@ -151,7 +151,7 @@ class ProductRepository implements IProductRepository
              pf.produto_id = p.id LEFT JOIN categoria c ON
              p.categoria_id = c.id LEFT JOIN fornecedor f ON
              pf.fornecedor_id = f.id LEFT JOIN conta ct ON
-             f.id = ct.id WHERE pf.fornecedor_id = :provider and p.id = :product;",
+             f.id = ct.fornecedor_id WHERE pf.fornecedor_id = :provider and p.id = :product;",
             [
                 ":provider" => $provider_id,
                 ":product" => $product_id

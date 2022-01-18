@@ -76,7 +76,6 @@ class ProductController
     public function add(ServerRequestInterface $req)
     {
         try {
-            //code...                           
 
             $state = (
                 (@$req->getParsedBody()["state"] === "on" &&
@@ -136,7 +135,6 @@ class ProductController
     public function edit(ServerRequestInterface $req)
     {
         try {
-            //code...                           
 
             $state = (
                 (@$req->getParsedBody()["state"] === "on" &&
