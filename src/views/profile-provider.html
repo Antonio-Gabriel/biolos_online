@@ -7,7 +7,7 @@
       src="/bioloOnline/src/resources/{$value.foto}"
       alt="vendedor"
     />
-    <p>{$value.nome}</p>
+    <p>{$value.nome}</p>        
   </div>
 </section>
 
@@ -54,12 +54,13 @@
           </select>
         </form>      
       </div>      
-               
+
       <!------------PRODUTOS------------------->
       <section id="produtos" style="margin-top: 10px">
         <div class="container">
           <div class="row d-flex justify-content-center">
             {$providerId = $value.id}
+            {$globalProviderId = $provider[0]["id"] ?? 0}
             {loop="$products"} {if="$value.estado !== '0'"}
 
             <div class="card col-sm-12 col-md-3" style="width: 18rem">
@@ -74,18 +75,21 @@
                 class="card-body d-flex justify-content-between"
                 style="margin: 0"
               >
-                <p class="card-text">{$value.nome}</p>
+                <p class="card-text">{$value.nome}</p>                
               </div>
               <div class="card-info">
                 <p class="card-text">{$value.preco}Kz</p>
                 <p class="card-text">
                   <a href="#"><i class="fi-rr-heart"></i></a>92
                 </p>
-                <a
-                  href="/bioloOnline/add-cart/{$value.produto_id}"
-                  class="btn btn-login"
-                  >Comprar</a
-                >
+                {if="$globalProviderId !== $value.fornecedor_id"}
+                  <a
+                    href="/bioloOnline/add-cart/{$value.produto_id}"
+                    class="btn btn-login"
+                    >
+                    Comprar
+                  </a>
+                {/if}
               </div>
             </div>            
             {/if} {/loop}
