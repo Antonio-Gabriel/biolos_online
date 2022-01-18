@@ -21,6 +21,16 @@ function formatNumber($num)
 
 function GetTotalProductsByProvider(int $provider_id)
 {
+    $productStorage = [];
     $getProducts = new GetProducts();
-    return count($getProducts->execute($provider_id));
+    $productsList = $getProducts->execute($provider_id);
+
+    foreach ($productsList as $value) {
+        $productObj = (object) $value;
+        if ((int)$productObj->estado !== 0) {
+            array_push($productStorage, $value);
+        }
+    }
+
+    return count($productStorage);
 }
