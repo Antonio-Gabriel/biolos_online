@@ -63,10 +63,13 @@ class ProfileProviderController
         $categoryByProvider = new GetCategoryByProvider();
         $categories = $categoryByProvider->execute(intval($args["id"]));
 
+        $productFilter = GetTotalProductsByProvider(intval($provider[0]["id"]));
+
         return $template->setTpl("profile-provider", [
             "provider" => @$_SESSION["provider"],
             "profile" => $provider,
             "products" => $pagination["data"],
+            "productFilter" => $productFilter,
             "categories" => $categories,
             "search" => $search,
             "pages" => $pages
