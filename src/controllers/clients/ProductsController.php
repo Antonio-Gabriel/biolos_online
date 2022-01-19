@@ -52,6 +52,7 @@ class ProductsController
 
         return $template->setTpl("products", [
             "provider" => @$_SESSION["provider"],
+            "client" => @$_SESSION["client"],
             "categories" => $categoryData,
             "products" => $pagination['data'],
             "search" => $search,

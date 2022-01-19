@@ -46,6 +46,7 @@ class ProviderController
 
         return $template->setTpl("provider", [
             "provider" => @$_SESSION["provider"],
+            "client" => @$_SESSION["client"],
             "providers" => $pagination["data"],
             "search" => $search,
             "pages" => $pages

@@ -52,10 +52,24 @@
         <a class="nav-link" href="/bioloOnline/providers">Vendedores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/bioloOnline/cart">Carrinho</a>
+        <a class="nav-link" href="/bioloOnline/cart">Carrinho(0)</a>
       </li>
 
-      <?php if( !$provider ){ ?>
+      <?php if( $client ){ ?>
+      <li class="nav-item">
+        <a
+          class="nav-link btn btn-warning btn-conta"
+          href="/bioloOnline/logout"
+          style="
+            padding: 10px 30px;
+            border: none !important;
+            background: red !important;
+            color: white !important;
+          "
+          >Sair</a
+        >
+      </li>
+      <?php }else{ ?> <?php if( !$provider ){ ?>
 
       <li class="nav-item">
         <a
@@ -73,7 +87,6 @@
           >Criar conta</a
         >
       </li>
-
       <?php }else{ ?>
 
       <li class="nav-item">
@@ -98,7 +111,7 @@
         >
       </li>
 
-      <?php } ?>
+      <?php } ?> <?php } ?>
     </ul>
   </div>
 </nav>

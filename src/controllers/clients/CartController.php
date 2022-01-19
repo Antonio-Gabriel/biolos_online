@@ -17,6 +17,7 @@ class CartController
 
         return $template->setTpl("cart", [
             "provider" => @$_SESSION["provider"],
+            "client" => @$_SESSION["client"],
         ]);
     }
 }

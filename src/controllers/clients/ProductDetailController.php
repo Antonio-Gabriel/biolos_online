@@ -23,6 +23,7 @@ class ProductDetailController
 
         return $template->setTpl("product-detail", [
             "provider" => @$_SESSION["provider"],
+            "client" => @$_SESSION["client"],
             "product" => $product,
         ]);
     }

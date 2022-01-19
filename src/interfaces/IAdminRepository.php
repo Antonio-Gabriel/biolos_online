@@ -11,5 +11,4 @@ interface IAdminRepository
     public function delete(int $provider_id);
 
     public function get(int $provider_id);
-    public function getProductsByProvider(int $provider_id);
 }

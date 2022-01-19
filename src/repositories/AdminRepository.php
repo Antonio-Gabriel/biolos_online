@@ -147,12 +147,7 @@ class AdminRepository implements IAdminRepository
                 ":provider_id" => $provider_id
             ]
         );
-    }
-
-    public function getProductsByProvider(int $provider_id)
-    {
-        // Get All products by provider
-    }
+    }  
 
     public function delete(int $provider_id)
     {

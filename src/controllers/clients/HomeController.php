@@ -7,16 +7,10 @@ use Vendor\config\RainTpl;
 use Vendor\usecases\GetAllProviders;
 use Vendor\usecases\GetGlobalProducts;
 
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-
 class HomeController
 {
-    public function handle(
-        ServerRequestInterface $req,
-        ResponseInterface $res,
-        $args = []
-    ) {
+    public function handle()
+    {
         $template = new RainTpl();
 
         $allProviders = new GetAllProviders();

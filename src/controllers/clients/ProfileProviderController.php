@@ -67,6 +67,7 @@ class ProfileProviderController
 
         return $template->setTpl("profile-provider", [
             "provider" => @$_SESSION["provider"],
+            "client" => @$_SESSION["client"],
             "profile" => $provider,
             "products" => $pagination["data"],
             "productFilter" => $productFilter,
