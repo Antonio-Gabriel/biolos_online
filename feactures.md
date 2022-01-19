@@ -16,7 +16,9 @@ Funcionalidades que encontravam-se pendentes na aplicação do Osvaldo já foram
 Em desenvolvimento
 
 Recursos do lado do cliente
-- Login para cliente
-- Lista dos produtos
-- pesquisa dos produtos do lado do cliente
-- Adicionar produtos no carrinho
+- Login para cliente [] -> Osvaldo Cariege
+- Lista dos produtos [x]
+- pesquisa dos produtos do lado do cliente [x]
+- Adicionar produtos no carrinho []
+- Envio de mensagem e email aos fornecedor e comprador []
+- Views ou Reações [] -> Osvaldo Cariege
