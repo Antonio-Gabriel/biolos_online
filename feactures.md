@@ -22,3 +22,4 @@ Recursos do lado do cliente
 - Adicionar produtos no carrinho []
 - Envio de mensagem e email aos fornecedor e comprador []
 - Views ou Reações [] -> Osvaldo Cariege
+- O Cliente apenas compra após ter logado []
