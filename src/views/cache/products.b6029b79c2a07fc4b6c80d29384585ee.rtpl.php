@@ -41,6 +41,7 @@
       <!------------PRODUTOS------------------->
       <div class="container">
         <div class="row">
+          <?php $globalProviderId = $provider["0"]["id"] ?? 0; ?> 
           <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
           <div
             class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center"
@@ -58,7 +59,14 @@
               <div class="info-produto my-2">
                 <p><span class="preco"><?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>kz</span></p>
                 <p><i class="fi-rr-heart">307</i></p>
-                <a href="#" class="btn btn-md btnComprar">Comprar</a>
+                <?php if( $globalProviderId !== $value1["fornecedor_id"] ){ ?>
+                <a
+                  href="/bioloOnline/add-cart/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
+                  class="btn btn-login"
+                >
+                  Comprar
+                </a>
+                <?php } ?>
               </div>
             </div>
           </div>
