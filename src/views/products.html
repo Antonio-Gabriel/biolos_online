@@ -41,6 +41,7 @@
       <!------------PRODUTOS------------------->
       <div class="container">
         <div class="row">
+          {$globalProviderId = $provider[0]["id"] ?? 0} 
           {loop="$products"}
           <div
             class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center"
@@ -58,7 +59,14 @@
               <div class="info-produto my-2">
                 <p><span class="preco">{$value.preco}kz</span></p>
                 <p><i class="fi-rr-heart">307</i></p>
-                <a href="#" class="btn btn-md btnComprar">Comprar</a>
+                {if="$globalProviderId !== $value.fornecedor_id"}
+                <a
+                  href="/bioloOnline/add-cart/{$value.id}"
+                  class="btn btn-login"
+                >
+                  Comprar
+                </a>
+                {/if}
               </div>
             </div>
           </div>

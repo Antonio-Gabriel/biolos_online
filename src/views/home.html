@@ -14,6 +14,7 @@
 <!--vendedores-->
 <section id="vendedores" class="">
   <div class="container">
+    {if="$providers"}
     <h3>Top dos vendedores</h3>
     <div class="lista-vendedogres">
       <div class="horizontal-scroll">
@@ -24,135 +25,62 @@
           <i class="fas fa-chevron-right" onclick="scrollHorizontally(-1)"></i>
         </button>
         <div class="storys-container">
+          {loop="$providers"}
           <div class="storys-circle">
-            <span class="activo">1</span>
-            <img src="src/assets/images/img-scroll/1.jpg" />
+            <span class="activo"
+              >{function="GetTotalProductsByProvider($value.id)"}</span
+            >
+            <img src="/bioloOnline/src/resources/{$value.foto}" />
             <div class="online"></div>
-            <a class="nome-vendedor" href="profile-provider">Osvaldo Cariege</a>
-            <span>2.99</span> 
-          </div>
-          <div class="storys-circle">
-            <span class="activo">2</span>
-            <img src="src/assets/images/img-scroll/2.jpg" />
-            <div class="online"></div>
-            <a class="nome-vendedor" href="profile-provider">Osvaldo Cariege</a>
+            <a
+              class="nome-vendedor"
+              href="/bioloOnline/profile-provider/{$value.id}"
+              >{$value.nome}</a
+            >
             <span>2.99</span>
           </div>
+          {/loop}
         </div>
       </div>
     </div>
+    {else}
+    <div class="container">
+      <h2 style="color: white; margin-top: 30px">Sem fornecedores</h2>
+    </div>
+    {/if}
   </div>
 </section>
 <!--vendedores-->
 
 <!------------PRODUTOS------------------->
 <div class="container">
-  <div class="row ">
-      <div class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid "  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
+  <div class="row">
+    {$globalProviderId = $provider[0]["id"] ?? 0} 
+    {loop="$products"}
+    <div
+      class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center"
+    >
+      <div class="pro d-flex flex-column justify-content-center">
+        <a
+          href="/bioloOnline/product/{$value.id}/details/{$value.fornecedor_id}"
+        >
+          <img
+            class="img-fluid"
+            src="/bioloOnline/src/resources/{$value.foto}"
+          />
+        </a>
+        <span class="nome-produto">{$value.product_name}</span>
+        <div class="info-produto my-2">
+          <p><span class="preco">{$value.preco}kz</span></p>
+          <p><i class="fi-rr-heart">307</i></p>
+          {if="$globalProviderId !== $value.fornecedor_id"}
+          <a href="/bioloOnline/add-cart/{$value.id}" class="btn btn-login">
+            Comprar
+          </a>
+          {/if}
+        </div>
       </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
+    </div>
+    {/loop}
   </div>
 </div>
-
-
