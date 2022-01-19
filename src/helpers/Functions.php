@@ -1,10 +1,10 @@
 <?php
 
 use Vendor\usecases\admin\GetProducts;
+use Vendor\usecases\GetTotalProductsIntoCart;
 
 function url($endPoint)
 {
-    //echo $_SERVER["DOCUMENT_ROOT"] . DIRECTORY_SEPARATOR . "bioloOnline" . "/";
     return header("Location: http://localhost/bioloOnline/{$endPoint}");
 }
 
@@ -33,4 +33,10 @@ function GetTotalProductsByProvider(int $provider_id)
     }
 
     return count($productStorage);
+}
+
+function GetTotalProductsIntoCart(int $authenticatedUserId)
+{
+    $totalProducts = new GetTotalProductsIntoCart();
+    return count($totalProducts->execute($authenticatedUserId));
 }
