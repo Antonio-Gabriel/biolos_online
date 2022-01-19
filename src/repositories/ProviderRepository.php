@@ -37,6 +37,18 @@ class ProviderRepository implements IProviderRepository
         ];
     }
 
+    public function getAllProviders()
+    {
+        return $this->sql->select(
+            "SELECT
+             f.id, f.nome, c.foto
+             FROM fornecedor f LEFT JOIN 
+             conta c ON f.id = c.fornecedor_id
+             ORDER BY f.nome;
+            "
+        );
+    }
+
     public function getBySearch(string $search, int $page = 1, int $itemsPerPage = 15)
     {
         $start = ($page - 1) * $itemsPerPage;
