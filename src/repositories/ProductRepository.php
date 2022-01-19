@@ -220,24 +220,44 @@ class ProductRepository implements IProductRepository
 
         $search = "%$search%";
 
-        $result = $this->sql->select(
-            "SELECT SQL_CALC_FOUND_ROWS 
-             pf.produto_id, pf.fornecedor_id, p.nome, 
-             p.preco, p.descricao, p.foto, p.estado             
-
-             FROM produtofornecedor pf
-             LEFT JOIN produto p ON pf.produto_id = p.id
-             LEFT JOIN categoria c ON p.categoria_id = c.id
-             WHERE pf.fornecedor_id = :provider 
-             AND p.nome LIKE :search AND c.id = :category_id
-             ORDER BY p.nome
-             LIMIT $start, $itemsPerPage;",
-            [
-                ":search" => $search,
-                ":provider" => $provider_id,
-                ":category_id" => $category_id
-            ]
-        );
+        if ($category_id !== 0) {
+            $result = $this->sql->select(
+                "SELECT SQL_CALC_FOUND_ROWS 
+                 pf.produto_id, pf.fornecedor_id, p.nome, 
+                 p.preco, p.descricao, p.foto, p.estado             
+    
+                 FROM produtofornecedor pf
+                 LEFT JOIN produto p ON pf.produto_id = p.id
+                 LEFT JOIN categoria c ON p.categoria_id = c.id
+                 WHERE pf.fornecedor_id = :provider 
+                 AND p.nome LIKE :search AND c.id = :category_id
+                 ORDER BY p.nome
+                 LIMIT $start, $itemsPerPage;",
+                [
+                    ":search" => $search,
+                    ":provider" => $provider_id,
+                    ":category_id" => $category_id
+                ]
+            );
+        } else {
+            $result = $this->sql->select(
+                "SELECT SQL_CALC_FOUND_ROWS 
+                 pf.produto_id, pf.fornecedor_id, p.nome, 
+                 p.preco, p.descricao, p.foto, p.estado             
+    
+                 FROM produtofornecedor pf
+                 LEFT JOIN produto p ON pf.produto_id = p.id
+                 LEFT JOIN categoria c ON p.categoria_id = c.id
+                 WHERE pf.fornecedor_id = :provider 
+                 AND p.nome LIKE :search
+                 ORDER BY p.nome
+                 LIMIT $start, $itemsPerPage;",
+                [
+                    ":search" => $search,
+                    ":provider" => $provider_id
+                ]
+            );
+        }
 
         $totalItems = $this->sql->select("SELECT FOUND_ROWS() AS nrtotal;");
 

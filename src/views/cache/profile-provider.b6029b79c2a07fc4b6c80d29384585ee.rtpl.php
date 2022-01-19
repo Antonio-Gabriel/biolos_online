@@ -48,6 +48,7 @@
               background: #2a2d3a;
             "
           >
+            <option value="0">All</option>
             <?php $counter2=-1;  if( isset($categories) && ( is_array($categories) || $categories instanceof Traversable ) && sizeof($categories) ) foreach( $categories as $key2 => $value2 ){ $counter2++; ?>
             <option value="<?php echo htmlspecialchars( $value2["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value2["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>
             <?php } ?>
