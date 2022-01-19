@@ -80,6 +80,7 @@ class ProviderAdminController
 
         return  $template->setTpl("provider-admin", [
             "provider" => $provider,
+            "client" => @$_SESSION["client"],
             "status_code" => intval($status),
             "categories" => $categories,
             "products" => $pagination['data'],
