@@ -4,6 +4,7 @@
 <section id="detalhe-produtos" class="produto-detalhe-container">
   <div class="container">
     <div class="product-detail row" style="margin-top: 40px">
+      {$globalProviderId = $provider[0]["id"] ?? 0} 
       {loop="$product"}
       <div class="img-produto col-12 col-sm-12 col-md-12 col-lg-8">
         <img
@@ -34,7 +35,7 @@
           class="descricao"
           style="margin-bottom: 8px; display: flex; flex-direction: column"
         >
-          <strong style="font-size: 20px">Preço: {$value.preco} Kz</strong>
+          <strong style="font-size: 20px">Preço: {$value.preco} Kz</strong>          
           <p>{$value.email}</p>
           <span>{$value.contacto}</span>
         </div>
@@ -53,12 +54,12 @@
             data-toggle="modal"
             data-target="#exampleModal"  
           -->
-          <a
-            href="/bioloOnline/purchase/{$value.id}/cart"
-            class="btn btn-login px-4"
-          >
+          {if="$globalProviderId !== $value.fornecedor_id"}
+          <a href="/bioloOnline/add-cart/{$value.id}" class="btn btn-login">
             Comprar
           </a>
+          {/if}
+
           <a href="/bioloOnline/products" class="btn btn-conta px-3 text-nowrap"
             >Mais produtos</a
           >

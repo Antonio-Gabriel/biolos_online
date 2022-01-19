@@ -4,6 +4,7 @@
 <section id="detalhe-produtos" class="produto-detalhe-container">
   <div class="container">
     <div class="product-detail row" style="margin-top: 40px">
+      <?php $globalProviderId = $provider["0"]["id"] ?? 0; ?> 
       <?php $counter1=-1;  if( isset($product) && ( is_array($product) || $product instanceof Traversable ) && sizeof($product) ) foreach( $product as $key1 => $value1 ){ $counter1++; ?>
       <div class="img-produto col-12 col-sm-12 col-md-12 col-lg-8">
         <img
@@ -34,7 +35,7 @@
           class="descricao"
           style="margin-bottom: 8px; display: flex; flex-direction: column"
         >
-          <strong style="font-size: 20px">Preço: <?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?> Kz</strong>
+          <strong style="font-size: 20px">Preço: <?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?> Kz</strong>          
           <p><?php echo htmlspecialchars( $value1["email"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
           <span><?php echo htmlspecialchars( $value1["contacto"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
         </div>
@@ -53,12 +54,12 @@
             data-toggle="modal"
             data-target="#exampleModal"  
           -->
-          <a
-            href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/cart"
-            class="btn btn-login px-4"
-          >
+          <?php if( $globalProviderId !== $value1["fornecedor_id"] ){ ?>
+          <a href="/bioloOnline/add-cart/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-login">
             Comprar
           </a>
+          <?php } ?>
+
           <a href="/bioloOnline/products" class="btn btn-conta px-3 text-nowrap"
             >Mais produtos</a
           >
