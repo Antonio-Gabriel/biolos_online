@@ -81,11 +81,11 @@
               <div class="card-info">
                 <p class="card-text">{$value.preco}Kz</p>
                 <p class="card-text">
-                  <a href="#"><i class="fi-rr-heart"></i></a>92
+                  <a href="#"><i class="fi-rr-heart"></i></a>92                  
                 </p>
                 {if="$globalProviderId !== $value.fornecedor_id"}
                   <a
-                    href="/bioloOnline/add-cart/{$value.produto_id}"
+                    href="/bioloOnline/purchase/{$value.produto_id}/"
                     class="btn btn-login"
                     >
                     Comprar
