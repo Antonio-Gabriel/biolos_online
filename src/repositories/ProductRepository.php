@@ -267,4 +267,18 @@ class ProductRepository implements IProductRepository
             'pages' => ceil($totalItems[0]['nrtotal'] / $itemsPerPage)
         ];
     }
+
+
+    // Cart section
+
+    public function getProductsIntoCart(int $authenticatedUserId)
+    {
+        return $this->sql->select(
+            "SELECT *FROM compra
+             WHERE cliente_id = :id OR fornecedor_id = :id;",
+            [
+                ":id" => $authenticatedUserId
+            ]
+        );
+    }
 }
