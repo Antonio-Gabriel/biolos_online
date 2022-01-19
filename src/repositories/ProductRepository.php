@@ -29,7 +29,7 @@ class ProductRepository implements IProductRepository
                 ":nome" => $product->product->name,
                 ":preco" => $product->product->price,
                 ":estado" => $product->product->state,
-                ":descricao" => $product->product->description,
+                ":descricao" => trim($product->product->description),
                 ":foto" => $product->product->foto,
                 ":categoria_id" => $product->product->category->id
             ]
@@ -62,7 +62,7 @@ class ProductRepository implements IProductRepository
                 ":nome" => $product->product->name,
                 ":preco" => $product->product->price,
                 ":estado" => $product->product->state,
-                ":descricao" => $product->product->description,
+                ":descricao" => trim($product->product->description),
                 ":foto" => $product->product->foto,
                 ":categoria_id" => $product->product->category->id
             ]
@@ -161,6 +161,7 @@ class ProductRepository implements IProductRepository
 
     public function getTotalReactions()
     {
+        // Osvaldo Cariege ... => Resolution
         return $this->sql->select("");
     }
 
