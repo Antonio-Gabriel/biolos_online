@@ -14,9 +14,12 @@ class AuthController extends Model
         ResponseInterface $res,
         $args = []
     ) {
+        $status = $req->getQueryParams()["status"] ?? 0;
         $template = new RainTpl();
 
-        return $template->draw("login");
+        return $template->setTpl("login", [
+            "status_code" => intval($status)
+        ]);
     }
 
     public function auth(
@@ -24,5 +27,6 @@ class AuthController extends Model
         ResponseInterface $res,
         $args = []
     ) {
+        var_dump($req->getParsedBody());
     }
 }

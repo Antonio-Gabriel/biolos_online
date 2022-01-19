@@ -34,8 +34,6 @@ class AuthController
         try {
             $this->middleware->login($req->getParsedBody()["email"], $req->getParsedBody()["password"]);
         } catch (\Exception $th) {
-            //throw $th;
-
             echo $th;
         }
     }

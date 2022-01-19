@@ -25,4 +25,4 @@ Recursos do lado do cliente
   
 - Views ou Reações [] -> Osvaldo Cariege
 - Login para cliente [] -> Osvaldo Cariege | Anónio Gabriel
-- Adicionar o botão ver mais com a rota para os produtos [] -> Osvaldo Cariege
+- Adicionar o botão ver mais com a rota para os produtos [x] -> Osvaldo Cariege
