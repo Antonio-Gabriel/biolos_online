@@ -61,7 +61,7 @@
                 <p><i class="fi-rr-heart">307</i></p>
                 <?php if( $globalProviderId !== $value1["fornecedor_id"] ){ ?>
                 <a
-                  href="/bioloOnline/add-cart/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
+                  href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/"
                   class="btn btn-login"
                 >
                   Comprar

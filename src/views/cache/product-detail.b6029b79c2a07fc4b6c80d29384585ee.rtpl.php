@@ -55,7 +55,7 @@
             data-target="#exampleModal"  
           -->
           <?php if( $globalProviderId !== $value1["fornecedor_id"] ){ ?>
-          <a href="/bioloOnline/add-cart/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-login">
+          <a href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/" class="btn btn-login">
             Comprar
           </a>
           <?php } ?>

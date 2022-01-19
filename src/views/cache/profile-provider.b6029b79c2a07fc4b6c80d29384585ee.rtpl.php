@@ -81,11 +81,11 @@
               <div class="card-info">
                 <p class="card-text"><?php echo htmlspecialchars( $value2["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>Kz</p>
                 <p class="card-text">
-                  <a href="#"><i class="fi-rr-heart"></i></a>92
+                  <a href="#"><i class="fi-rr-heart"></i></a>92                  
                 </p>
                 <?php if( $globalProviderId !== $value2["fornecedor_id"] ){ ?>
                   <a
-                    href="/bioloOnline/add-cart/<?php echo htmlspecialchars( $value2["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
+                    href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value2["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/"
                     class="btn btn-login"
                     >
                     Comprar
