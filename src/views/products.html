@@ -1,156 +1,69 @@
 {include="shared/Header/header"}
 <!------------PRODUTOS------------------->
-<section
-  id=""
-  class=""
-  style="margin-top: 20px !important; margin-bottom: 0px"
->
+{if="$products"}
+<section id="" class="" style="margin-top: 20px !important; margin-bottom: 0px">
   <div class="container">
     <div class="lista-produtos">
       <div class="row">
-        <input
-          class="form-control col-sm-12 col-md-8 my-1 mx-3 ml-3"
-          style="
-            
-            padding: 5px 10px;
-            border-radius: 10px;
-          "
-          type="text"
-          name=""
-          id=""
-          placeholder="Pesquisar por produtos"
-        />
-        <select
-          class="form-control col-sm-12 col-md-3 my-1 mr-2 ml-3"
-          name=""
-          id=""
-          style="
-            
-            color: #fff;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 10px;
-            background: #2a2d3a;
-          "
+        <form
+          action="/bioloOnline/products"
+          method="get"
+          class="col-sm-12 col-md-12 my-1 mx-3 ml-3 d-inline-flex align-content-center justify-content-between"
         >
-          <option value="">Minhas Categorias</option>
-          <option value="1">Roupas</option>
-          <option value="2">Calsados</option>
-        </select>
-      </div>
-     <!------------PRODUTOS------------------->
-<!------------PRODUTOS------------------->
-<div class="container">
-  <div class="row ">
-      <div class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid "  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 card-container d-flex flex-column justify-content-center align-items-center">
-          <div class="pro d-flex flex-column justify-content-center">
-              <a href="produtos.html">
-              <img class="img-fluid"  src="src/assets/images/vestuarios/casaco-amarelo.jpg">
-            </a>
-            <span class="nome-produto">Camisolas</span>
-            <div class="info-produto my-2">
-              <p><span class="preco">15.000kz</span></p>
-              <p><i class="fi-rr-heart">307</i></p>
-              <a href="#" class="btn btn-md btnComprar">Comprar</a>
-            </div>
-          </div>
-      </div>
-  </div>
-</div>
+          <input
+            class="form-control col-md-8"
+            style="padding: 5px 10px; border-radius: 10px; color: white"
+            type="text"
+            name="search"
+            value="{$search}"
+            placeholder="Pesquisar por produtos"
+          />
 
-
-
+          <select
+            class="form-control col-sm-12 col-md-3 my-1"
+            name="category"
+            style="
+              color: #fff;
+              border: none;
+              padding: 5px 10px;
+              border-radius: 10px;
+              background: #2a2d3a;
+            "
+          >
+            {loop="$categories"}
+            <option value="{$value.id}">{$value.nome}</option>
+            {/loop}
+          </select>
+        </form>
+      </div>
+      <!------------PRODUTOS------------------->
+      <!------------PRODUTOS------------------->
+      <div class="container">
+        <div class="row">
+          {loop="$products"}
+          <div
+            class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center"
+          >
+            <div class="pro d-flex flex-column justify-content-center">
+              <a
+                href="/bioloOnline/product/{$value.id}/details/{$value.fornecedor_id}"
+              >
+                <img
+                  class="img-fluid"
+                  src="/bioloOnline/src/resources/{$value.foto}"
+                />
+              </a>
+              <span class="nome-produto">{$value.product_name}</span>
+              <div class="info-produto my-2">
+                <p><span class="preco">{$value.preco}kz</span></p>
+                <p><i class="fi-rr-heart">307</i></p>
+                <a href="#" class="btn btn-md btnComprar">Comprar</a>
+              </div>
+            </div>
+          </div>
+          {/loop}
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -159,21 +72,16 @@
 <!--==============PAGINAÇÃO==============-->
 <nav class="paginacao" aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
+    {loop="$pages"}
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
+      <a class="page-link" href="{$value.href}">{$value.text}</a>
     </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
+    {/loop}
   </ul>
 </nav>
-{include="shared/Footer/footer"}
+
+{else}
+<div class="container">
+  <h2 style="color: white; margin-top: 30px">Sem produtos</h2>
+</div>
+{/if} {include="shared/Footer/footer"}
