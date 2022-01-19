@@ -52,7 +52,9 @@
         <a class="nav-link" href="/bioloOnline/providers">Vendedores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/bioloOnline/cart">Carrinho(0)</a>
+        <a class="nav-link" href="/bioloOnline/cart"
+          >Carrinho(<?php echo GetTotalProductsIntoCart($client["0"]["id"] ?? $provider["0"]["id"] ?? 0); ?>)</a
+        >
       </li>
 
       <?php if( $client ){ ?>
