@@ -24,5 +24,5 @@ Recursos do lado do cliente
 - Envio de mensagem e email aos fornecedor e comprador []
   
 - Views ou Reações [] -> Osvaldo Cariege
-- Login para cliente [] -> Osvaldo Cariege
+- Login para cliente [] -> Osvaldo Cariege | Anónio Gabriel
 - Adicionar o botão ver mais com a rota para os produtos [] -> Osvaldo Cariege
