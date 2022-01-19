@@ -25,14 +25,20 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form id="barra" action="" method="get" style="box-sizing: border-box">
+    <form
+      id="barra"
+      action="/bioloOnline/products"
+      method="get"
+      style="box-sizing: border-box"
+    >
       <button class="btn-barra-pesquisa"><i class="fab fa-search"></i></button>
       <input
         class="input-barra-pesquisa"
         type="text"
-        name=""
-        id=""
+        name="search"
+        u
         placeholder="Pesquisar por produtos..."
+        style="color: white; border: none; outline: none"
       />
     </form>
 
