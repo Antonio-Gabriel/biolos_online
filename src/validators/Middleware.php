@@ -30,4 +30,14 @@ class Middleware
             exit();
         }
     }
+
+    public static function hasAuthenticated()
+    {
+        $hasAuthenticated = $_SESSION["provider"] ?? $_SESSION["client"];
+        if (!$hasAuthenticated) {
+
+            header("Location: /bioloOnline/login");
+            exit();
+        }
+    }
 }
