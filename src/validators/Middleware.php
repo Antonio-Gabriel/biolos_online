@@ -21,4 +21,13 @@ class Middleware
             exit();
         }
     }
+
+    public static function redirectToHome()
+    {
+        if (isset($_SESSION["client"])) {
+
+            header("Location: /bioloOnline/");
+            exit();
+        }
+    }
 }

@@ -51,6 +51,13 @@
               />
               <h4 style="color: #fff">Comprador</h4>
             </div>
+
+            <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 401 ){ ?>
+
+            <p style="color: red">Acesso negado!</p>
+
+            <?php } ?> <?php } ?>
+            
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="validationCustom02">Nome</label>
