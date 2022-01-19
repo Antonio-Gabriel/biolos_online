@@ -36,7 +36,7 @@ class ProviderAdminController
 
         $search_input = @$req->getQueryParams()["search"];
         $page = @$req->getQueryParams()["page"];
-        $category = @$req->getQueryParams()["category"];
+        $category = @$req->getQueryParams()["category"] ?? 0;
 
         $search = isset($search_input) ? $search_input : "";
         $currentPage = isset($page) ? (int)$page : 1;
