@@ -43,3 +43,8 @@ function GetTotalProductsIntoCart(int $client, int $provider)
         "provider" => $provider
     ]) ?? []);
 }
+
+function DecodeToUtf8(string $string_to_encode)
+{
+    return utf8_decode($string_to_encode);
+}
