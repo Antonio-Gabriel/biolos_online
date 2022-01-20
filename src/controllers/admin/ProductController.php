@@ -39,6 +39,7 @@ class ProductController
 
         return  $template->setTpl("add-product", [
             "provider" => $provider,
+            "client" => @$_SESSION["client"],
             "categories" => $categoryData,
             "status_code" => intval($status)
         ]);
@@ -66,6 +67,7 @@ class ProductController
 
         return  $template->setTpl("edit-product", [
             "provider" => $provider,
+            "client" => @$_SESSION["client"],
             "status_code" => intval($status),
             "categories" => $categoryData,
             "product" => $product
@@ -93,9 +95,17 @@ class ProductController
 
                 $upload = new Upload();
 
+                $numberFormat = (str_contains($req->getParsedBody()["price"], "."))
+                    ? str_replace(".", "", $req->getParsedBody()["price"])
+                    : $req->getParsedBody()["price"];
+
+                $removeCommaFromPrice = (str_contains($numberFormat, ","))
+                    ? substr($numberFormat, 0, strlen($numberFormat) - 3)
+                    : $numberFormat;
+
                 $product = new Product(
                     $state,
-                    floatval(formatNumber($req->getParsedBody()["price"])),
+                    formatNumber($removeCommaFromPrice),
                     $req->getParsedBody()["name"],
                     $upload->UploadPhoto(),
                     $req->getParsedBody()["description"],
@@ -151,11 +161,17 @@ class ProductController
 
             $upload = new Upload();
 
-            $numberFormat = str_replace(".", "", $req->getParsedBody()["price"]);
+            $numberFormat = (str_contains($req->getParsedBody()["price"], "."))
+                ? str_replace(".", "", $req->getParsedBody()["price"])
+                : $req->getParsedBody()["price"];
+
+            $removeCommaFromPrice = (str_contains($numberFormat, ","))
+                ? substr($numberFormat, 0, strlen($numberFormat) - 3)
+                : $numberFormat;
 
             $product = new Product(
                 $state,
-                formatNumber(substr($numberFormat, 0, strlen($numberFormat) - 3)),
+                formatNumber($removeCommaFromPrice),
                 $req->getParsedBody()["name"],
                 (empty($_FILES["photo"]["name"]) ? $req->getParsedBody()["photo"] : $upload->UploadPhoto()),
                 $req->getParsedBody()["description"],
