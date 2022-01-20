@@ -3,7 +3,6 @@
 namespace Vendor\interfaces;
 
 use Vendor\models\Purchase;
-use Vendor\models\ProductProvider;
 
 interface IPurchaseRepository
 {
@@ -12,5 +11,6 @@ interface IPurchaseRepository
     public function removeProductIntoCart(int $product_id);
     public function updateQuantityOfProductFromCart(int $quantity, int $product_id);
 
-    public function sendMessageToProvider(ProductProvider $productProvider);
+    public function removeProductFromCart(array $authenticatedUser = []);
+    public function sendEmailToClient(array $authenticatedUser = []);
 }
