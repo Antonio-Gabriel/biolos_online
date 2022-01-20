@@ -110,18 +110,57 @@ class PurchaseRepository implements IPurchaseRepository
                     ":id" => $authenticatedUser["client"]
                 ]
             );
+        } else {
+            return $this->sql->select(
+                "SELECT 
+                 c.id, p.nome, p.preco, p.foto,
+                 c.total, c.quantidade
+                 FROM compra c LEFT JOIN produto p 
+                 ON c.produto_id = p.id WHERE c.fornecedor_id = :id;",
+                [
+                    ":id" => $authenticatedUser["provider"]
+                ]
+            );
         }
     }
 
     public function removeProductIntoCart(int $product_id)
     {
+        return $this->sql->query(
+            "DELETE FROM compra WHERE id = :id;
+            ",
+            [
+                ":id" => $product_id
+            ]
+        );
     }
 
-    public function updateQuantityOfProductIntoCart(Purchase $purchase)
+    public function updateQuantityOfProductFromCart(int $quantity, int $product_id)
     {
+        $total = $this->sql->select(
+            "SELECT p.preco FROM compra c LEFT JOIN produto p 
+             ON c.produto_id = p.id WHERE c.id = :id;",
+            [
+                ":id" => $product_id
+            ]
+        );
+
+        $numberFormat = str_replace(".", "", $total[0]["preco"]);
+        $remoteLastValues = substr($numberFormat, 0, strlen($numberFormat) - 3);
+
+        return $this->sql->query(
+            "UPDATE compra SET quantidade = :quantidade, total = :total WHERE id = :id;
+            ",
+            [
+                ":id" => $product_id,
+                ":quantidade" => $quantity,
+                ":total" => formatNumber(((int)$remoteLastValues * $quantity))
+            ]
+        );
     }
 
     public function sendMessageToProvider(ProductProvider $productProvider)
     {
+        
     }
 }
