@@ -18,7 +18,8 @@ class RegisterController
         $template = new RainTpl("views/admin/");
 
         return  $template->setTpl("register-admin", [
-            "status_code" => intval($status)
+            "status_code" => intval($status),
+            "client" => @$_SESSION["client"],
         ]);
     }
 
