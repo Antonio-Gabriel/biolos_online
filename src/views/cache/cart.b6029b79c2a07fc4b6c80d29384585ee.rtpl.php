@@ -18,6 +18,12 @@
 </div>
 <?php } ?> <?php } ?>
 
+<?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 202 ){ ?>
+<div class="alert alert-success" role="alert">
+  Reserva efectuada sucesso!.
+</div>
+<?php } ?> <?php } ?>
+
 <div id="carrinho" class="">
   <div class="container">
     <div class="row" style="color: aliceblue">
@@ -104,10 +110,10 @@
         <h3 class="d-flex justify-content-center my-4">Total: <?php echo formatNumber($total); ?>kz</h3>
         <div class="btn-carrinho my-4">         
           <?php if( $products ){ ?>
-            <?php if( $client["0"]['id'] ){ ?>
-              <a class="btn btn-md btn-primary px-5" href="/bioloOnline/purchase/<?php echo htmlspecialchars( $client["0"]['id'], ENT_COMPAT, 'UTF-8', FALSE ); ?>/complete">Comprar</a>
+            <?php if( $client["0"]['id'] ?? 0 ){ ?>
+              <a class="btn btn-md btn-primary px-5" href="/bioloOnline/purchase/<?php echo htmlspecialchars( $client["0"]['id'], ENT_COMPAT, 'UTF-8', FALSE ); ?>/complete">Finalizar</a>
               <?php }else{ ?>
-              <a class="btn btn-md btn-primary px-5" href="/bioloOnline/purchase/<?php echo htmlspecialchars( $provider["0"]['id'], ENT_COMPAT, 'UTF-8', FALSE ); ?>/complete">Comprar</a>
+              <a class="btn btn-md btn-primary px-5" href="/bioloOnline/purchase/<?php echo htmlspecialchars( $provider["0"]['id'], ENT_COMPAT, 'UTF-8', FALSE ); ?>/complete">Finalizar</a>
             <?php } ?>
           <?php } ?>
           <a class="btn btn-md btn-danger" href="/bioloOnline/products">Adicionar produtos</a>            
