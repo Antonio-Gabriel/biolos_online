@@ -23,7 +23,8 @@ class RegisterController extends Model
         $template = new RainTpl();
 
         return $template->setTpl("register", [
-            "status_code" => intval($status)
+            "status_code" => intval($status),
+            "client" => @$_SESSION["client"],
         ]);
     }
 
