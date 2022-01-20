@@ -10,8 +10,8 @@ use Vendor\models\Product;
 class Purchase
 {
     public int $id;
-    public Client $cliend;
+    public Client $client;
     public Provider $provider;
-    public Product $productId;
+    public Product $product;
     public DateTime $datePurshase;
 }
