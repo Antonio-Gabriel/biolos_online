@@ -35,8 +35,11 @@ function GetTotalProductsByProvider(int $provider_id)
     return count($productStorage);
 }
 
-function GetTotalProductsIntoCart(int $authenticatedUserId)
+function GetTotalProductsIntoCart(int $client, int $provider)
 {
     $totalProducts = new GetTotalProductsIntoCart();
-    return count($totalProducts->execute($authenticatedUserId));
+    return count($totalProducts->execute([
+        "client" => $client,
+        "provider" => $provider
+    ]) ?? []);
 }
