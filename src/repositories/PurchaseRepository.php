@@ -168,6 +168,14 @@ class PurchaseRepository implements IPurchaseRepository
                     ":id" => $authenticatedUser["client"]
                 ]
             );
+        } else {
+            return $this->sql->query(
+                "DELETE FROM compra WHERE fornecedor_id = :id;
+                ",
+                [
+                    ":id" => $authenticatedUser["provider"]
+                ]
+            );
         }
     }
 
@@ -194,16 +202,15 @@ class PurchaseRepository implements IPurchaseRepository
             );
         } else {
             return $this->sql->select(
-                "SELECT
-                 c.id, cl.nome as cliente, f.nome as fornecedor,
-                 cl.email as cliente_email, f.email as fornecedor_email,
-                 c.data_compra, p.nome as produto, p.preco, c.quantidade, c.total, 
-                 cl.contacto cliente_contacto, f.contacto as fornecedor_contacto
+                "SELECT 
+                 c.id, f.nome as fornecedor, fr.nome as fornecedor_venda, f.id as fornecedor_id,
+                 f.email as fornecedor_email, fr.email as fornecedor_venda_email,
+                 c.data_compra, p.nome as produto, p.preco, c.quantidade, c.total,
+                 f.contacto as fornecedor_contacto, fr.contacto as fornecedor_venda_contacto
                  FROM compra c 
-                 LEFT JOIN produtofornecedor pf 
-                 ON c.produto_id = pf.produto_id 
-                 LEFT JOIN cliente cl ON c.cliente_id = cl.id
+                 LEFT JOIN produtofornecedor pf ON c.produto_id = pf.produto_id                  
                  LEFT JOIN fornecedor f ON pf.fornecedor_id = f.id
+                 LEFT JOIN fornecedor fr ON c.fornecedor_id = fr.id
                  LEFT JOIN produto p ON pf.produto_id = p.id
                  WHERE c.fornecedor_id = :id;
                 ",
@@ -233,6 +240,28 @@ class PurchaseRepository implements IPurchaseRepository
             [
                 ":email" => $email,
                 ":client" => $id
+            ]
+        );
+    }
+
+    public function getProductsByPurchaseFromProviderLocal(string $email, int $id)
+    {
+        return $this->sql->select(
+            "SELECT
+             c.id, f.nome as fornecedor, fr.nome as fornecedor_venda, f.id as fornecedor_id,
+             f.email as fornecedor_email, fr.email as fornecedor_venda_email,
+             c.data_compra, p.nome as produto, p.preco, c.quantidade, c.total,
+             f.contacto as fornecedor_contacto, fr.contacto as fornecedor_venda_contacto
+             FROM compra c 
+             LEFT JOIN produtofornecedor pf ON c.produto_id = pf.produto_id                  
+             LEFT JOIN fornecedor f ON pf.fornecedor_id = f.id
+             LEFT JOIN fornecedor fr ON c.fornecedor_id = fr.id
+             LEFT JOIN produto p ON pf.produto_id = p.id 
+             WHERE fr.email = :email AND c.fornecedor_id = :fornecedor;
+            ",
+            [
+                ":email" => $email,
+                ":fornecedor" => $id
             ]
         );
     }
