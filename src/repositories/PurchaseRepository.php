@@ -99,7 +99,18 @@ class PurchaseRepository implements IPurchaseRepository
 
     public function showProductIntoCart(array $authenticatedUser = [])
     {
-        
+        if ($authenticatedUser["client"] !== 0) {
+            return $this->sql->select(
+                "SELECT 
+                 c.id, p.nome, p.preco, p.foto,
+                 c.total, c.quantidade
+                 FROM compra c LEFT JOIN produto p 
+                 ON c.produto_id = p.id WHERE c.cliente_id = :id;",
+                [
+                    ":id" => $authenticatedUser["client"]
+                ]
+            );
+        }
     }
 
     public function removeProductIntoCart(int $product_id)
