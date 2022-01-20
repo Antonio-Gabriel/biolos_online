@@ -32,15 +32,16 @@
             </tr>
           </thead>
           <tbody>
+            {if="$products"}
+            {loop="$products"}
             <tr>
               <th scope="row">
                 <div class="row">
                   <div class="col-md-4">
-                    <img src="src/assets/images/vestuarios/casaco-amarelo.jpg"/>
+                    <img src="/bioloOnline/src/resources/{$value.foto}"/>
                   </div>
                   <div class="col-md-8">
-                    <h4>Casaco Amarelo</h4>
-                    <a href="#">Osvaldo Cariege</a>
+                    <h4>{$value.nome}</h4>                    
                   </div>
                 </div>
               </th>
@@ -53,8 +54,9 @@
                     type="number"
                     name="quantity"
                     id="input"
-                    value="1"
+                    value="{$value.quantidade}"
                     maxlength="2"
+                    disabled
                   />
                   <span class="add-" style="padding: 4px; background: rgb(53, 50, 50);">
                     <a href="/bioloOnline/cart?ac=add">+</a>
@@ -62,15 +64,25 @@
                 </div>
               </td>
               <td>
-                <span class="#">100</span>
+                <span class="#">{$value.preco}kz</span>
               </td>
               <td>
-                <span class="#">10</span>
+                <span class="#">{$value.total}kz</span>
               </td>
               <td>
                 <a href="">X</a>
               </td>
             </tr>
+            {/loop}
+            {else}
+            <th scope="row">
+              <div class="row">               
+                <div class="col-md-8">
+                  <h4>Sem produtos</h4>                 
+                </div>
+              </div>
+            </th>
+            {/if}
           </tbody>
         </table>
       </div>
@@ -79,7 +91,7 @@
           <h3>Carrinho</h3>
         </div>
         <hr />
-        <h3 class="d-flex justify-content-center my-4">Total: 378</h3>
+        <h3 class="d-flex justify-content-center my-4">Total: {function="formatNumber($total)"}kz</h3>
         <div class="btn-carrinho my-4">
           <a class="btn btn-md btn-primary px-5" href="#">Comprar</a>
           <a class="btn btn-md btn-danger" href="/bioloOnline/products">Adicionar produtos</a>
