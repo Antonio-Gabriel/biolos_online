@@ -18,6 +18,12 @@
 </div>
 {/if} {/if}
 
+{if="$status_code !== 0"} {if="$status_code === 202"}
+<div class="alert alert-success" role="alert">
+  Reserva efectuada sucesso!.
+</div>
+{/if} {/if}
+
 <div id="carrinho" class="">
   <div class="container">
     <div class="row" style="color: aliceblue">
@@ -104,10 +110,10 @@
         <h3 class="d-flex justify-content-center my-4">Total: {function="formatNumber($total)"}kz</h3>
         <div class="btn-carrinho my-4">         
           {if="$products"}
-            {if="$client[0]['id']"}
-              <a class="btn btn-md btn-primary px-5" href="/bioloOnline/purchase/{$client[0]['id']}/complete">Comprar</a>
+            {if="$client[0]['id'] ?? 0"}
+              <a class="btn btn-md btn-primary px-5" href="/bioloOnline/purchase/{$client[0]['id']}/complete">Finalizar</a>
               {else}
-              <a class="btn btn-md btn-primary px-5" href="/bioloOnline/purchase/{$provider[0]['id']}/complete">Comprar</a>
+              <a class="btn btn-md btn-primary px-5" href="/bioloOnline/purchase/{$provider[0]['id']}/complete">Finalizar</a>
             {/if}
           {/if}
           <a class="btn btn-md btn-danger" href="/bioloOnline/products">Adicionar produtos</a>            
