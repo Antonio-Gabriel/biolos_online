@@ -8,6 +8,8 @@ use Vendor\validators\Middleware;
 use Vendor\usecases\AddProductIntoCart;
 
 use Vendor\usecases\GetProductsFromCart;
+use Vendor\usecases\RemoveProductFromCart;
+use Vendor\usecases\UpdateQuantityOfProductFromCart;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -40,6 +42,8 @@ class CartController
         }
 
         $generalTotal = array_sum($totalInStorage);
+
+        $this->updateCurrentQuantity($req->getQueryParams());
 
         return $template->setTpl("cart", [
             "provider" => @$_SESSION["provider"],
@@ -84,5 +88,47 @@ class CartController
         ResponseInterface $res,
         $args = []
     ) {
+        try {
+
+            $removeProductFromCart = new RemoveProductFromCart();
+            $response = $removeProductFromCart->execute(intval($args["product"]));
+
+            if ($response) {
+
+                header("Location: /bioloOnline/cart?status=201");
+                exit();
+            }
+
+            header("Location: /bioloOnline/cart?status=400");
+            exit();
+        } catch (\Exception $th) {
+            echo $th;
+        }
+    }
+
+    private function updateCurrentQuantity(array $args = [])
+    {
+
+        if (isset($args["ac"]) && isset($args["qtd"]) && isset($args["prd"])) {
+            if ($args["ac"] === "add") {
+                $newQtd = intval($args["qtd"]) + 1;
+            }
+
+            if ($args["ac"] === "rem") {
+                if (intval($args["qtd"]) > 1) {
+                    $newQtd = intval($args["qtd"]) - 1;
+                } else {
+                    $newQtd = 1;
+                }
+            }
+
+            $updateQuantityOfProductFromCart = new UpdateQuantityOfProductFromCart();
+            $response = $updateQuantityOfProductFromCart->execute($newQtd, intval($args["prd"]));
+           
+            if ($response) {
+                header("Location: /bioloOnline/cart");
+                exit();
+            }
+        }
     }
 }
