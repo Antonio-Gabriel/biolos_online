@@ -106,6 +106,25 @@ class CartController
         }
     }
 
+    public function finishPurchase(
+        ServerRequestInterface $req,
+        ResponseInterface $res,
+        $args = []
+    ) {
+        $template = new RainTpl("views/email/");
+
+        // https://api.whatsapp.com/send?phone=+244942802448&text=Testando&source=&data=
+
+        // var_dump($args);
+
+        // if (@$_SESSION["client"][0]["id"]) {
+        //     echo "client";
+        // } else {
+        // }
+
+        return $template->setTpl("purchase-list");
+    }
+
     private function updateCurrentQuantity(array $args = [])
     {
 
@@ -124,7 +143,7 @@ class CartController
 
             $updateQuantityOfProductFromCart = new UpdateQuantityOfProductFromCart();
             $response = $updateQuantityOfProductFromCart->execute($newQtd, intval($args["prd"]));
-           
+
             if ($response) {
                 header("Location: /bioloOnline/cart");
                 exit();

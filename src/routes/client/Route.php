@@ -35,3 +35,6 @@ $app->get('/providers', [new ProviderController, 'handle']);
 $app->get('/cart', [new CartController, 'handle']);
 $app->get('/purchase/{product}/', [new CartController, 'addToCart']);
 $app->get('/purchase/{product}/delete', [new CartController, 'removeProductToCart']);
+
+// Puechase
+$app->get('/purchase/{user_id}/complete', [new CartController, 'finishPurchase']);
