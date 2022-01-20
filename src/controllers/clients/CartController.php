@@ -14,6 +14,7 @@ use Vendor\usecases\RemoveProductFromCart;
 use Vendor\usecases\RemoveProductsFromCart;
 use Vendor\usecases\UpdateQuantityOfProductFromCart;
 use Vendor\usecases\GetProductsByPurchaseFromProvider;
+use Vendor\usecases\GetProductsByPurchaseFromProviderLocal;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -233,8 +234,7 @@ class CartController
             }
         } else {
 
-
-            // Tarefa Pendente para depois
+            // Send Mail To Provider            
 
             $sendEmailToClient = new SendEmailToClient();
             $response = $sendEmailToClient->execute([
@@ -258,68 +258,93 @@ class CartController
 
             $generalTotal = array_sum($totalInStorage);
 
+            $providersList = [];
+            foreach ($response as $value) {
+                array_push($providersList, [
+                    "fornecedor_venda" => $value["fornecedor_venda"],
+                    "fornecedor_venda_email" => $value["fornecedor_venda_email"],
+                    "fornecedor_venda_contacto" => $value["fornecedor_venda_contacto"]
+                ]);
+            }
+
             $mailer = new Mailer(
                 $response[0]["fornecedor_email"],
                 $response[0]["fornecedor"],
                 'Produtos Agendados',
-                'purchase-list',
+                'purchase-provider-list',
                 [
+                    "provider" => array_unique($providersList, SORT_REGULAR),
                     "products" => $response,
                     "total" => $generalTotal
                 ]
             );
 
-            // $template->setTpl("purchase-list", [
-            //     "products" => $response,
-            //     "total" => $generalTotal
-            // ]);
-
             $state = $mailer->sendMail();
 
-            // if ($state) {
+            if ($state) {
 
-            //     foreach ($response as $value) {
+                foreach ($response as $value) {
 
-            //         $getProductsByPurchaseFromProvider = new GetProductsByPurchaseFromProvider();
-            //         $providerProducts = $getProductsByPurchaseFromProvider->execute($value["fornecedor_email"]);
+                    $getProductsByPurchaseFromProvider = new GetProductsByPurchaseFromProviderLocal();
+                    $providerProducts = $getProductsByPurchaseFromProvider->execute($value["fornecedor_venda_email"], intval($args["user_id"]));
 
-            //         $totalInStorageProvider = [];
-            //         foreach ($providerProducts as $product) {
+                    $totalInStorageProvider = [];
+                    foreach ($providerProducts as $product) {
 
-            //             $numberFormat = (str_contains($product["total"], "."))
-            //                 ? str_replace(".", "", $product["total"])
-            //                 : $product["total"];
+                        $numberFormat = (str_contains($product["total"], "."))
+                            ? str_replace(".", "", $product["total"])
+                            : $product["total"];
 
-            //             $removeCommaFromPrice = (str_contains($numberFormat, ","))
-            //                 ? substr($numberFormat, 0, strlen($numberFormat) - 3)
-            //                 : $numberFormat;
+                        $removeCommaFromPrice = (str_contains($numberFormat, ","))
+                            ? substr($numberFormat, 0, strlen($numberFormat) - 3)
+                            : $numberFormat;
 
-            //             array_push($totalInStorageProvider, (int)$removeCommaFromPrice);
-            //         }
+                        array_push($totalInStorageProvider, (int)$removeCommaFromPrice);
+                    }
 
-            //         $generalTotalProvider = array_sum($totalInStorageProvider);
+                    $generalTotalProvider = array_sum(array_unique($totalInStorageProvider));
 
-            //         $mailer = new Mailer(
-            //             $value["fornecedor_email"],
-            //             $value["fornecedor"],
-            //             'Produtos Agendados',
-            //             'purchase-provider',
-            //             [
-            //                 "provider" => $value["fornecedor"],
-            //                 "client" => $value["cliente"],
-            //                 "email" => $value["fornecedor_email"],
-            //                 "contact" => $value["fornecedor_contacto"],
-            //                 "products" => $providerProducts,
-            //                 "total" => $generalTotalProvider
-            //             ]
-            //         );
+                    $mailer = new Mailer(
+                        $value["fornecedor_venda_email"],
+                        $value["fornecedor_venda"],
+                        'Produtos Agendados',
+                        'purchase-provider-admin',
+                        [
+                            "master_provider" => $value["fornecedor_venda"],
+                            "provider" => $value["fornecedor"],
+                            "email" => $value["fornecedor_venda_email"],
+                            "contact" => $value["fornecedor_venda_contacto"],
+                            "products" => $providerProducts,
+                            "total" => $generalTotalProvider
+                        ]
+                    );
 
-            //         $mailer->sendMail();
-            //     }
-            // } else {
-            //     header("Location: /bioloOnline/cart?status=400");
-            //     exit();
-            // }
+                    $mailer->sendMail();
+                }
+
+                $removeProductsFromCart = new RemoveProductsFromCart();
+                $removed = $removeProductsFromCart->execute([
+                    "client" => 0,
+                    "provider" => intval($args["user_id"] ?? 0)
+                ]);
+
+                if ($removed) {
+                    header("Location: /bioloOnline/cart?status=202");
+                    exit();
+                } else {
+                    $removeProductsFromCart = new RemoveProductsFromCart();
+                    $removeProductsFromCart->execute([
+                        "client" => 0,
+                        "provider" => intval($args["user_id"] ?? 0)
+                    ]);
+
+                    header("Location: /bioloOnline/cart?status=202");
+                    exit();
+                }
+            } else {
+                header("Location: /bioloOnline/cart?status=400");
+                exit();
+            }
         }
     }
 
