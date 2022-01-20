@@ -20,6 +20,7 @@ class AuthController
     public function handle(ServerRequestInterface $req)
     {
         AuthMiddleware::redirectToDashboard();
+        AuthMiddleware::redirectToHome();
 
         $status = $req->getQueryParams()["status"] ?? 0;
         $template = new RainTpl("views/admin/");
