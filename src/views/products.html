@@ -43,20 +43,21 @@
         <div class="row">
           {$globalProviderId = $provider[0]["id"] ?? 0} 
           {loop="$products"}
-          <div
+          <div style="height: 400px;"
             class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center"
           >
-            <div class="pro d-flex flex-column justify-content-center">
+            <div style="height: 100%;"
+             class="pro d-flex flex-column justify-content-center">
               <a
                 href="/bioloOnline/product/{$value.id}/details/{$value.fornecedor_id}"
               >
-                <img
+                <img style=" height: 260px;"
                   class="img-fluid"
                   src="/bioloOnline/src/resources/{$value.foto}"
                 />
               </a>
               <span class="nome-produto">{$value.product_name}</span>
-              <div class="info-produto my-2">
+              <div class="info-produto my-2 align-items-end">
                 <p><span class="preco">{$value.preco}kz</span></p>
                 <p><i class="fi-rr-heart">307</i></p>
                 {if="$globalProviderId !== $value.fornecedor_id"}
