@@ -271,14 +271,24 @@ class ProductRepository implements IProductRepository
 
     // Cart section
 
-    public function getProductsIntoCart(int $authenticatedUserId)
+    public function getProductsIntoCart(array $authenticatedUserId = [])
     {
-        return $this->sql->select(
-            "SELECT *FROM compra
-             WHERE cliente_id = :id OR fornecedor_id = :id;",
-            [
-                ":id" => $authenticatedUserId
-            ]
-        );
+        if ($authenticatedUserId["client"] !== 0) {
+            return $this->sql->select(
+                "SELECT *FROM compra
+                 WHERE cliente_id = :id",
+                [
+                    ":id" => $authenticatedUserId["client"]
+                ]
+            );
+        } else {
+            return $this->sql->select(
+                "SELECT *FROM compra
+                 WHERE fornecedor_id = :id;",
+                [
+                    ":id" => $authenticatedUserId["provider"]
+                ]
+            );
+        }
     }
 }
