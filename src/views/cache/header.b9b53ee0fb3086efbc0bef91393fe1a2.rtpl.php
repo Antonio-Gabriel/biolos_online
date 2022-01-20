@@ -53,7 +53,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/bioloOnline/cart"
-          >Carrinho(<?php echo GetTotalProductsIntoCart($client["0"]["id"] ?? $provider["0"]["id"] ?? 0); ?>)</a
+          >Carrinho(<?php echo GetTotalProductsIntoCart($client["0"]["id"] ?? 0, $provider["0"]["id"] ?? 0); ?>)</a
         >
       </li>
 
