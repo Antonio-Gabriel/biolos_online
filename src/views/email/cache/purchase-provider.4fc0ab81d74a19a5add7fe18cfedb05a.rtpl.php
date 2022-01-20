@@ -192,7 +192,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:35px 20px 10px;font-family:'Lato',sans-serif;" align="left">
         
   <div style="line-height: 120%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 120%;"><span style="font-size: 24px; line-height: 28.8px; color: #eb1484;">Hi, <strong><?php echo DecodeToUtf8($products["0"]['cliente']); ?></strong></span></p>
+    <p style="font-size: 14px; line-height: 120%;"><span style="font-size: 24px; line-height: 28.8px; color: #eb1484;">Hi, <strong><?php echo DecodeToUtf8($provider); ?></strong></span></p>
   </div>
 
       </td>
@@ -207,21 +207,11 @@ a[x-apple-data-detectors='true'] {
         
   <div style="color: #757575; line-height: 160%; text-align: left; word-wrap: break-word;">
     <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 14px; line-height: 22.4px;">
-      <span style="color: #24252d;">De: </span>
-      <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
+      <span style="color: #24252d;">Cliente: <?php echo DecodeToUtf8($client); ?></span> </span></p>
+  <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 14px; line-height: 22.4px;">    
+      <?php echo DecodeToUtf8($products["0"]['cliente_email']); ?>
 
-        <?php echo DecodeToUtf8($value1["fornecedor"]); ?>,
-      <?php } ?>
-
-    </span></p>
-  <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 14px; line-height: 22.4px;">
-    <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
-
-      <?php echo DecodeToUtf8($value1["fornecedor_email"]); ?>
-
-      (<?php echo htmlspecialchars( $value1["fornecedor_contacto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>),      
-    <?php } ?>
-
+      (<?php echo DecodeToUtf8($products["0"]['cliente_contacto']); ?>),          
   </span></p>
   </div>
 
@@ -245,9 +235,8 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:35px 20px 10px;font-family:'Lato',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 120%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 120%;"><strong><span style="font-size: 24px; line-height: 28.8px;">Tel: <?php echo htmlspecialchars( $products["0"]["cliente_contacto"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span></strong></p>
+    <p style="font-size: 14px; line-height: 120%;"><strong><span style="font-size: 24px; line-height: 28.8px;">Tel: <?php echo htmlspecialchars( $contact, ENT_COMPAT, 'UTF-8', FALSE ); ?></span></strong></p>
   </div>
-
       </td>
     </tr>
   </tbody>
@@ -259,7 +248,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 20px 30px;font-family:'Lato',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 120%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 120%;"><span style="font-size: 20px; line-height: 24px;"><strong> <?php echo DecodeToUtf8($products["0"]['cliente_email']); ?></strong></span></p>
+    <p style="font-size: 14px; line-height: 120%;"><span style="font-size: 20px; line-height: 24px;"><strong> <?php echo DecodeToUtf8($email); ?></strong></span></p>
   </div>
 
       </td>
@@ -353,7 +342,6 @@ a[x-apple-data-detectors='true'] {
   <div style="color: #333333; line-height: 140%; text-align: left; word-wrap: break-word;">
     <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 18px; line-height: 25.2px;"><?php echo DecodeToUtf8($value1["produto"]); ?></span></p>
 <p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px; color: #24252d;">Quantity : <?php echo htmlspecialchars( $value1["quantidade"], ENT_COMPAT, 'UTF-8', FALSE ); ?> x <?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span>kz</p>
-<p style="font-size: 14px; line-height: 140%;"><span style="font-size: 16px; line-height: 22.4px; color: #24252d;">De : <?php echo DecodeToUtf8($value1["fornecedor"]); ?></span></p>
   </div>
 
       </td>
