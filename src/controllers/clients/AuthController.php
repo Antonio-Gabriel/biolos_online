@@ -20,6 +20,7 @@ class AuthController extends Model
     public function handle(ServerRequestInterface $req)
     {
         AuthMiddleware::redirectToHome();
+        AuthMiddleware::redirectToDashboard();
 
         $status = $req->getQueryParams()["status"] ?? 0;
         $template = new RainTpl();
