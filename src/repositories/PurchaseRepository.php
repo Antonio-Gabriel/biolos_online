@@ -4,7 +4,6 @@ namespace Vendor\repositories;
 
 use Vendor\config\db\Sql;
 use Vendor\models\Purchase;
-use Vendor\models\ProductProvider;
 
 use Vendor\interfaces\IPurchaseRepository;
 
@@ -159,8 +158,82 @@ class PurchaseRepository implements IPurchaseRepository
         );
     }
 
-    public function sendMessageToProvider(ProductProvider $productProvider)
+    public function removeProductFromCart(array $authenticatedUser = [])
     {
-        
+        if ($authenticatedUser["client"] !== 0) {
+            return $this->sql->query(
+                "DELETE FROM compra WHERE cliente_id = :id;
+                ",
+                [
+                    ":id" => $authenticatedUser["client"]
+                ]
+            );
+        }
+    }
+
+    public function sendEmailToClient(array $authenticatedUser = [])
+    {
+        if ($authenticatedUser["client"] !== 0) {
+            return $this->sql->select(
+                "SELECT
+                 c.id, cl.nome as cliente, f.nome as fornecedor,
+                 cl.email as cliente_email, f.email as fornecedor_email,
+                 c.data_compra, p.nome as produto, p.preco, c.quantidade, c.total, 
+                 cl.contacto cliente_contacto, f.contacto as fornecedor_contacto
+                 FROM compra c 
+                 LEFT JOIN produtofornecedor pf 
+                 ON c.produto_id = pf.produto_id 
+                 LEFT JOIN cliente cl ON c.cliente_id = cl.id
+                 LEFT JOIN fornecedor f ON pf.fornecedor_id = f.id
+                 LEFT JOIN produto p ON pf.produto_id = p.id
+                 WHERE c.cliente_id = :id;
+                ",
+                [
+                    ":id" => $authenticatedUser["client"]
+                ]
+            );
+        } else {
+            return $this->sql->select(
+                "SELECT
+                 c.id, cl.nome as cliente, f.nome as fornecedor,
+                 cl.email as cliente_email, f.email as fornecedor_email,
+                 c.data_compra, p.nome as produto, p.preco, c.quantidade, c.total, 
+                 cl.contacto cliente_contacto, f.contacto as fornecedor_contacto
+                 FROM compra c 
+                 LEFT JOIN produtofornecedor pf 
+                 ON c.produto_id = pf.produto_id 
+                 LEFT JOIN cliente cl ON c.cliente_id = cl.id
+                 LEFT JOIN fornecedor f ON pf.fornecedor_id = f.id
+                 LEFT JOIN produto p ON pf.produto_id = p.id
+                 WHERE c.fornecedor_id = :id;
+                ",
+                [
+                    ":id" => $authenticatedUser["provider"]
+                ]
+            );
+        }
+    }
+
+    public function getProductsByPurchaseFromProvider(string $email, int $id)
+    {
+        return $this->sql->select(
+            "SELECT
+             c.id, cl.nome as cliente, f.nome as fornecedor,
+             cl.email as cliente_email, f.email as fornecedor_email,
+             c.data_compra, p.nome as produto, p.preco, c.quantidade, c.total, 
+             cl.contacto cliente_contacto, f.contacto as fornecedor_contacto
+             FROM compra c 
+             LEFT JOIN produtofornecedor pf 
+             ON c.produto_id = pf.produto_id 
+             LEFT JOIN cliente cl ON c.cliente_id = cl.id
+             LEFT JOIN fornecedor f ON pf.fornecedor_id = f.id
+             LEFT JOIN produto p ON pf.produto_id = p.id
+             WHERE f.email = :email AND c.cliente_id = :client;
+            ",
+            [
+                ":email" => $email,
+                ":client" => $id
+            ]
+        );
     }
 }
