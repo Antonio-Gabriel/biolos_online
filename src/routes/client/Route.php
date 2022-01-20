@@ -34,3 +34,4 @@ $app->get('/providers', [new ProviderController, 'handle']);
 // Cart routes
 $app->get('/cart', [new CartController, 'handle']);
 $app->get('/purchase/{product}/', [new CartController, 'addToCart']);
+$app->get('/purchase/{product}/delete', [new CartController, 'removeProductToCart']);
