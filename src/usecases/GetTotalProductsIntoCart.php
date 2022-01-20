@@ -7,7 +7,7 @@ use Vendor\repositories\ProductRepository;
 class GetTotalProductsIntoCart
 {
 
-    public function execute(int $authenticatedUserId)
+    public function execute(array $authenticatedUserId)
     {
         $productRepository = new ProductRepository();
         return $productRepository->getProductsIntoCart($authenticatedUserId);
