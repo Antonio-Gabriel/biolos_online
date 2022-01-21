@@ -192,7 +192,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:35px 20px 10px;font-family:'Lato',sans-serif;" align="left">
         
   <div style="line-height: 120%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 120%;"><span style="font-size: 24px; line-height: 28.8px; color: #eb1484;">Hi, <strong>{function="DecodeToUtf8($products[0]['fornecedor'])"}</strong></span></p>
+    <p style="font-size: 14px; line-height: 120%;"><span style="font-size: 24px; line-height: 28.8px; color: #eb1484;">Hi, <strong>{function="DecodeToUtf8($products[0]['fornecedor_venda'])"}</strong></span></p>
   </div>
 
       </td>
@@ -209,13 +209,13 @@ a[x-apple-data-detectors='true'] {
     <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 14px; line-height: 22.4px;">
       <span style="color: #24252d;">De: </span>
       {loop="$provider"}
-        {function="DecodeToUtf8($value.fornecedor_venda)"},
+        {function="DecodeToUtf8($value.fornecedor)"},
       {/loop}
     </span></p>
   <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 14px; line-height: 22.4px;">
     {loop="$provider"}
-      {function="DecodeToUtf8($value.fornecedor_venda_email)"}
-      ({$value.fornecedor_venda_contacto}),      
+      {function="DecodeToUtf8($value.fornecedor_email)"}
+      ({$value.fornecedor_contacto}),      
     {/loop}
   </span></p>
   </div>
@@ -240,7 +240,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:35px 20px 10px;font-family:'Lato',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 120%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 120%;"><strong><span style="font-size: 24px; line-height: 28.8px;">Tel: {$products[0]["fornecedor_contacto"]}</span></strong></p>
+    <p style="font-size: 14px; line-height: 120%;"><strong><span style="font-size: 24px; line-height: 28.8px;">Tel: {$products[0]["fornecedor_venda_contacto"]}</span></strong></p>
   </div>
 
       </td>
@@ -254,7 +254,7 @@ a[x-apple-data-detectors='true'] {
       <td style="overflow-wrap:break-word;word-break:break-word;padding:10px 20px 30px;font-family:'Lato',sans-serif;" align="left">
         
   <div style="color: #333333; line-height: 120%; text-align: left; word-wrap: break-word;">
-    <p style="font-size: 14px; line-height: 120%;"><span style="font-size: 20px; line-height: 24px;"><strong> {function="DecodeToUtf8($products[0]['fornecedor_email'])"}</strong></span></p>
+    <p style="font-size: 14px; line-height: 120%;"><span style="font-size: 20px; line-height: 24px;"><strong> {function="DecodeToUtf8($products[0]['fornecedor_venda_email'])"}</strong></span></p>
   </div>
 
       </td>
