@@ -21,8 +21,23 @@ Recursos do lado do cliente
 
 - Adicionar produtos no carrinho [x]
 - O Cliente apenas compra após ter logado [x]
-- Envio de mensagem e email aos fornecedor e comprador [x] -> Fechar a parte do provedor comprar []
+- Envio de mensagem e email aos fornecedor e comprador [x] -> Fechar a parte do provedor comprar [x]
   
-- Views ou Reações [] -> Osvaldo Cariege
 - Login para cliente [x] -> Osvaldo Cariege | Anónio Gabriel
 - Adicionar o botão ver mais com a rota para os produtos [x] -> Osvaldo Cariege
+  
+- Views ou Reações [] -> Osvaldo Cariege
+
+
+Funcionalidades finais desenvolvidas.
+
+Recursos do lado do cliente
+- Lista dos produtos [x]
+- pesquisa dos produtos do lado do cliente [x]
+
+- Adicionar produtos no carrinho [x]
+- O Cliente apenas compra após ter logado [x]
+- Envio de mensagem e email aos fornecedor e comprador [x] -> Fechar a parte do provedor comprar [x]
+  
+- Login para cliente [x]
+- Adicionar o botão ver mais com a rota para os produtos [x]
