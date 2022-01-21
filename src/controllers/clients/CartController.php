@@ -261,15 +261,15 @@ class CartController
             $providersList = [];
             foreach ($response as $value) {
                 array_push($providersList, [
-                    "fornecedor_venda" => $value["fornecedor_venda"],
-                    "fornecedor_venda_email" => $value["fornecedor_venda_email"],
-                    "fornecedor_venda_contacto" => $value["fornecedor_venda_contacto"]
+                    "fornecedor" => $value["fornecedor"],
+                    "fornecedor_email" => $value["fornecedor_email"],
+                    "fornecedor_contacto" => $value["fornecedor_contacto"]
                 ]);
             }
 
             $mailer = new Mailer(
-                $response[0]["fornecedor_email"],
-                $response[0]["fornecedor"],
+                $response[0]["fornecedor_venda_email"],
+                $response[0]["fornecedor_venda"],
                 'Produtos Agendados',
                 'purchase-provider-list',
                 [
@@ -305,15 +305,15 @@ class CartController
                     $generalTotalProvider = array_sum(array_unique($totalInStorageProvider));
 
                     $mailer = new Mailer(
-                        $value["fornecedor_venda_email"],
-                        $value["fornecedor_venda"],
+                        $value["fornecedor_email"],
+                        $value["fornecedor"],
                         'Produtos Agendados',
                         'purchase-provider-admin',
                         [
-                            "master_provider" => $value["fornecedor_venda"],
-                            "provider" => $value["fornecedor"],
-                            "email" => $value["fornecedor_venda_email"],
-                            "contact" => $value["fornecedor_venda_contacto"],
+                            "master_provider" => $value["fornecedor"],
+                            "provider" => $value["fornecedor_venda"],
+                            "email" => $value["fornecedor_email"],
+                            "contact" => $value["fornecedor_contacto"],
                             "products" => $providerProducts,
                             "total" => $generalTotalProvider
                         ]
