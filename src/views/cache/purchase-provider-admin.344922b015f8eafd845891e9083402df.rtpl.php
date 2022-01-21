@@ -209,9 +209,9 @@ a[x-apple-data-detectors='true'] {
     <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 14px; line-height: 22.4px;">
       <span style="color: #24252d;">Cliente: <?php echo DecodeToUtf8($provider); ?></span> </span></p>
   <p style="font-size: 14px; line-height: 160%;"><span style="font-size: 14px; line-height: 22.4px;">    
-      <?php echo DecodeToUtf8($products["0"]['fornecedor_email']); ?>
+      <?php echo DecodeToUtf8($products["0"]['fornecedor_venda_email']); ?>
 
-      (<?php echo DecodeToUtf8($products["0"]['fornecedor_contacto']); ?>),          
+      (<?php echo DecodeToUtf8($products["0"]['fornecedor_venda_contacto']); ?>),          
   </span></p>
   </div>
 
