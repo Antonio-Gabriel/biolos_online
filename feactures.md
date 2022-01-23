@@ -26,9 +26,6 @@ Recursos do lado do cliente
 - Login para cliente [x] -> Osvaldo Cariege | Anónio Gabriel
 - Adicionar o botão ver mais com a rota para os produtos [x] -> Osvaldo Cariege
   
-- Views ou Reações [] -> Osvaldo Cariege
-
-
 Funcionalidades finais desenvolvidas.
 
 Recursos do lado do cliente
