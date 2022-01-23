@@ -58,8 +58,7 @@
               </a>
               <span class="nome-produto"><?php echo htmlspecialchars( $value1["product_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
               <div class="info-produto my-2 align-items-end">
-                <p><span class="preco"><?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>kz</span></p>
-                <p><i class="fi-rr-heart">307</i></p>
+                <p><span class="preco"><?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>kz</span></p>                
                 <?php if( $globalProviderId !== $value1["fornecedor_id"] ){ ?>
                 <a
                   href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/"

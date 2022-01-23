@@ -37,7 +37,7 @@
               href="/bioloOnline/profile-provider/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
               ><?php echo htmlspecialchars( $value1["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a
             >
-            <span>2.99</span>
+            <span>Vendedor</span>
           </div>
           <?php } ?>
         </div>
@@ -71,8 +71,7 @@
         </a>
         <span class="nome-produto"><?php echo htmlspecialchars( $value1["product_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
         <div class="info-produto my-2">
-          <p><span class="preco"><?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>kz</span></p>
-          <p><i class="fi-rr-heart">307</i></p>
+          <p><span class="preco"><?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>kz</span></p>          
           <?php if( $globalProviderId !== $value1["fornecedor_id"] ){ ?>
           <a href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/" class="btn btn-login">
             Comprar

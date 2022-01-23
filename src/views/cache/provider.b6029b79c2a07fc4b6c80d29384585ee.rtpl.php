@@ -44,7 +44,7 @@
                 href="/bioloOnline/profile-provider/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
                 ><?php echo htmlspecialchars( $value1["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></a
               >
-              <span>2.99</span>
+              <span>Vendedor</span>
             </div>
             <?php } ?>
           </div>

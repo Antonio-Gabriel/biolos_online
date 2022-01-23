@@ -20,7 +20,7 @@
 
 <?php if( $status_code !== 0 ){ ?> <?php if( $status_code === 202 ){ ?>
 <div class="alert alert-success" role="alert">
-  Reserva efectuada sucesso!.
+  Reserva efectuada sucesso, verifique a reserva no teu email!.
 </div>
 <?php } ?> <?php } ?>
 
