@@ -159,12 +159,6 @@ class ProductRepository implements IProductRepository
         );
     }
 
-    public function getTotalReactions()
-    {
-        // Osvaldo Cariege ... => Resolution
-        return $this->sql->select("");
-    }
-
     public function verifyExistentProduct(string $name, int $category_id, int $provider)
     {
         return $this->sql->select(
