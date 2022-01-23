@@ -57,6 +57,7 @@
   <div class="row">
     {$globalProviderId = $provider[0]["id"] ?? 0} 
     {loop="$products"}
+    {if="$globalProviderId !== $value.fornecedor_id"}
     <div
       class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center"
     >
@@ -71,15 +72,14 @@
         </a>
         <span class="nome-produto">{$value.product_name}</span>
         <div class="info-produto my-2">
-          <p><span class="preco">{$value.preco}kz</span></p>          
-          {if="$globalProviderId !== $value.fornecedor_id"}
+          <p><span class="preco">{$value.preco}kz</span></p>                    
           <a href="/bioloOnline/purchase/{$value.id}/" class="btn btn-login">
             Comprar
-          </a>
-          {/if}
+          </a>          
         </div>
       </div>
     </div>
+    {/if}
     {/loop}
   </div>
 
