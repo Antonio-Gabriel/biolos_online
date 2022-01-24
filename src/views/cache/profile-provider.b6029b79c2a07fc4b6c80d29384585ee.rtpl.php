@@ -57,46 +57,49 @@
       </div>      
 
       <!------------PRODUTOS------------------->
-      <section id="produtos" style="margin-top: 10px">
+      <section id="produtos" style="margin-top: 10px; width: 100%; ">
         <div class="container">
-          <div class="row d-flex justify-content-center">
+          <div class="row d-flex flex-wrap">
             <?php $providerId = $value1["id"]; ?>
             <?php $globalProviderId = $provider["0"]["id"] ?? 0; ?>
-            <?php $counter2=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key2 => $value2 ){ $counter2++; ?> <?php if( $value2["estado"] !== '0' ){ ?>
-
-            <div class="card col-sm-12 col-md-3" style="width: 18rem">
-              <a href="/bioloOnline/product/<?php echo htmlspecialchars( $value2["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/details/<?php echo htmlspecialchars( $providerId, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
-                <img style="height: 260px;"
-                  class="pro d-flex flex-column justify-content-between"
-                  src="/bioloOnline/src/resources/<?php echo htmlspecialchars( $value2["foto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
-                  alt="<?php echo htmlspecialchars( $value2["descricao"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
-                />
-              </a>
-              <div
-                class="d-flex justify-content-between"
-                style="margin: 0"
-              >
-                <p class="card-text"><?php echo htmlspecialchars( $value2["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>                
-              </div>
-              <div class="card-info">
-                <p class="card-text"><?php echo htmlspecialchars( $value2["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>Kz</p>
-                <p class="card-text">
-                  <a href="#"><i class="fi-rr-heart"></i></a>92                  
-                </p>
-                <?php if( $globalProviderId !== $value2["fornecedor_id"] ){ ?>
-                  <a
-                    href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value2["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/"
-                    class="btn btn-login"
-                    >
-                    Comprar
+            <?php $counter2=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key2 => $value2 ){ $counter2++; ?> 
+              <?php if( $value2["estado"] !== '0' ){ ?>            
+                <div style="height: 400px;" class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center">
+                  <div style="height: 100%;"
+             class="pro d-flex flex-column justify-content-center">
+                  <a href="/bioloOnline/product/<?php echo htmlspecialchars( $value2["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/details/<?php echo htmlspecialchars( $providerId, ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                    <img style="height: 260px;"
+                      class="pro d-flex flex-column justify-content-between"
+                      src="/bioloOnline/src/resources/<?php echo htmlspecialchars( $value2["foto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
+                      alt="<?php echo htmlspecialchars( $value2["descricao"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"
+                    />
                   </a>
-                <?php } ?>
-              </div>
-            </div>            
-            <?php } ?> <?php } ?>
+                  <div
+                    class="d-flex justify-content-between"
+                    style="margin: 0"
+                  >
+                    <p class="card-text"><?php echo htmlspecialchars( $value2["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>                
+                  </div>
+                  <div class="card-info">
+                    <p class="card-text"><?php echo htmlspecialchars( $value2["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>Kz</p>                    
+                    <?php if( $globalProviderId !== $value2["fornecedor_id"] ){ ?>
+                      <a
+                        href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value2["produto_id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/"
+                        class="btn btn-login"
+                        style="display: block !important; margin: 10px; width:110px"
+                        >
+                        Comprar
+                      </a>
+                    <?php } ?>
+                  </div>
+                  </div>
+                </div>            
+              <?php } ?> 
+            <?php } ?>
           </div>
         </div>
       </section>
+      
     </div>
   </div>
 </section>

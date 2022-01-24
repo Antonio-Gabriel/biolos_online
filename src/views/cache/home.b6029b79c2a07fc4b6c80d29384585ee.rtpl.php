@@ -2,10 +2,10 @@
 <section id="banner">
   <div class="container">
     <div class="img-banner col-md-12">
-      <h1>
+      <!-- <h1>
         Encontre as melhores marcas <br />
         que gostarias de vestir!...
-      </h1>
+      </h1> -->
     </div>
   </div>
 </section>
@@ -73,7 +73,7 @@
         <span class="nome-produto"><?php echo htmlspecialchars( $value1["product_name"], ENT_COMPAT, 'UTF-8', FALSE ); ?></span>
         <div class="info-produto my-2">
           <p><span class="preco"><?php echo htmlspecialchars( $value1["preco"], ENT_COMPAT, 'UTF-8', FALSE ); ?>kz</span></p>                    
-          <a href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/" class="btn btn-login">
+          <a href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/" class="btn btn-login" style="width:110px;">
             Comprar
           </a>          
         </div>

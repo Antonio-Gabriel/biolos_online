@@ -2,6 +2,8 @@
 
 <!--Barra de navegação-->
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <div class="container" style="padding:0px;">
+    
   <a href="/bioloOnline/" class="navbar-brand logo">
     <img
       src="/bioloOnline/src/assets/images/logo-44x44.png"
@@ -13,7 +15,7 @@
   </a>
 
   <button
-    class="navbar-toggler"
+    class="navbar-toggler btn btn-dark"
     type="button"
     data-toggle="collapse"
     data-target="#navbarSupportedContent"
@@ -21,7 +23,7 @@
     aria-expanded="false"
     aria-label="Toggle navigation"
   >
-    <span class="navbar-toggler-icon"></span>
+    <span style=" color:red ;" class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -75,9 +77,9 @@
 
       <li class="nav-item">
         <a
-          class="nav-link btn btn-danger btn-login"
+          class="nav-link btn btn-danger btn-login "
           href="/bioloOnline/login-admin"
-          style="padding: 10px 30px !important"
+          
           >Login</a
         >
       </li>
@@ -85,7 +87,7 @@
         <a
           class="nav-link btn btn-warning btn-conta"
           href="/bioloOnline/create-account"
-          style="padding: 10px 30px"
+          
           >Criar conta</a
         >
       </li>
@@ -116,5 +118,7 @@
       <?php } ?> <?php } ?>
     </ul>
   </div>
-</nav>
+
+  </div>
+  </nav>
 <!--Barra de navegação-->

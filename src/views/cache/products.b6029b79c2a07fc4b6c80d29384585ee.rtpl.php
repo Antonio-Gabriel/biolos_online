@@ -8,7 +8,7 @@
         <form
           action="/bioloOnline/products"
           method="get"
-          class="col-sm-12 col-md-12 my-1 mx-3 ml-3 d-inline-flex align-content-center justify-content-between"
+          class="col-sm-12 col-md-12 my-1 mx-3 ml-3 d-inline-flex align-content-center justify-content-center flex-wrap"
         >
           <input
             class="form-control col-md-8"
@@ -63,6 +63,7 @@
                 <a
                   href="/bioloOnline/purchase/<?php echo htmlspecialchars( $value1["id"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/"
                   class="btn btn-login"
+                  style="width: 110px;"
                 >
                   Comprar
                 </a>                
