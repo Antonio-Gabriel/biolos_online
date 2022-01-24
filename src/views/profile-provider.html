@@ -57,46 +57,49 @@
       </div>      
 
       <!------------PRODUTOS------------------->
-      <section id="produtos" style="margin-top: 10px">
+      <section id="produtos" style="margin-top: 10px; width: 100%; ">
         <div class="container">
-          <div class="row d-flex justify-content-center">
+          <div class="row d-flex flex-wrap">
             {$providerId = $value.id}
             {$globalProviderId = $provider[0]["id"] ?? 0}
-            {loop="$products"} {if="$value.estado !== '0'"}
-
-            <div class="card col-sm-12 col-md-3" style="width: 18rem">
-              <a href="/bioloOnline/product/{$value.produto_id}/details/{$providerId}">
-                <img style="height: 260px;"
-                  class="pro d-flex flex-column justify-content-between"
-                  src="/bioloOnline/src/resources/{$value.foto}"
-                  alt="{$value.descricao}"
-                />
-              </a>
-              <div
-                class="d-flex justify-content-between"
-                style="margin: 0"
-              >
-                <p class="card-text">{$value.nome}</p>                
-              </div>
-              <div class="card-info">
-                <p class="card-text">{$value.preco}Kz</p>
-                <p class="card-text">
-                  <a href="#"><i class="fi-rr-heart"></i></a>92                  
-                </p>
-                {if="$globalProviderId !== $value.fornecedor_id"}
-                  <a
-                    href="/bioloOnline/purchase/{$value.produto_id}/"
-                    class="btn btn-login"
-                    >
-                    Comprar
+            {loop="$products"} 
+              {if="$value.estado !== '0'"}            
+                <div style="height: 400px;" class="card-container col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column justify-content-center align-items-center">
+                  <div style="height: 100%;"
+             class="pro d-flex flex-column justify-content-center">
+                  <a href="/bioloOnline/product/{$value.produto_id}/details/{$providerId}">
+                    <img style="height: 260px;"
+                      class="pro d-flex flex-column justify-content-between"
+                      src="/bioloOnline/src/resources/{$value.foto}"
+                      alt="{$value.descricao}"
+                    />
                   </a>
-                {/if}
-              </div>
-            </div>            
-            {/if} {/loop}
+                  <div
+                    class="d-flex justify-content-between"
+                    style="margin: 0"
+                  >
+                    <p class="card-text">{$value.nome}</p>                
+                  </div>
+                  <div class="card-info">
+                    <p class="card-text">{$value.preco}Kz</p>                    
+                    {if="$globalProviderId !== $value.fornecedor_id"}
+                      <a
+                        href="/bioloOnline/purchase/{$value.produto_id}/"
+                        class="btn btn-login"
+                        style="display: block !important; margin: 10px; width:110px"
+                        >
+                        Comprar
+                      </a>
+                    {/if}
+                  </div>
+                  </div>
+                </div>            
+              {/if} 
+            {/loop}
           </div>
         </div>
       </section>
+      
     </div>
   </div>
 </section>
