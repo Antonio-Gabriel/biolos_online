@@ -93,9 +93,7 @@ nav a:hover {
   transition: all 0.5s linear;
 }
 
-.logo {
-  margin-left: 50px;
-}
+
 
 #image {
   height: 200px;
@@ -181,8 +179,9 @@ nav a:hover {
 }
 
 #banner .img-banner {
-  background: url("../images/banner.png") no-repeat !important;
-  background-size: cover;
+  background: url("../images/hero2.jpeg") no-repeat !important;
+  background-size: cover !important;
+  background-position:center !important;
   width: 100%;
   height: 60vh;
   border-radius: 50px;
@@ -327,9 +326,7 @@ a {
   background-color: var(--body);
 }
 
-#produtos .row {
-  flex-wrap: nowrap;
-}
+
 #produtos .card-body {
   padding: 0px;
 }
